@@ -15,9 +15,9 @@
     <button id = "btn2">结束计时</button>
     <div id = "div_id"></div>
     <script type="text/javascript">
-        function $(id){
+        /*function $(id){
             return document.getElementById(id);
-        }
+        }*/
         function getNum(num){
             if(num < 10){
                 return '0' + num;
@@ -31,38 +31,38 @@
         function startTime(){
             tag = setInterval(function(){
                 i++;
-                $("sec").innerHTML = getNum(i % 60);
-                $("min").innerHTML = getNum(parseInt((i / 60) % 60));
-                $("hours").innerHTML = getNum(parseInt((i / 3600) % 24));
+                document.getElementById("sec").innerHTML = getNum(i % 60);
+                document.getElementById("min").innerHTML = getNum(parseInt((i / 60) % 60));
+                document.getElementById("hours").innerHTML = getNum(parseInt((i / 3600) % 24));
             }, 10)
         }
         function stopTime(){
             clearInterval(tag);
-            $("div_id").innerHTML += $("hours").innerHTML + ":" + $("min").innerHTML + ":" + $("sec").innerHTML + "<br/>"
+            document.getElementById("div_id").innerHTML += document.getElementById("hours").innerHTML + ":" + document.getElementById("min").innerHTML + ":" + document.getElementById("sec").innerHTML + "<br/>"
         }
         btn1.addEventListener("click", function(){
             if(isTrue){
                 stopTime();
                 isTrue = false;
-                $("btn1").innerHTML = "开始计时";
+                document.getElementById("btn1").innerHTML = "开始计时";
                 s
             }else{
                 startTime();
                 isTrue = true;
-                $("btn1").innerHTML = "暂停计时";
+                document.getElementById("btn1").innerHTML = "暂停计时";
             }
         })
         btn2.addEventListener("click", function(){
             if(isTrue){
-                $("btn1").innerHTML = "开始计时";
+                document.getElementById("btn1").innerHTML = "开始计时";
                 stop();
                 isTrue = false;
             }
             i = 0;
-            $("sec").innerHTML = "00";
-            $("min").innerHTML = "00";
-            $("hours").innerHTML = "00";
-            $("div_id").innerHTML = "";
+            document.getElementById("sec").innerHTML = "00";
+            document.getElementById("min").innerHTML = "00";
+            document.getElementById("hours").innerHTML = "00";
+            document.getElementById("div_id").innerHTML = "";
         })
     </script>
 </body>

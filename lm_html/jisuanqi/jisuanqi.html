@@ -26,14 +26,14 @@
     <button onclick = "btnClick('+');">+</button>
     <button onclick = "equalClick();">=</button><br />
     <script>
-        function $(id){
+       /* function $(id){
             return document.getElementById(id);
-        }
+        }*/
         var arr = [];
         function btnClick(str){
             arr.push(str);
 
-            $("input_id").value = arr.join("");;
+            document.getElementById("input_id").value = arr.join("");;
         }
 
         function equalClick(){
@@ -50,7 +50,7 @@
             var sign = arr[index];
             var num1 = parseInt(arr1.join(""));
             var num2 = parseInt(arr2.join(""));
-            $("input_id").value = calculate(num1, sign, num2);
+            document.getElementById("input_id").value = calculate(num1, sign, num2);
             arr = [];
         }
         function calculate(num1, sign, num2){

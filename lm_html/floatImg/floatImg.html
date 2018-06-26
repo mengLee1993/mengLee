@@ -80,7 +80,7 @@
             }
         }, 30)
     }
-    document.onmousedown = function(e){
+    document.getElementById("box").onmousedown = function(e){
         e = e || window.event;
         for(var i = 0; i < 52.1; i++){
             var speedX = parseInt(Math.random() * 17 +3) * (Math.random() > 0.5 ? 1 : -1);

@@ -7,13 +7,13 @@
         #box{
             width:1424px;height:798px;background:#bbb;position:relative;overflow:hidden;
         }
-        div{
+        .divHH{
             height: 80px;line-height: 80px;font-size: 60px;letter-spacing: -10px;color: red
         }
-        img{
+        #box img{
             width:200px;height:300px;position:absolute;filter:alpha:(opacity:60);opacity:.6;
         }
-        img:hover{
+        #box img:hover{
             filter:alpha:(opacity:100);opacity:1;
         }
         audio{
@@ -52,6 +52,7 @@
     function createBall(x,y,speedX,speedY){
         var div = document.createElement("div");
         document.body.appendChild(div);
+        div.add(".divHH")
         var txt = document.createTextNode("♥");
         div.appendChild(txt)
         div.style.cssText = "width: 80px;height: 80px;background: none; border-radius: 50%; position: absolute; left:" + x +"px; top:" + y + "px";

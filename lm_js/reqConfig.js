@@ -1,4 +1,4 @@
-var relativeUrl = "https://menglee1993.github.io/";
+var relativeUrl = "https://menglee1993.github.io/mengLee/";
 $(function(){
     //头部、尾部引用
     $("body").children().eq(0).before("<div id='headerLoad'></div>").css({"margin-top":"60px"});

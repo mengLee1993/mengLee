@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+    <script type="text/javascript" src="../../lm_js/jquery.js"></script>
+    <script type="text/javascript" src="../../lm_js/public.js"></script>
+    <script type="text/javascript" src="../../lm_js/reqConfig.js"></script>
+</head>
+<body>
+    <span id = "hours">00</span>:
+    <span id = "min">00</span>:
+    <span id = "sec">00</span>
+    <button id = "btn1">开始计时</button>
+    <button id = "btn2">结束计时</button>
+    <div id = "div_id"></div>
+    <script type="text/javascript">
+        function $(id){
+            return document.getElementById(id);
+        }
+        function getNum(num){
+            if(num < 10){
+                return '0' + num;
+            }else{
+                return num;
+            }
+        }
+        var i = 0;
+        var tag = null;
+        var isTrue = false;
+        function startTime(){
+            tag = setInterval(function(){
+                i++;
+                $("sec").innerHTML = getNum(i % 60);
+                $("min").innerHTML = getNum(parseInt((i / 60) % 60));
+                $("hours").innerHTML = getNum(parseInt((i / 3600) % 24));
+            }, 10)
+        }
+        function stopTime(){
+            clearInterval(tag);
+            $("div_id").innerHTML += $("hours").innerHTML + ":" + $("min").innerHTML + ":" + $("sec").innerHTML + "<br/>"
+        }
+        btn1.addEventListener("click", function(){
+            if(isTrue){
+                stopTime();
+                isTrue = false;
+                $("btn1").innerHTML = "开始计时";
+                s
+            }else{
+                startTime();
+                isTrue = true;
+                $("btn1").innerHTML = "暂停计时";
+            }
+        })
+        btn2.addEventListener("click", function(){
+            if(isTrue){
+                $("btn1").innerHTML = "开始计时";
+                stop();
+                isTrue = false;
+            }
+            i = 0;
+            $("sec").innerHTML = "00";
+            $("min").innerHTML = "00";
+            $("hours").innerHTML = "00";
+            $("div_id").innerHTML = "";
+        })
+    </script>
+</body>
+</html>

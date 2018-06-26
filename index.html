@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>您好，欢迎来到mengLee Blog</title>
+    <link rel="stylesheet" href="lm_css/base.css">
+    <script type="text/javascript" src="lm_js/jquery.js"></script>
+    <script type="text/javascript" src="lm_js/public.js"></script>
+    <script type="text/javascript" src="lm_js/reqConfig.js"></script>
+</head>
+<style>
+    @keyframes myfirst
+    {
+        from {color: red;}
+        to {color: yellow;}
+    }
+
+    @-moz-keyframes myfirst /* Firefox */
+    {
+        from {color: red;}
+        to {color: yellow;}
+    }
+
+    @-webkit-keyframes myfirst /* Safari 和 Chrome */
+    {
+        from {color: red;}
+        to {color: yellow;}
+    }
+
+    @-o-keyframes myfirst /* Opera */
+    {
+        from {color: red;}
+        to {color: yellow;}
+    }
+    @keyframes animated_div
+    {
+        0%		{left:0px;}
+        16%		{left:150px;}
+        32%		{left:300px;}
+        48%		{left:450px;}
+        64%		{left:300px;}
+        81%	    {left:150px;}
+        100%	{left:0px;}
+    }
+
+    @-webkit-keyframes animated_div
+    {
+        0%		{left:0px;}
+        16%		{left:150px;}
+        32%		{left:300px;}
+        48%		{left:450px;}
+        64%		{left:300px;}
+        81%	    {left:150px;}
+        100%	{left:0px;}
+    }
+
+    @-moz-keyframes animated_div
+    {
+        0%		{left:0px;}
+        16%		{left:150px;}
+        32%		{left:300px;}
+        48%		{left:450px;}
+        64%		{left:300px;}
+        81%	    {left:150px;}
+        100%	{left:0px;}
+    }
+
+    @-o-keyframes animated_div
+    {
+        0%		{left:0px;}
+        16%		{left:150px;}
+        32%		{left:300px;}
+        48%		{left:450px;}
+        64%		{left:300px;}
+        81%	    {left:150px;}
+        100%	{left:0px;}
+    }
+
+    @keyframes animated_span
+    {
+        0%		{transform: rotate(0deg);}
+        16%		{transform: rotate(60deg);}
+        32%		{transform: rotate(120deg);}
+        48%		{transform: rotate(180deg);}
+        64%		{transform: rotate(240deg);}
+        81%	    {transform: rotate(300deg);}
+        100%	{transform: rotate(360deg);}
+    }
+
+    @-webkit-keyframes animated_span
+    {
+        0%		{transform: rotate(0deg);}
+        16%		{transform: rotate(60deg);}
+        32%		{transform: rotate(120deg);}
+        48%		{transform: rotate(180deg);}
+        64%		{transform: rotate(240deg);}
+        81%	    {transform: rotate(300deg);}
+        100%	{transform: rotate(360deg);}
+    }
+
+    @-moz-keyframes animated_span
+    {
+        0%		{transform: rotate(0deg);}
+        16%		{transform: rotate(60deg);}
+        32%		{transform: rotate(120deg);}
+        48%		{transform: rotate(180deg);}
+        64%		{transform: rotate(240deg);}
+        81%	    {transform: rotate(300deg);}
+        100%	{transform: rotate(360deg);}
+    }
+
+    @-o-keyframes animated_span
+    {
+        0%		{transform: rotate(0deg);}
+        16%		{transform: rotate(60deg);}
+        32%		{transform: rotate(120deg);}
+        48%		{transform: rotate(180deg);}
+        64%		{transform: rotate(240deg);}
+        81%	    {transform: rotate(300deg);}
+        100%	{transform: rotate(360deg);}
+    }
+    .main{
+        width: 100%;
+        height: 800px;
+        background: url(lm_img/lm_background.png);
+    }
+    .mineIntroduce{
+        padding: 100px 0 0 200px;
+        font-size: 36px;
+        color: #e5e5e5;
+        width:500px;
+        font-family: JasmineUPC;
+    }
+    .mineIntroduce li{
+        height:60px;
+        float: left;
+        width: 100%;
+        position: relative;
+        animation: myfirst 2s;
+        -moz-animation: myfirst 2s;	/* Firefox */
+        -webkit-animation: myfirst 2s;	/* Safari 和 Chrome */
+        -o-animation: myfirst 2s;	/* Opera */
+        animation:animated_div 2s 1;
+        -moz-animation:animated_div 2s 1;
+        -webkit-animation:animated_div 2s 1;
+        -o-animation:animated_div 2s 1;
+    }
+    .mineIntroduce span{
+        font-weight: 900;
+        color: #fff9a9;
+        animation:animated_span 2s 1;
+        -moz-animation:animated_span 2s 1;
+        -webkit-animation:animated_span 2s 1;
+        -o-animation:animated_span 2s 1;
+        display: block;
+        width: 120px;
+        float: left;
+        text-align: right;
+    }
+</style>
+<body>
+    <div class="main">
+        <ul class="mineIntroduce">
+            <li>
+                <span>Name：</span>李猛
+            </li>
+            <li>
+                <span>Date：</span>1993.07.09
+            </li>
+            <li>
+                <span>Job：</span>web前端程序猿
+            </li>
+            <li>
+                <span>School：</span>衡水学院
+            </li>
+            <li>
+                <span>E-mail:</span>17611639379@163.com
+            </li>
+            <li>
+                <span>Telphone:</span>17611639379
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

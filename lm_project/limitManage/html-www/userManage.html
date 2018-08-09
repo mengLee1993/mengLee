@@ -1,0 +1,179 @@
+@@include('../../commonNav/html/commonHeaderBlue.html')
+<span id="hiddenSpan" style="display:none">0,0,2</span>
+    <title>用户管理</title>
+    <link rel="stylesheet" href="/commonstatic/plugin/popup/css/manhuaDialog.1.0_blue.css">
+    <link rel="stylesheet" href="/commonstatic/plugin/page/css/table.css">
+    <link rel="stylesheet" href="/commonstatic/plugin/tip/css/tip-twitter/tip-twitter.css">
+    <link rel="stylesheet" href="../css/useManage.css">
+    <script src='/commonstatic/base/js/jquery.js'></script>
+    <script src="/commonstatic/base/js/docassistant.js"></script>
+    <script src="/commonstatic/base/js/public.js"></script>
+    <script src="/commonstatic/base/js/validate.js"></script>
+    <script src="/commonstatic/plugin/treeview/lib/jquery.cookie.js"></script>
+    <script src="/commonstatic/plugin/popup/script/manhuaDialog.1.0.js"></script>
+    <script type="text/javascript" src="/commonstatic/plugin/page/script/jquery.page.js"></script>
+    <script type="text/javascript" src="/commonstatic/plugin/tip/script/jquery.poshytip.js"></script>
+    <script src="../js/userManage.js"></script>
+    <script src="../../../reqConfig.js"></script>
+
+    <div class="useMange-content">
+        <div class="useMange-content-search" id="searchBox">
+            <input class="fl useMange-content-search__input" id="condacctTitle" placeholder="查询用户">
+            <div class="fl useMange-content-search__btn" comType="searchBtnCtrl" cond="condacctTitle" rule="cond" unionTableId="tableList" parentId="searchBox">搜索</div>
+            <div class="useMange-content-search__btn fl" id="userNew" style="margin-left: 10px;">新建</div>
+        </div>
+        <table class="useMange-content-table" id="tableList" comType="" templateId="templateRow" page="tcdPageCode" idx="indexNum" reqPath="" reqParam="" method="POST" noData="nonData">
+            <tr class="useMange-content-table-trow">
+                <th class="useMange-content-table-title">行号</th>
+                <th class="useMange-content-table-title">用户名</th>
+                <th class="useMange-content-table-title">用户信息</th>
+               <!-- <th class="useMange-content-table-title">角色信息</th>-->
+                <th class="useMange-content-table-title">操作用户</th>
+                <th class="useMange-content-table-title">组织关系</th>
+                <!--<th class="useMange-content-table-title"></th>-->
+            </tr>
+            <tr class="useMange-content-table-trow" id="templateRow" style="display: none;">
+                <td class="useMange-content-table-content" id="indexNum"></td>
+                <td class="useMange-content-table-content" id="acctTitle"></td>
+                <td class="useMange-content-table-content" style="position: relative">
+                    姓名：<span id="name">用户姓名</span>
+                    <div class="useMange-contentTableContent-detail" style="display: none">
+                        <i class="bubble-triangle"></i>
+                        <p class="useMange-contentTableContent-detail-list">姓名：<span id="nameDatil"></span></p>
+                        <p class="useMange-contentTableContent-detail-list">手机号：<span id="mobilePhone"></span></p>
+                        <p class="useMange-contentTableContent-detail-list">邮箱：<span id="email"></span></p>
+                    </div>
+                </td>
+                <!--<td class="useMange-content-table-content">
+                    <span id="viewContent" class="useMange-contentTableContent-operate" style="width: 100%">查看</span>
+                </td>-->
+                <td class="useMange-content-table-content">
+                    <span id="disableOperate" class="useMange-contentTableContent-operate">停用</span>
+                    <span id="editOperate" class="useMange-contentTableContent-operate">编辑</span>
+                    <span id="deleteOperate" class="useMange-contentTableContent-operate">删除</span>
+                </td>
+                <td class="useMange-content-table-content" id="orgTitle"></td>
+            </tr>
+        </table>
+        <p id="nonData" style="display:none;width:100%;padding:20px 0;text-align:center;font:12px/18px 'Microsoft YaHei';height:18px;color:red;background:white">暂无数据.....</p>
+        <div class="tcdPageCode"></div>
+        <!--新增用户-->
+        <div id="userNewPopup" class="popup" style="display: none;">
+            <div class="title">
+                <h2>新增用户</h2>
+                <div>
+                    <a class="min" href="javascript:;" title="最小化" style="display:none;"></a>
+                    <a class="max" href="javascript:;" title="最大化" style="display:none;"></a>
+                    <a class="revert" href="javascript:;" title="还原" style="display:none;"></a>
+                    <a class="close" href="javascript:;" title="关闭"></a>
+                </div>
+            </div>
+            <div class="content" style="height: 400px;!important;">
+                <div class="userNewPopup">
+                    <ul class="userNewPopup-ulist clearfix">
+                        <li class="userNewPopup-ulist-list">
+                            <span class="userNewPopup-ulist-list-name fl">名称</span>
+                            <input id="acctTitle" type="text" class="userNewPopup-ulist-list-input required isLengthOf" v_maxlength="12">
+                            <span style="color: #e72d3a;">名称长度不能超过12位</span>
+                        </li>
+                        <li class="userNewPopup-ulist-list">
+                            <span class="userNewPopup-ulist-list-name fl">密码</span>
+                            <input id="acctPassword" type="password" class="userNewPopup-ulist-list-input" disabled="disabled" title="初始密码为123456">
+                            <span style="color: #e72d3a;">初始密码为：123456</span>
+                            <span class="userNewPopup-sure" id="resetPassWord" style="display: none;">重置密码</span>
+                        </li>
+                        <li class="userNewPopup-ulist-list">
+                            <span class="userNewPopup-ulist-list-name fl">姓名</span>
+                            <input id="name" type="text" class="userNewPopup-ulist-list-input required isLengthOf" v_maxlength="12" v_minlength="0">
+                            <span style="color: #e72d3a;">姓名长度不能超过12位</span>
+                        </li>
+                        <li class="userNewPopup-ulist-list">
+                            <span class="userNewPopup-ulist-list-name fl">手机号</span>
+                            <input id="mobilePhone" type="text" class="userNewPopup-ulist-list-input required andCellphone">
+                        </li>
+                        <li class="userNewPopup-ulist-list">
+                            <span class="userNewPopup-ulist-list-name fl">邮箱</span>
+                            <input id="email" type="text" class="userNewPopup-ulist-list-input required email">
+                        </li>
+                        <li class="userNewPopup-ulist-list userNewPopup-ulist-listPosition">
+                            <span class="userNewPopup-ulist-list-name fl">选择组织</span>
+                            <div type="text" class="userNewPopup-ulist-list-input fl" id="selectOrganization"></div>
+                            <div class="userNewPopup-ulist-listPopup" id="selectOrganizationPopup" style="z-index: 11111111111;display: none;">
+                                <div>
+                                    <ul class="userNewPopup-ulist-listBox" id="organizationList"  templateId="templateRow" reqPath="" reqParam="" method="POST">
+                                        <li class="userNewPopup-ulListBox-list clearfix" id="orgSelectDetail" style="height: auto;min-height: 30px;">
+                                            <span style="float: left;">当前组织：</span>
+                                            <div class="inputBaseBox fl">
+                                                <span class="inputBaseList" id="templateList" style="display: none;">
+                                                    <span class="inputBaseListCon" id="orgNameShow"></span>
+                                                    <span class="inputBaseListDel" id="orgNameShowDelete" >X</span>
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li class="userNewPopup-ulListBox-list" id="templateRow" style="display: none;"><span id="orgName"></span></li>
+                                        <li class="userNewPopup-ulListBox-list" id="orgSelectDetail">
+                                            <div class="btnBaseCommon" id="organizationSelectSure">确认</div>
+                                            <div class="btnBaseCommon" id="organizationSelectCancel">取消</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="userNewPopup-ulist-list userNewPopup-ulist-listPosition">
+                            <span class="userNewPopup-ulist-list-name fl">选择角色</span>
+                            <div type="text" class="userNewPopup-ulist-list-input fl" id="selectRole"></div>
+                            <div class="userNewPopup-ulist-listPopup2" id="selectRolePopup" style="display: none;">
+                                <ul class="userNewPopup-ulist2-listBox">
+                                    <li class="userNewPopup-ulListBox-list">选择角色：</li>
+                                    <li class="userNewPopup-ulListBox-list" id="templateList" style="display: none;">
+                                        <input type="checkbox" class="userNewPopup-ulListBox-list-check">
+                                        <span id="roleTitle">角色1</span>
+                                    </li>
+                                    <li class="userNewPopup-ulListBox-list">
+                                        <div class="btnBaseCommon" id="roleSelectSure">确认</div>
+                                        <div class="btnBaseCommon" id="roleSelectCancel">取消</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="userNewPopup-sure" id="userNewSure">确定</div>
+                </div>
+            </div>
+        </div>
+        <!--查看角色-->
+        <div id="userDetailPopup" class="popup" style="display: none;">
+            <div class="title">
+                <h2>查看角色</h2>
+                <div>
+                    <a class="min" href="javascript:;" title="最小化" style="display:none;"></a>
+                    <a class="max" href="javascript:;" title="最大化" style="display:none;"></a>
+                    <a class="revert" href="javascript:;" title="还原" style="display:none;"></a>
+                    <a class="close" href="javascript:;" title="关闭"></a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="userDetailPopup">
+                    <div class="userDetailPopup-search clearfix" id="searchBox2">
+                        <input type="text" class="userDetailPopup-search-input">
+                        <b class="userDetailPopup-search-bBtn"  comType="searchBtnCtrl" cond="" rule="cond" unionTableId="roleList" parentId="searchBox2"></b>
+
+                        <!--<div class="userDetailPopup-search-btn"  comType="searchBtnCtrl" cond="" rule="cond" unionTableId="roleList" parentId="searchBox2">搜索</div>-->
+                    </div>
+                    <table class="userDetailPopup-table" id="roleList" templateId="templateRow" page="tcdPageCode" idx="indexNum" reqPath="" reqParam="" method="POST" noData="nonData">
+                        <!--<tr class="userDetailPopup-table-trow">
+                            <th class="userDetailPopup-table-trow-th"></th>
+                            <th class="userDetailPopup-table-trow-th"></th>
+                            <th class="userDetailPopup-table-trow-th"></th>
+                        </tr>-->
+                        <tr class="userDetailPopup-table-trow" id="templateRow" style="display: none;">
+                            <td class="userDetailPopup-table-trow-td" id="indexNum"></td>
+                            <td class="userDetailPopup-table-trow-td" id="roleTitle"></td>
+                            <td class="userDetailPopup-table-trow-td userDetailPopup-table-trow-tdOper" id="operateBtn">添加</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+@@include('../../commonNav/html/commonFoot.html')

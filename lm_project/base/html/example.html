@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公共组件样式</title>
+    <link rel="stylesheet" href="../css/baseBlue.css">
+    <link rel="stylesheet" href="../iconfont/iconfont.css">
+    <script src='/commonstatic/base/js/jquery.js'></script>
+    <style>
+        .example{
+            margin: 20px auto;
+            width: 990px;
+        }
+        .example-title{
+            font-size: 20px;
+            line-height: 30px;
+            background-color: lightpink;
+            border: 1px dashed red;
+            margin: 10px auto;
+        }
+        .example-content{
+
+        }
+        .example-content-font{
+            float: left;
+            width: 200px;
+            margin-right: 20px;
+        }
+        .example-content-font-list{
+            float: left;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        .example-content-font-list{
+            width: 100%;
+        }
+        /*附加样式*/
+        .btnBaseBig{
+            width: 100px;
+            margin-right: 20px;
+            float: left;
+        }
+        .btnBaseCommon{
+            width: 40px;
+            margin-right: 20px;
+            float: left;
+        }
+        .btnBaseCommonImg{
+            margin-right: 20px;
+            float: left;
+        }
+        .btnBaseSmallNew,.btnBaseSmallSave,.btnBaseSmallDel{
+            border: 1px solid #e5e5e5;
+        }
+    </style>
+    <script>
+        $(function(){
+            /**
+             * Created by Administrator on 2018/7/1.
+             * 每个页面加载时都要执行的操作
+             */
+            //肤色功能处理
+            $(document).ready(function () {
+                $('.change-skin').click(function () {
+                    var changeThemeTo = $(this).attr('changeThemeTo');
+                    $('head link[href],head script[src]').each(function () {
+                        if (this.tagName.toLowerCase() == 'link') {
+                            if(changeThemeTo == "Blue"){
+                                $(this).attr("href",$(this).attr("href").replace("Orange","Blue"));
+                            }else{
+                                $(this).attr("href",$(this).attr("href").replace("Blue","Orange"));
+                            }
+                        }else if(this.tagName.toLowerCase() == 'script') {
+
+                        }
+                    })
+                })
+
+            })
+        });
+    </script>
+</head>
+<body>
+    <button type="button" changethemeto="Blue" class="change-skin" style="background-color: #003b90;color:#fff;width:100px;height:30px;border-radius: 5px;line-height: 30px;position: fixed;top:40%;right:0;z-index: 1000;">换肤</button>
+    <button type="button" changethemeto="Orange" class="change-skin" style="background-color:#ee671d;color:#fff;width:100px;height:30px;border-radius: 5px;line-height: 30px;position: fixed;top:50%;right:0;z-index: 1000;">换肤</button>
+    <div class="example">
+        <h2 class="example-title">一、字体/背景/边框</h2>
+        <div class="example-content clearfix">
+            <ul class="example-content-font">
+                <li class="example-content-font-list">
+                    <div class="fc_main">三级导航字体点击色 (主色):#6390f3</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="fc_ff">一级导航白色字体色:#fff</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="fc_ffe">一级导航字体悬停色:#ffe19f</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="fc_33">二级导航字体色 || 页面大标题字体色:#333</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="fc_66">三级导航字体色 || 主体文字色:#666</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="fc_98b">三级导航字体悬停色(淡蓝):#98b6fe</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="fc_48">表格头部字体色:#484848</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="fc_ff">一级按钮字体色:#fff</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="fc_main">二级按钮字体色:#6390f3</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="fc_98b">二级按钮字体悬停色:#98b6fe</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="fc_fa5">二级删除按钮字体色:#fa5b6d</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="fc_ff8">二级删除按钮悬停字体色:#ff8593</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="fc_99">置灰字体色:#999</div>
+                </li>
+            </ul>
+            <ul class="example-content-font">
+                <li class="example-content-font-list">
+                    <div class="bg_main">一级导航背景色(主色):#6390f3</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bg_ff">二级导航背景色 || 三级导航背景色:#fff</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bg_f2">表格头部背景色:#f2f2f2</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bg_f8f">表格鼠标悬停背景色 || 隔行变色:#f8faff</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bg_ea">表格禁用背景色:#eaeaea</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bg_mian">一级按钮背景色:#6390f3</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bg_98b">一级按钮悬停背景色（浅蓝）:#98b6fe;</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bg_ff7">一级保存按钮背景色:#ff7f5b</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bg_ffa">一级保存按钮悬停背景色:#ffaf98</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bg_f8">一级取消按钮背景色:#f8f8f8</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bg_f4">一级取消按钮悬停背景色:#f4f4f4</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bg_ff">二级按钮背景色:#fff</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bg_fc6">页面大标题左侧标识:#fc6892</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bg_f0">整体页面背景色:#f0f0f0</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bg_dd">顶部登陆菜单背景色:#ddd</div>
+                </li>
+            </ul>
+            <ul class="example-content-font">
+                <li class="example-content-font-list">
+                    <div class="bd_main">输入框高亮显示(主色):#6390f3</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bd_dee">主体边框线:#dee3e6</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bd_ee">导航边框色:#eee</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bd_main">二级按钮边框色:#6390f3</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bd_98b">二级按钮边框色(浅蓝):#98b6fe</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bd_fa5">二级删除按钮边框色:#fa5b6d</div>
+                </li>
+                <li class="example-content-font-list">
+                    <div class="bd_ff8">二级删除按钮悬停边框色:#ff8593</div>
+                </li>
+            </ul>
+        </div>
+        <h2 class="example-title">二、表格</h2>
+        <table class="table-list">
+            <tr class="table-list-currentrow">
+                <th class="table-list-currentrow-theader">
+                    标题一
+                </th>
+                <th class="table-list-currentrow-theader">
+                    标题二
+                </th>
+                <th class="table-list-currentrow-theader">
+                    标题三
+                </th>
+            </tr>
+            <tr class="table-list-currentrow">
+                <td class="table-list-currentrow-tdetail">内容一</td>
+                <td class="table-list-currentrow-tdetail">内容二</td>
+                <td class="table-list-currentrow-tdetail">内容三</td>
+            </tr>
+            <tr class="table-list-currentrow table-list-currentrowActive">
+                <td class="table-list-currentrow-tdetail">鼠标移入或者隔行变色内容一</td>
+                <td class="table-list-currentrow-tdetail">鼠标移入或者隔行变色内容一</td>
+                <td class="table-list-currentrow-tdetail">鼠标移入或者隔行变色内容一</td>
+            </tr>
+        </table>
+        <h2 class="example-title">三、input框</h2>
+        <input type="text" class="inputBase" />
+        <div class="inputBaseBox clearfix">
+            <span class="inputBaseList">
+                <span class="inputBaseListCon">选项</span>
+                <span class="inputBaseListDel">X</span>
+            </span>
+        </div>
+        <h2 class="example-title">四、btn按钮</h2>
+        <div class="btnBaseBig">立即登录</div>
+        <div class="btnBaseCommon">提交</div>
+        <div class="btnBaseCommon changeGary">提交</div>
+        <div class="btnBaseSave">保存</div>
+        <div class="btnBaseCancel">取消</div>
+        <div class="btnLowNew">新建</div>
+        <div class="btnLowDel">删除</div>
+        <br>
+        <span class="btnLowImgDel clearfix">
+            <span class="btnLowImg-img iconfont icon-shanchu"></span>
+            <span class="btnLowImg-txt">删除</span>
+        </span>
+        <span class="btnLowImgCom clearfix">
+            <span class="btnLowImg-img iconfont icon-shanchu"></span>
+            <span class="btnLowImg-txt">编辑</span>
+        </span>
+    </div>
+</body>
+</html>

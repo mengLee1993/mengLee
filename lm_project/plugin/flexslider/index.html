@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="图片轮播，图片切换，焦点图" />
+<meta name="description" content="这是一个基于jquery的图片轮播效果演示页" />
+<title>演示：flexslider图片轮播、文字图片相结合滑动切换效果</title>
+<link rel="stylesheet" type="text/css" href="../css/main.css" />
+<link rel="stylesheet" type="text/css" href="flexslider.css" />
+<style type="text/css">
+h3{height:42px; line-height:42px; font-size:16px; font-weight:normal; text-align:center;}
+h3 a{margin:10px;}h3 a.cur{color:#f30;}
+</style>
+<script src="../../base/js/jquery.js"></script>
+<script type="text/javascript" src="jquery.flexslider-min.js"></script>
+<script type="text/javascript">
+$(function() {
+    $(".flexslider").flexslider({
+		slideshowSpeed: 4000, //展示时间间隔ms
+		animationSpeed: 400, //滚动时间ms
+		touch: true, //是否支持触屏滑动
+    animation:"slide"//String: Select your animation type, "fade" or "slide"图片变换方式：淡入淡出或者滑动
+    // animation 动画效果类型，有"fade"：淡入淡出，"slide"：滑动  "fade"（最后一项皆为默认值，下同）
+    // easing  内容切换时缓动效果，需要jquery easing插件支持 "swing"
+    // direction 内容滚动方向，有"horizontal"：水平方向 和"vertical"：垂直方向  "horizontal"
+    // animationLoop 是否循环滚动  true
+    // startAt 初始滑动时的起始位置，定位从第几个开始滑动 0
+    // slideshow 是否自动滑动  true
+    // slideshowSpeed  滑动内容展示时间(ms)  7000
+    // animationSpeed  内容切换时间(ms)  600
+    // initDelay 初始化时延时时间  0
+    // pauseOnHover  鼠标滑向滚动内容时，是否暂停滚动  false
+    // touch 是否支持触摸滑动  true
+    // directionNav  是否显示左右方向箭头按钮  true
+    // keyboard  是否支持键盘方向键操作 true
+    // minItems  一次最少展示滑动内容的单元个数 1
+    // maxItems  一次最多展示滑动内容的单元个数 0
+    // move  一次滑动的单元个数 0
+    // 回调函数  start: function(){}, 幻灯片开始前的回调
+    // before: function(){},每个幻灯片开始前的回调
+    // after: function(){}, 每个幻灯片结束后回调
+    // end: function(){}, 幻灯片结束后的回调
+    // added: function(){}, 幻灯片增加后的回调
+    // removed: function(){}, 幻灯片删除后的回调
+    // init: function(){}, 
+    // sync
+    // asNavFor
+	});
+});	
+
+
+</script>
+</head>
+
+<body>
+<div id="main">
+   <h3><a href="index.html" class="cur">演示1：基本</a> <a href="index2.html">演示2：图文混排</a> <a href="index3.html">演示3：多图自适应滑动</a> <a href="index4.html">演示4：带缩略图的相册</a></h3>
+   <div class="flexslider">
+  		<ul class="slides">
+    		<li><img src="images/s1.jpg" /></li>
+    		<li><img src="images/s2.jpg" /></li>
+            <li><img src="images/s3.jpg" /></li>
+            <li><img src="images/s4.jpg" /></li>
+  		</ul>
+   </div>
+
+</div>
+
+</body>
+</html>

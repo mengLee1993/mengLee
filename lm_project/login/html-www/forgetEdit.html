@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>忘记密码-验证身份</title>
+    <link rel="stylesheet" href="../../base/css/baseOrange.css">
+    <link rel="stylesheet" href="../../plugin/popup/css/manhuaDialog.1.0_orange.css">
+    <link rel="stylesheet" type="text/css" href="../../plugin/page/css/table_orange.css">
+    <link rel="stylesheet" href="../../plugin/select/chosen_orange.css">
+    <link rel="stylesheet" href="../../plugin/dragValidate/css/drag.css">
+    <link rel="stylesheet" href="../../plugin/tip/css/tip-twitter/tip-twitter.css">
+    <link rel="stylesheet" href="../css/register_orange.css" >
+    <script src="../../base/js/jquery.js"></script>
+    <script src="../../base/js/public.js"></script>
+    <script src="../../base/js/docassistant.js" ></script>
+    <script src="../../base/js/validate.js" ></script>
+    <script src="../../plugin/select/chosen.jquery.js"></script>
+    <script src="../../plugin/tip/script/jquery.poshytip.js"></script>
+    <script src="../../plugin/dragValidate/js/drag.js"></script>
+    <script src="../../plugin/popup/script/manhuaDialog.1.0.js"></script>
+    <script src="../js/mforgetEdit.js"></script>
+    <script src="../../../reqConfig.js"></script>
+</head>
+<body>
+<div class="ChangePasswordWrap">
+    <div class="ChangePassword__tittle">
+        <span class="ChangePasswordWrap__icon--index"></span>
+        <h3 class="ChangePasswordWrap__tittle">找回密码</h3>
+    </div>
+    <div class="ChangePasswordWrap__ProgressBar">
+        <div comType="stdProgressBar" steps="3" stepsName="步骤1,步骤2,步骤3" progressBarW="600" id="test" curstep="1" style="margin-left: 145px;">
+        </div>
+    </div>
+    <div id="firstStep">
+        <!--<div class="en-prompt-warn" style="margin-left: 230px;">
+            您正在使用 <i id="js-changeway" style="font-weight: bold;margin-right: 5px">手机号码 </i>验证身份，请完成以下操作 <i class="x-icon-l"></i>
+        </div>-->
+
+        <div class="ChangePasswordFrom__iphone" style="margin-top: 25px">
+            <div class="ChangePasswordFrom__inputBox">
+                <span class="ChangePasswordFrom__label  fw-b">验证身份方式</span>
+                <div class="topRow1 ml--10"  style="width: 340px;"  id="selectWayBox">
+                    <select name="" id="selectWay" class="input-m">
+                        <option value="0">邮箱验证</option>
+                        <option value="1">手机号</option>
+                    </select>
+                </div>
+            </div>
+            <div id="emailWay">
+                <div class="ChangePasswordFrom__inputBox emailWay">
+                    <span class="ChangePasswordFrom__label fw-b" style="line-height: 28px;"> 邮箱</span>
+                    <p id="email" style="line-height: 28px;"></p>
+                </div>
+                <div class="ChangePasswordFrom__inputBox verification-code">
+                    <span class="ChangePasswordFrom__label fw-b" style="height:34px;line-height: 34px;">验证</span>
+                    <div id="dragA" class="drag"></div>
+                    <!--<input type="text" class="input-m"id="js-verify-code__val" style="width: 190px;">
+                    <span id="js-verify-code" SetVerityCode class="ChangePasswordFrom__vercode"></span>
+                    <span class="errorCode" style="color: red"></span>-->
+                </div>
+            </div>
+            <div id="phoneWay" style="display: none;">
+                <div class="ChangePasswordFrom__inputBox phone">
+                    <span class="ChangePasswordFrom__label fw-b">手机号</span>
+                    <p  id="phoneNo" style="line-height: 28px;"></p>
+                </div>
+                <div class="ChangePasswordFrom__inputBox verification-code">
+                    <span class="ChangePasswordFrom__label fw-b" style="height:40px;">验证</span>
+                    <div id="dragB" class="drag"></div>
+                    <!--<input type="text" class="input-m"id="js-verify-code__val" style="width: 190px;">
+                    <span id="js-verify-code" SetVerityCode class="ChangePasswordFrom__vercode"></span>
+                    <span class="errorCode" style="color: red"></span>-->
+                </div>
+                <div class="ChangePasswordFrom__inputBox verification-code">
+                    <span class="ChangePasswordFrom__label fw-b" style="height:40px;">手机验证码</span>
+                    <input id="valiCode" type="text" class="inputBase required" style="width: 190px;">
+                    <span id="js-phoneCode" class="ChangePasswordFrom__vercode " style="position: relative;text-align: center;">
+                        <i class="register-container-text--icon"></i><span id="getCode" disabled="true" style="cursor: pointer;">获取短信验证码</span>
+                        <span id="getCodeTime" class="Code-interVal"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="ChangePassword__btn" style="padding: 0">
+                <button class="btnBaseBig ChangePassword__btn--step" style="width: 390px;" id="nextStep">下一步</button>
+            </div>
+        </div>
+    </div>
+    <div id="secondStep" style="display: none;">
+        <div class="rePassword__content" id="passwordReset" style="width: 646px">
+            <div class="ChangePasswordFrom__inputBox" style="margin-left: 60px;margin-bottom: 20px;">
+                <span class="ChangePasswordFrom__label fw-b"> 新密码</span>
+                <input type="password" id="password" class="register-container-text__input required isLengthOf ennewPassWord inputBase" v_maxlength="20" v_minlength="6"  placeholder="6-20个大小写英文字母，符号或数字" style="width:340px;">
+            </div>
+            <div class="ChangePasswordFrom__inputBox"  style="margin-left: 60px;margin-bottom: 20px;">
+                <span class="ChangePasswordFrom__label fw-b"> 密码确认</span>
+                <input type="password" id="confirmPassword" class="register-container-text__input inputBase" placeholder="6-20个大小写英文字母，符号或数字" style="width:340px;">
+            </div>
+            <div class="rePassword__btn">
+                <button class="btnBaseBig rePassword__btn--next" style="width: 390px;" id="nextStep">下一步</button>
+            </div>
+        </div>
+    </div>
+    <div id="thirdStep" style="display: none;">
+        <div class="rePassword__content">
+            <div class="ChangePassword__icon--success"></div>
+            <p class="rePassword__hint">重置成功，请牢记新的登录密码</p>
+            <div class="rePassword__btn">
+                <a href="login.html" class="btn-popup-sure" style="width: 85px;">重新登录</a>
+                <span>&nbsp;</span>
+                <a href="javascript:;" class="btn-popup-cancel" style="width: 85px;">返回首页</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

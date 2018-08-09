@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Carousel Evolution</title>
+    
+    <link href="css/jquery.gridly.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="script/jquery-ui.min.js"></script>
+    <style>
+		.sortable { list-style-type: none; margin: 0; padding: 0; width: 200px; border:1px solid red}
+  .sortable div {height: 18px; width:90px; float:left;border:1px solid red}
+	
+	.gridly {
+			position: relative;
+			width: 130px;
+			border:1px solid red;
+		  }
+		  .brick.small {
+			width: 60px;
+			height: 60px;
+			float:left
+		  }
+		  .brick.large {
+			width: 300px;
+			height: 300px;
+		  }
+	
+	</style>
+</head>
+    
+    <body>
+       <script>
+        $(function() {
+			/*$( ".gridly" ).sortable({
+				cursor: "move",
+				items:"li",
+				opacity: 0.6, //�϶�ʱ��͸����Ϊ0.6
+				revert: true //�ͷ�ʱ�����Ӷ���
+			});
+			$( ".gridly" ).disableSelection();*/
+
+			$( ".sortable" ).sortable({
+				cursor: "move",
+				items:"li",
+				opacity: 0.6, //�϶�ʱ��͸����Ϊ0.6
+				revert: true //�ͷ�ʱ�����Ӷ���
+			});
+			$( ".sortable" ).disableSelection();
+
+			$("table").sortable({
+				cursor: "move",
+				items:"td",
+				opacity: 0.6, //�϶�ʱ��͸����Ϊ0.6
+				revert: true //�ͷ�ʱ�����Ӷ���
+			});
+			$("table").disableSelection();
+		  });
+
+		  function test()
+		  {
+				$(".sortable").append('<li class="ui-state-default"> Item 8</li>');
+		  }
+      </script>
+		<!--ul class="gridly">
+			<li class="brick small" style="background:url('images/menu1.png');">11</li>
+			<li class="brick small" style="background:url('images/menu2.png');">22</li>
+			<li class="brick small" style="background:url('images/menu3.png');">33</li>
+			<li class="brick small" style="background:url('images/menu4.png');"></li>
+			<li class="brick small" style="background:url('images/menu5.png');"></li>
+			<li class="brick small" style="background:url('images/menu6.png');"></li>
+		</ul-->
+
+		<ul class="sortable">
+		  <li class="ui-state-default">Item 1</li>
+		  <li class="ui-state-default">Item 2</li>
+		  <li class="ui-state-default">Item 3</li>
+		  <li class="ui-state-default">Item 4</li>
+		  <li class="ui-state-default">Item 5</li>
+		  <li class="ui-state-default">Item 6</li>
+		  <li class="ui-state-default">Item 7</li>
+		</ul>
+
+
+		<table>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>8</td>
+				<td>9</td>
+			</tr>
+		</table>
+
+		<input type="button" value="����" onclick="test();">
+    </body>
+</html>

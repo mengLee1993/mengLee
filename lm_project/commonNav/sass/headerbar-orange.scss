@@ -1,0 +1,246 @@
+
+/*肤色主调色*/
+$mc:#003b90;
+
+/*常用字体颜色*/
+$c33: #333;
+$c66: #666;
+$c47: #475669;
+$c99: #999;
+$cc0: #c0ccda;
+$ccc: #ccc;
+$ce2: #E2062C;
+$c2a: #2a2a2a;
+$c4a: #4A4A4A;
+$cffa: #FFA812;
+$cff2:#ff2600;
+$c15:#151515;
+$cff7:#FF7518;
+$tblth:#535A64;
+$priceRed:#f14400;
+$bg-odd:#FFFCFA;
+$bg-even:#fff;
+
+/*常用公共颜色，背景色和字体颜色统一的*/
+$c1:#d83d00;  /* c1-c4是当前主题色的渐进色 */
+$c2:#f46a34;
+$c3:#fbdacc;
+$c4:#fff5ee;
+$c5:#FCFDFF;
+$cff: #fff;
+$ccc: #ccc;
+$cfb:#FBFDFF;
+$cfa:#FAFAFA;
+$cea:#EAEAEA;
+$cf1:#F1F1F1;
+
+/*常用背景色*/
+$c-dg:#228b22; /*deep green*/
+$c-vdg:#007200; /*very deep green*/
+$c-dy:#ffa812; /*deep yellow*/
+$c-dr:#e2062c; /*deep red*/
+$c-lg:#b8e986; /*light green*/
+$c-ly:#fff9a9; /*light yellow*/
+$c-lr:#ff6961; /*light red*/
+$c-lp:#fbdacc; /*light pink*/
+
+$cee: #eee;
+$ce5: #e5e5e5;
+$cf5: #f5f5f5;
+$cf7: #f7f7f7;
+$cf2:#f2f2f2;
+$cfd:#fdfdfd;
+$cef:#efefef;
+
+
+.og-head-top{
+	width:100%;
+	background:$cf2;
+}
+.og-head-topwrap{
+	width:1190px;
+	margin:0 auto;
+	overflow:hidden;
+}
+.og-head-topleft{
+	float:left;
+	overflow:hidden;
+	&__item{
+		float: left;
+		padding: 10px 0;
+		padding-left: 10px;
+		line-height: 12px
+	}
+}
+.og-head-topright{
+	float:right;
+	overflow:hidden;
+	&__item{
+		float:left;
+		padding: 10px 0;
+		padding-right: 10px;
+		line-height: 12px;
+	}
+	&__link{
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0 15px;
+		display: inline-block;
+		border-right: 1px solid $ce5;
+		height: 12px;
+		color:$c33;
+	}
+	&__link-entry{
+		position: relative;
+		display: inline-block;
+		background: $mc;
+		padding: 0 3px;
+		border: 1px solid $mc;
+		color: $cff;
+	}
+	&__link-entry__tranglelt{
+		position: absolute;
+		bottom: 2px;
+		left: -5px;
+		width: 0;
+		height: 0;
+		border-top: 4px solid transparent;
+		border-bottom: 4px solid transparent;
+		border-right: 4px solid $mc;
+	}
+}
+
+.og-head-nav{
+	height:60px;
+}
+.og-head-navwrap{
+	width:1190px;
+	margin:0 auto;
+	overflow:hidden;
+}
+.og-head-navlogo{
+	width: 190px;
+	height: 60px;
+	display: block;
+	float: left;
+	&__logoimg{
+		width: 180px;
+		height: 60px;
+		display: block;
+		background: url(http://localhost:8051/static/purchaser/commonHeader/images/logo.png) no-repeat 0 center $mc;
+	}
+}
+.og-head-navlist{
+	float: left;
+	height: 60px;
+	&__item{
+		float:left;
+	}
+	&__link{
+		display: inline-block;
+		padding: 0 15px;
+		line-height: 60px;
+		color: $cff;
+		text-align: center;
+		font-size: 14px;
+		text-decoration: none;
+	}
+}
+.og-head-navform{
+	float: right;
+	margin-top: 14px;
+	&__input{
+		border: 1px solid $ccc;
+		box-sizing: border-box;
+		height: 30px;
+		float: left;
+		padding-left: 10px;
+		color: $c33;
+	}
+	&__searchbtn{
+		float: left;
+		height: 30px;
+		width: 64px;
+		background-color: $cff;
+		text-align: center;
+		line-height: 30px;
+	}
+}
+.og-head-main{
+	width: 1190px;
+	position: relative;
+	margin: 18px auto;
+}
+.og-head-mainlt{
+	width:190px;
+	height:750px;
+	float:left;
+	.og-heead-miainlt__contwo{
+		margin-top:2px;
+	}
+	.og-head-mainlt__homepa{
+		width:170px;
+		height:40px;
+		background:$mc;
+		color:$cff;
+		font-size: 14px;
+		font-weight:bold;
+		line-height:40px;
+		padding-left:20px;
+		margin-bottom:2px;
+	}
+	.og-head-mainlt__sidebar{
+		height:auto;
+		width:188px;
+		border:1px solid $ce5;
+		.og-head-mainlt__sidebar--menu{
+			width:100%;
+			overflow:hidden;
+			cursor:pointer;
+			.og-head-mainlt__sidebar--shrink{
+				width:170px;
+				height:50px;
+				line-height:50px;
+				padding-left:20px;
+				display: block;
+				background:#FEECE5;
+				position:relative;
+				i{
+					position:absolute;
+					right:20px;
+					top:20px;
+
+				}
+				h3{
+					font-weight:bold;
+					color:#000;
+					font-size:14px;
+					float:left;
+				}
+			}
+			ul{
+				a{
+					display:block;
+					height:40px;
+					line-height:40px;
+					margin-left:20px;
+					color:$c66;
+					text-decoration: none;
+				}
+				.active{
+					border-left:5px solid $mc;
+					background:$cf7;
+				}
+			}
+		}
+	}
+}
+
+.og-head-maincontent{
+	width:990px;
+	position: absolute;
+	right: 0;
+	top: 0px;
+}
+
+

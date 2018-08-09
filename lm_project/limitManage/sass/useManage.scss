@@ -1,0 +1,277 @@
+.useMange-content{
+  padding:10px 14px;
+  color: #333;
+  font-style: 12px;
+  background: #fff;
+}
+.useMange-content-new{
+  width: 70px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background: #2d8cf0;
+  border-radius: 2px;
+  color: #fff;
+  font-weight: 900;
+  margin-bottom: 26px;
+  cursor: pointer;
+}
+.useMange-content-search{
+  height: 32px;
+  margin-bottom: 32px;
+  .useMange-content-search__input{
+    height: 30px;
+    border: 1px solid #eee;
+    width: 540px;
+    margin-right: 46px;
+    padding-left: 20px;
+    border-radius: 4px;
+  }
+  .useMange-content-search__btn{
+    width: 70px;
+    height: 32px;
+    cursor: pointer;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 2px;
+    background: #2d8cf0;
+    color: #fff;
+  }
+}
+.useMange-content-table{
+  border: 1px solid #eee;
+  width: 100%;
+  table-layout: fixed;
+}
+.useMange-content-table-trow{
+  height: 32px;
+
+}
+.useMange-content-table-title{
+  text-align: center;
+  border: 1px solid #eee;
+  background: #eaeaeb;
+  height: 40px;
+}
+.useMange-content-table-content{
+  border: 1px solid #eee;
+  height: 32px;
+  text-align: center;
+}
+
+/*新增用户弹框*/
+.userNewPopup{
+  width: 500px;
+  padding: 20px 40px;
+}
+.userNewPopup-ulist{
+  width: 100%;
+
+}
+.userNewPopup-ulist-list{
+  float: left;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.userNewPopup-ulist-list-name{
+  width: 80px;
+  text-align: right;
+  line-height: 30px;
+  margin-right: 20px;
+}
+.userNewPopup-ulist-list-input{
+  width: 200px;
+  min-height: 30px;
+  border: 1px solid #eee;
+  padding-left: 10px;
+  border-radius: 4px;
+  line-height: 30px;
+}
+.userNewPopup-sure{
+  width: 70px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background: #2d8cf0;
+  border-radius: 2px;
+  color: #fff;
+  font-weight: 900;
+  margin: 0 auto;
+  margin-bottom: 26px;
+  cursor: pointer;
+}
+.userNewPopup-ulist-listPosition{
+  position: relative;
+}
+.userNewPopup-ulist-listPopup{
+  position: absolute;
+  top: 32px;
+  left: 100px;
+  width: 400px;
+  height: 200px;
+  z-index:1111111111;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  padding: 20px 10px;
+  overflow: auto;
+}
+.userNewPopup-ulist-listBox{
+  width: 400px;
+  border-right: 1px solid #e5e5e5;
+  min-height: 200px;
+  float: left;
+}
+.userNewPopup-ulListBox-list{
+  height: 30px;
+  line-height: 30px;
+  width: 100%;
+  cursor: pointer;
+}
+.userNewPopup-ulist-listPopup2{
+  position: absolute;
+  top: 32px;
+  left: 100px;
+  width: 210px;
+  height: 200px;
+  z-index:1111111111;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  padding: 20px 10px;
+  overflow: auto;
+}
+.userNewPopup-ulist2-listBox{
+  width: 210px;
+  float: left;
+}
+.userNewPopup-ulListBox-list-check{
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+/*查看角色弹框*/
+.userDetailPopup{
+  width: 280px;
+  padding: 20px 45px;
+
+}
+.userDetailPopup-search{
+  position: relative;
+}
+.userDetailPopup-search-input{
+  width: 260px;
+  height: 30px;
+  border-radius: 15px;
+  border: 1px solid #eee;
+  padding-left: 20px;
+}
+.userDetailPopup-search-bBtn{
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  background-size: 20px 20px;
+  background: url("../images/search.jpg");
+  width: 18px;
+  height: 20px;
+  cursor: pointer;
+}
+.userDetailPopup-search-btn{
+  float: left;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.userDetailPopup-table{
+  width: 100%;
+  border: 1px solid #eee;
+  margin-top: 20px;
+}
+.userDetailPopup-table-trow{
+  height: 30px;
+}
+.userDetailPopup-table-trow-th{
+  border: 1px solid #e5e5e5;
+  height: 30px;
+}
+.userDetailPopup-table-trow-td{
+  border: 1px solid #e5e5e5;
+  height: 30px;
+  text-align: center;
+}
+.userDetailPopup-table-trow-tdOper{
+  color: #22559f;
+  cursor: pointer;
+}
+.useMange-contentTableContent-detail{
+  height: 70px;
+  width: 100%;
+  background: #fff;
+  display: none;
+  z-index: 222222;
+  background-color: #fff;
+  padding: 10px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
+  display: inline-block;
+  line-height: 20px;
+  position: absolute;
+  z-index: 100;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  text-align: left;
+  left: 80px;
+  top:34px;
+}
+.bubble-triangle {
+  width: 52px;
+  height: 9px;
+  display: inline-block;
+  background: url("../images/symbol.png") 0 -399px no-repeat;
+  position: absolute;
+  left: 20px;
+  top: -9px;
+}
+
+.useMange-contentTableContent-detail-list{
+  line-height: 24px;
+}
+.useMange-contentTableContent-operate{
+  color: #22559f;
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+  cursor: pointer;
+  float: left;
+}
+.userNewPopup-ulListBox-list-btn{
+  width: 70px;
+  height: 32px;
+  cursor: pointer;
+  line-height: 32px;    background-color: #fff;
+  padding: 10px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
+  display: inline-block;
+  line-height: 20px;
+  position: absolute;
+  z-index: 100;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  text-align: left;
+  text-align: center;
+  border-radius: 2px;
+  background: #2d8cf0;
+  color: #fff;
+}
+.inputBaseList{
+  position: inherit;
+  float: left;
+}
+

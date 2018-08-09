@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery特效制作多功能图片左右滚动和选项卡基于jquery插件</title>
+<style type="text/css">
+/* CSS Document */
+*{margin:0;padding:0;}
+ul,ol{list-style:none outside;}
+img{border:0 none;vertical-align:top;}
+table{border-collapse:collapse;border-spacing:0;}
+body{font:12px/1.5 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;}
+h1,h2,h3,h4,h5,h6{font-size:14px;}
+a:link, a:visited{text-decoration:none;}
+a:hover, a:focus, a:active{text-decoration:underline;}
+a:focus, a:active{outline:none;}
+.lft{float:left;display:inline;}
+.rgt{float:right;display:inline;}
+.clearfix:after{visibility:hidden;display:block;font-size:1px;content:" ";clear:both;height:0;}
+*html .clearfix{zoom:1;} /* IE6 */
+*:first-child+html .clearfix{zoom:1;}
+.layout{padding:0 0 0 40px;}
+.layout  h2{margin:20px 0 20px 0;font-size:14px;}
+/*-------- 淡隐淡现选项卡 --------*/
+.row2{border:1px solid #E1E1E1;position:relative;width:300px;}
+.row2 .JQ-slide{background:url(image/side_bg1.jpg) no-repeat center top;}
+.row2 .JQ-slide-nav{float:none;overflow:hidden;zoom:1;padding:15px;}
+.row2 .JQ-slide-nav li{float:left;display:inline;background:url(image/slide_navbg.gif) no-repeat -70px 0;width:69px;height:23px;text-align:center;color:6b6b6b;font-weight:bold;text-align:center;line-height:22px;cursor:pointer;margin-right:5px;}
+.row2 .JQ-slide-nav li.on{background-position:0 0;color:white;}
+.row2 .JQ-slide-nav li.on a:link, .row2 .JQ-slide-nav li.on a:visited, .row2 .JQ-slide-nav li.on a:hover, .row2 .JQ-slide-nav li.on a:active{color:white;}
+.row2 .JQ-slide-content{position:relative;overflow:hidden;width:300px;height:120px;}
+.row2 .JQ-slide-content .newsList{position:absolute;top:0;left:0;background:white;}
+/*----------- 图片banner特效左右滚动 ------------*/
+/* w_ctr */
+.w_ctr .JQ-slide{width:305px;height:190px;overflow:hidden;position:relative;}
+.w_ctr .JQ-slide-content{position:absolute;}/*必须要的元素*/
+.w_ctr .JQ-slide-content li{width:305px;height:190px;float:left;display:inline;position:relative;}
+.w_ctr .JQ-slide-content li img{width:305px;height:190px;}
+.w_ctr .JQ-slide-content li span{display:block;background:black;color:white;font-size:14px;font-weight:bold;padding:0 14px;line-height:28px;position:absolute;bottom:5px;left:0;z-index:10;width:275px;overflow:hidden;filter:alpha(opacity=50);-moz-opacity:0.5;-khtml-opacity:0.5;opacity:0.5;}
+.w_ctr .JQ-slide-nav{position:absolute;bottom:14px;right:8px;z-index:30;}
+.w_ctr .JQ-slide-nav li{float:left;display:inline;background:url(image/focus_li.png) no-repeat;width:10px;height:10px;text-indent:-999em;overflow:hidden;cursor:pointer;margin-right:5px;}
+.w_ctr .JQ-slide-nav li.on{background-position:-15px 0;}
+/*------ 图片左右滚动 ---------*/
+/* hot picture */
+.hotPic{margin:0 0 0 40px;}
+.hotPic .JQ-slide{position:relative;width:810px;height:142px;margin:0 0 15px 0;background:#f9f9f9;padding:10px 35px;}
+.hotPic .JQ-slide .wrap{width:810px;height:142px;overflow:hidden;position:relative;}
+.hotPic .JQ-slide-content{position:absolute;}/*必须要的元素*/
+.hotPic .imgList li{width:152px;margin:0 5px;}
+.hotPic .imgList img{width:140px;height:100px;}
+.hotPic .imgList .txt{height:30px;line-height:30px;}
+.hotPic .JQ-slide-nav a{display:block;z-index:99;width:48px;height:48px;overflow:hidden;text-indent:-999em;text-decoration:none;position:absolute;top:40px;background:url(image/arrow_pic.png) no-repeat;}
+.hotPic .JQ-slide-nav a.prev{left:-20px;background-position:0 0;}
+.hotPic .JQ-slide-nav a.prev:hover{background-position:-100px 0;}
+.hotPic .JQ-slide-nav a.next{right:-20px;background-position:-50px 0;}
+.hotPic .JQ-slide-nav a.next:hover{background-position:-150px 0;}
+/* imgList */
+.imgList{float:none;overflow:hidden;zoom:1}
+.imgList li{float:left;display:inline;overflow:hidden;}
+.imgList li a{display:block;}
+.imgList li .img{border:1px solid #d8d8d8;padding:5px;}
+.imgList li a.img:hover{border-color:#b70000;}
+.imgList li .txt{text-align:center;overflow:hidden;}
+</style>
+
+<script type="text/javascript" src="script/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="script/jquery.slide.js"></script>
+<script type="text/javascript">
+$(function (){
+	
+	/* 用按钮控制图片左右滚动 */
+	$(".hotPic .JQ-slide").Slide({
+		effect:"scroolLoop",
+		autoPlay:false,
+		speed:"normal",
+		timer:3000,
+		steps:1
+	});
+	
+	/* banner图片左右滚动 */
+	$(".w_ctr .JQ-slide").Slide({
+		effect:"scroolX",
+		speed:"normal",
+		timer:2000
+	});
+	
+	/* 淡隐淡现选项卡 */
+	$(".row2 .JQ-slide").Slide({
+		autoPlay:false,
+		effect:"fade",
+		speed:"normal",
+		timer:30000
+	});
+	
+});
+</script>
+</head>
+
+<body>
+<div class="layout">
+
+	<h2>淡隐淡现选项卡</h2>
+	<div class="row2">
+		<div class="JQ-slide">
+			<ul class="JQ-slide-nav">
+				<li class="on"><a href="http://www.17sucai.com/">jquery特效</a></li>
+				<li><a href="http://www.17sucai.com/">javasc特效</a></li>
+				<li><a href="http://www.17sucai.com/">css特效</a></li>
+			</ul>
+			<div class="JQ-slide-content">
+				<ul class="newsList">
+					<li><a href="http://www.17sucai.com/">用jquery特效制作图片金字塔式放大缩小展示</a></li>
+					<li><a href="http://www.17sucai.com/">jquery特效制作 slide 图片窗帘式滚动</a></li>
+					<li><a href="http://www.17sucai.com/">仿苹果视网膜效应的jQuery和CSS</a></li>
+					<li><a href="http://www.17sucai.com/">斯莱德奥特提示使用jQuery和CSS3</a></li>
+				</ul>
+				<ul class="newsList">
+					<li><a href="http://www.17sucai.com/">用jquery特效制作一个简单的图像预览</a></li>
+					<li><a href="http://www.17sucai.com/">纯CSS下拉菜单</a></li>
+					<li><a href="http://www.17sucai.com/">制作一个使用jQuery和CSS的拍摄效果</a></li>
+					<li><a href="http://www.17sucai.com/">霓虹灯文字效果使用jQuery和CSS</a></li>
+				</ul>
+				<ul class="newsList">
+					<li><a href="http://www.17sucai.com/">简单的图片滑过显示横幅转子使用jQuery和css</a></li>
+					<li><a href="http://www.17sucai.com/">灵活的网页:一个jQuery分页的解决方案</a></li>
+					<li><a href="http://www.17sucai.com/">灵活Ajax选项卡使用jQuery及CSS3的</a></li>
+					<li><a href="http://www.17sucai.com/">使用jQuery和CSS制作一个马赛克幻灯片</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<h2>banner图片左右滚动</h2>			
+	<div class="w_ctr">
+		<div class="JQ-slide">
+			<ul class="JQ-slide-content">
+				<li><a href="http://www.17sucai.com/"><img src="image/aa6d7f26f941d87728eb0716d36d9cbe.jpg" width="297" height="181" alt="用jquery特效制作图片金字塔式放大缩小展示" /><span>用jquery特效制作图片金字塔式放大缩小展示</span></a>
+				</li>
+				<li><a href="http://www.17sucai.com/"><img src="image/bb276cedeaeb0438ed3275a9711b1d69.jpg" width="297" height="181" alt="jquery特效制作 slide 图片窗帘式滚动" /><span>jquery特效制作 slide 图片窗帘式滚动</span></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="image/761e64dd86a7ebd0919c18d0c04ebabb.jpg" width="297" height="181" alt="仿苹果视网膜效应的jQuery和CSS" /><span>仿苹果视网膜效应的jQuery和CSS</span></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="image/9202c9767e0383e4db7ccecc92801d10.jpg" width="297" height="181" alt="斯莱德奥特提示使用jQuery和CSS3" /><span>斯莱德奥特提示使用jQuery和CSS3</span></a></li>
+			</ul>
+			<ul class="JQ-slide-nav">
+				<li class="on">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+	</div>
+
+	<h2>用按钮控制图片左右滚动</h2>
+	<div class="hotPic">
+		<div class="JQ-slide">
+			<div class="JQ-slide-nav"><a class="prev" href="javascript:void(0);">&#8249;</a><a class="next" href="javascript:void(0);">&#8250;</a></div>
+			<div class="wrap">
+				<ul class="JQ-slide-content imgList">
+					<li>
+						<a href="http://www.17sucai.com/" class="img"><img src="image/layout1.jpg" width="140" height="100" alt="用jquery特效制作图片金字塔式放大缩小展示" /></a>
+						<a href="http://www.17sucai.com/" class="txt">1</a>
+					</li>
+					<li>
+						<a href="http://www.17sucai.com/" class="img"><img src="image/layout2.jpg" width="140" height="100" alt="jquery特效制作 slide 图片窗帘式滚动" /></a>
+						<a href="http://www.17sucai.com/" class="txt">2</a>
+					</li>
+					<li>
+						<a href="http://www.17sucai.com/" class="img"><img src="image/layout3.jpg" width="140" height="100" alt="仿苹果视网膜效应的jQuery和CSS" /></a>
+						<a href="http://www.17sucai.com/" class="txt">3</a>
+					</li>
+					<li>
+						<a href="http://www.17sucai.com/" class="img"><img src="image/layout4.jpg" width="140" height="100" alt="斯莱德奥特提示使用jQuery和CSS3" /></a>
+						<a href="http://www.17sucai.com/" class="txt">4</a>
+					</li>
+					<li>
+						<a href="http://www.17sucai.com/" class="img"><img src="image/layout1.jpg" width="140" height="100" alt="用jquery特效制作图片金字塔式放大缩小展示" /></a>
+						<a href="http://www.17sucai.com/" class="txt">5</a>
+					</li>
+					<li>
+						<a href="http://www.17sucai.com/" class="img"><img src="image/layout2.jpg" width="140" height="100" alt="jquery特效制作 slide 图片窗帘式滚动" /></a>
+						<a href="http://www.17sucai.com/" class="txt">6</a>
+					</li>
+					<li>
+						<a href="http://www.17sucai.com/" class="img"><img src="image/layout3.jpg" width="140" height="100" alt="仿苹果视网膜效应的jQuery和CSS" /></a>
+						<a href="http://www.17sucai.com/" class="txt">7</a>
+					</li>
+					<li>
+						<a href="http://www.17sucai.com/" class="img"><img src="image/layout4.jpg" width="140" height="100" alt="斯莱德奥特提示使用jQuery和CSS3" /></a>
+						<a href="http://www.17sucai.com/" class="txt">8</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>	
+</div>	
+</body>
+</html>

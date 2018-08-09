@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../base/css/baseOrange.css">
+    <link rel="stylesheet" href="../../base/iconfont/iconfont.css">
+    <link rel="stylesheet" href="../css/register_orange.css" >
+    <link rel="stylesheet" href="../../plugin/popup/css/manhuaDialog.1.0_blue.css">
+    <link rel="stylesheet" href="../../plugin/page/css/table_orange.css">
+    <link rel="stylesheet" href="../../plugin/select/chosen_orange.css">
+    <link rel="stylesheet" href="../../plugin/dragValidate/css/drag.css">
+    <script src="../../base/js/jquery.js"></script>
+    <script src="../../base/js/public.js"></script>
+    <script src="../../base/js/jquery.cookie.js"></script>
+    <script src="../../base/js/docassistant.js" ></script>
+    <script src="../../plugin/popup/script/manhuaDialog.1.0.js"></script>
+    <script src="../../plugin/dragValidate/js/drag.js"></script>
+    <script src="../js/mlogin.js"></script>
+    <script src="../../../reqConfig.js"></script>
+</head>
+<body style="height: 100%;overflow-y: hidden;"> 
+    <div class="login__index">
+        <div class="loginFrom">
+            <h3 id="js-loginFrom__tittle" class="loginFrom__tittle">帐号登录</h3>
+            <div id="js-loginFrom__errorHint--hide" class="loginFrom__errorHint--hide"  style="display: none;">
+                <span id="js-loginFrom__hintContent"  class="loginFrom__hintContent"></span>
+                <span class="loginChangePassword__icon--del" id="hideErrContent" style="cursor: pointer;"></span>
+            </div>
+            <div class="loginFrom__item">
+                <div class="login__icon login__icon--user"></div>
+                <input type="text" id="js-input--username" class="input-l loginFrom__input" placeholder="登录名/手机号/邮箱">
+            </div>
+            <div class="loginFrom__item">
+                <div class="login__icon login__icon--password"></div>
+                <input type="password" id="js-input-password" class="input-l loginFrom__input">
+            </div>
+            <div class="loginFrom__item">
+                <div id="drag" class="drag"></div>
+            </div>
+            <div class="loginFrom__checkBox">
+                <div class="loginFrom__checkBoxLeft">
+                </div>
+                <div class="loginFrom__checkBoxRight">
+                    <a href="forgetPassword.html" style="color:#333;">忘记密码？</a>
+                </div>
+            </div>
+            <div class="login__btn">
+                <input type="button" id="js-login__btn--login" value="登录" class="login__btn--login" disabled="true" style="width:390px;height: 40px;line-height: 40px;">
+            </div>
+            <div class="login__iconBox">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

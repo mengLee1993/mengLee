@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组织框架管理</title>
+    <link rel="stylesheet" href="/commonstatic/base/css/base_blue.css">
+    <link rel="stylesheet" href="/static/project/limitManage/css/resourchAd.css">
+    <link rel="stylesheet" href="/commonstatic/plugin/page/css/table_blue.css">
+    <link rel="stylesheet" href="/commonstatic/plugin/treeview/jquery.treeview.css" />
+    <link rel="stylesheet" href="/commonstatic/plugin/treeview/screen.css" />
+    <link rel="stylesheet" href="/commonstatic/plugin/popup/css/manhuaDialog.1.0.css">
+    <link rel="stylesheet" href="/commonstatic/plugin/tip/css/tip-twitter/tip-twitter.css">
+    <script src='/commonstatic/base/js/jquery.js'></script>
+    <script src="/commonstatic/base/js/public.js"></script>
+    <script src='/commonstatic/plugin/page/script/jquery.page.js'></script>
+    <script src="/commonstatic/plugin/popup/script/manhuaDialog.1.0.js"></script>
+    <script src="/commonstatic/reqConfig.js"></script>
+    <script src="/commonstatic/base/js/docassistant.js"></script>
+    <script src="/commonstatic/base/js/validate.js"></script>
+    <script src="/commonstatic/plugin/tip/script/jquery.poshytip.js"></script>
+    <script src="/commonstatic/plugin/treeview/lib/jquery.cookie.js" type="text/javascript"></script>
+    <script src="/commonstatic/plugin/treeview/jquery.treeview.js" type="text/javascript"></script>
+    <script src='../js/demo.js'></script>
+    <script>
+        function tissueAdmin(){
+            this.init=tissueInit;
+            this.incident=tissueIncident;
+            this.vali=new clsValidateCtrl();
+            this.rank=null;
+            this.alertBox=new clsAlertBoxCtrl();
+            this.sure=null;
+            this.newCom=null;
+            this.onThis=null;
+            this.idC=null;
+        }
+        function tissueInit(){
+            //this.vali=;
+            //初始化调用的方法
+            // /getListTreeOrgInfo
+             getAjaxResult("/org_info/getListRecursionOrgInfo","POST",{"id":1},"orgInfo(data)")
+            $("#navigation").find("a").attr("href","javascript:;")
+            this.incident();
+        }
+        function tissueIncident(){
+            var _this=this;
+            //点击添加组织调用的接口
+            $("#addTissue").on("click",function(){
+                openWin('350', '300', 'inputAnswer', true);
+                $("#addReInp").val("");
+                initValidate($("#addReInpDiv")[0]);
+            })
+            //添加组织点击保存调用的接口
+            $("#addRe").on("click",function(){
+                var json={};
+                switch(_this.rank){
+                    case 1:json.parentId=0;break;
+                    case 2:json.parentId=$("#fotTbody")[0].jsonData.id;break;
+                }
+                json.orgName=$("#addReInp").val();
+                json.remark=$("#memoInp").val();
+
+                if($("#stateInp").attr("checked")){
+                    json.status=1;
+                }else{
+                    json.status=0;
+                }
+                if(_this.newCom==1){
+                    json.id=json.parentId;
+                    json.parentId=$("#fotTbody")[0].jsonData.parentId;
+                    getAjaxResult("/org_info/saveOrgInfo","POST",json,"addReAFun(data)")
+                }else if(_this.newCom==0){
+                    getAjaxResult("/org_info/addOrgInfo","POST",json,"addReAFun(data)")
+                }
+
+            })
+            //根目录添加点击事件
+            $(".left-div-two").on("click",function(){
+                _this.rank=1;
+                $("#fotTable").css("display","none");
+                $(".resourceAd-con-left a").css("color","#4A90E2");
+                $(this).css("color","red");
+                //openWin('350', '200', 'inputAnswer', true);
+            })
+            //点击树的文字时候调用接口
+            $(".resourceAd-con-left").delegate("li a","click",function(){
+                $(".resourceAd-con-left a").css("color","#4A90E2");
+                $(".left-div-two").css("color","#333")
+                _this.rank=2;
+                $(this).css("color","red");
+                getAjaxResult("/org_info/getOrgInfo","post",{"id":$(this).parents('li')[0].data.id},"initTissue(data)");
+            })
+            //点击停用和启用的时候
+            $("#fotTbody #stateU").on("click",function(){
+                var str=null;
+                _this.sure=2;
+                if(parseInt($(this).attr("status"))){
+                    str="启用"
+                }else{
+                    str="停用"
+                }
+                $(this).parents("tr")[0].jsonData.status=$(this).attr("status");
+                document.body.docT.alertBox.Alert('确定'+str,"提示",1,true);
+            })
+            //新建
+            $("#newTiss").on("click",function(){
+                _this.newCom=0;
+                $("#addReInp").val("");
+                $("#memoInp").val("");
+                $("#stateInp").attr("checked",false);
+                if(_this.rank){
+                    openWin('350', '300', 'inputAnswer', true);
+                }else{
+                    document.body.docT.alertBox.Alert("请先选择组织","提示")
+                }
+
+            })
+            //删除
+            $("#deleteTiss").on("click",function(){
+                if(_this.rank==1){
+                    document.body.docT.alertBox.Alert("不可以删除根目录","提示")
+                }else if(_this.rank==2){
+                    _this.sure=1;
+                    document.body.docT.alertBox.Alert("确定删除该组织","提示",1,true)
+                }else{
+                    document.body.docT.alertBox.Alert("请先选择组织","提示")
+                }
+            })
+            //编辑
+            $("#comTiss").on("click",function(){
+                _this.newCom=1;
+                if(_this.rank==1){
+                    document.body.docT.alertBox.Alert("不可以修改根目录","提示")
+                }else if(_this.rank==2){
+                    openWin('350', '300', 'inputAnswer', true);
+                }else{
+                    document.body.docT.alertBox.Alert("请先选择组织","提示")
+                }
+                $("#addReInp").val($("#fotTbody")[0].jsonData.orgName);
+                $("#memoInp").val($("#fotTbody")[0].jsonData.remark);
+                if($("#fotTbody")[0].jsonData.status){
+                    $("#stateInp").attr("checked",true);
+                }else{
+                    $("#stateInp").attr("checked",false);
+                }
+            })
+        }
+        //页面初始化调用树的接口
+        function orgInfo(data){
+            var jsData=JSON.parse(data);
+            if(jsData.retCode=="0000000"){
+                var tissueList = new treeCheck();
+                tissueList.loopLoad(jsData.rspBody.children, $(".resourceAd-con-left"), true);
+                tissueList.unionChecked("input[type=checkbox]");
+                $(".resourceAd-con-left ul").attr("id","navigation");
+                $(".resourceAd-con-left ul").addClass("navigation")
+                $("#navigation").treeview();
+            }else{
+                document.body.docT.alertBox.Alert(jsData.retDesc,"提示");
+            }
+        }
+        //弹框点击确定之后调用的方法
+        function clsAlertBoxCtrl$sure() {
+            //当对象是1的时候执行的事情
+            if(document.body.docT.sure==1){
+                document.body.docT.sure=0;
+                // $("#fotTbody")[0].jsonData;
+                document.body.docT.idC=$("#fotTbody")[0].jsonData.parentId;
+                //删除的时候调用
+                getAjaxResult("/org_info/removeOrgInfo","post",$("#fotTbody")[0].jsonData,"deleteSure(data)");
+            }else if(document.body.docT.sure==2){
+                document.body.docT.sure=0;
+                //停用和启用的接口
+                getAjaxResult("/org_info/saveOrgInfo","post",$("#fotTbody")[0].jsonData,"stateFun(data)");
+                closePopupWin();
+            }
+        }
+        //删除确定的时候执行的函数
+        function deleteSure(data){
+            var jsData=JSON.parse(data);
+            if(jsData.retCode=="0000000"){
+                //location.reload();
+                $(".resourceAd-con-left ul").remove();
+                getAjaxResult("/org_info/getListRecursionOrgInfo","POST",{"id":1},"orgInfo(data)")
+            }else{
+                document.body.docT.alertBox.Alert(jsData.retDesc,"提示");
+            }
+        }
+        //停用启用调用的接口
+        function stateFun(data){
+            var jsData=JSON.parse(data);
+            if(jsData.retCode=="0000000"){
+
+                getAjaxResult("/org_info/getOrgInfo","post",{"id":$("#fotTbody")[0].jsonData.id},"initTissue(data)");
+                //location.reload();
+            }else{
+                document.body.docT.alertBox.Alert(jsData.retDesc,"提示");
+            }
+        }
+        $(document).ready(function () {
+            var docTiss=new tissueAdmin();
+            docTiss.init();
+            document.body.docT=docTiss;
+        });
+        //树文字接口会掉函数
+        function initTissue(data){
+            var jsData=JSON.parse(data);
+            if(jsData.retCode=="0000000"){
+
+                for(var key in jsData.rspBody){
+                    $("#fotTbody #"+key).text(jsData.rspBody[key]);
+                }
+                if(parseInt(jsData.rspBody.status)){
+                    $("#fotTbody #statusText").text("启用");
+                    $("#fotTbody #stateU").text("停用").attr("status","0")
+                }else{
+                    $("#fotTbody #statusText").text("未启用");
+                    $("#fotTbody #stateU").text("启用").attr("status","1")
+                }
+
+                $("#fotTbody")[0].jsonData=jsData.rspBody;
+                $("#fotTable").css("display","block");
+            }else{
+                document.body.docT.alertBox.Alert(jsData.retDesc,"提示");
+            }
+        }
+        //添加组织点击保存调用的接口
+        function addReAFun(data) {
+            var jsData=JSON.parse(data);
+            if(jsData.retCode=="0000000"){
+              //  location.reload();
+                //编辑完刷新表格 1是编辑 0是新建
+                alert("保存成功")
+                if(document.body.docT.newCom){
+                    closePopupWin();
+                    $(".resourceAd-con-left ul").remove();
+                    getAjaxResult("/org_info/getOrgInfo","post",{"id":$("#fotTbody")[0].jsonData.id},"initTissue(data)");
+                    getAjaxResult("/org_info/getListRecursionOrgInfo","POST",{"id":1},"orgInfo(data)");
+                }else{
+                    document.body.docT.idC=jsData.rspBody;
+                    $(".resourceAd-con-left ul").remove();
+                    getAjaxResult("/org_info/getListRecursionOrgInfo","POST",{"id":1},"orgInfo(data)");
+
+                }
+                document.body.docT.newCom=null;
+                closePopupWin();
+
+
+            }else{
+                document.body.docT.newCom=null;
+                closePopupWin();
+                document.body.docT.alertBox.Alert(jsData.retDesc,"提示");
+            }
+        }
+        //树的渲染
+        function treeCheck(){
+            this.data = {};
+            this.isAllChecked = null;//该属性是否把子集全选
+        }
+        treeCheck.prototype.unionChecked = function(dom){
+            $(dom).click(function(){
+
+                for(var i=0;i<$(dom).length;i++){//后期优化
+                    // if(){
+                    // 	this.isAllChecked = false;//该属性是否把子集全选
+                    // }
+                }
+                //当选中或取消一个权限时，也同时选中或取消所有的下级权限
+                $(this).siblings("ul").find("input").attr("checked",this.checked);
+
+                //当选中一个权限时，也要选中所有的直接上级权限
+                // if(this.checked ==true){
+                //     $(this).parents("li").children("input").attr("checked",true);
+                // }
+
+                //当某一个父权限下的子权限都不选中时，该父权限也不选中
+                var elements=$(this).parent("li").parent("ul").find("input");
+                var num=elements.length;
+                /*alert(num);*/
+                var a=0;
+                for(var i=0;i<num;i++){
+                    if(elements[i].checked==false){
+                        a++;
+                    }
+                }
+                if(a==num){
+                    $(this).parent("li").parent("ul").siblings("input").attr("checked",false);
+                }
+
+
+            });
+        }
+        treeCheck.prototype.loopLoad = function(data, parentDom, bol){//递归,无限遍历下级dom树
+
+
+            if(data){
+                var oUl = document.createElement("ul");
+                if( parentDom.attr("id") == "looptree"){
+                    oUl.id = "navigation";
+                    parentDom.append(oUl);
+                }else{
+                    //if(!bol)oUl.style.display == "none";
+                    parentDom.append(oUl);
+                }
+                for(var i=0;i<data.length;i++){
+                    var oLi = document.createElement("li");
+                    var chk = "";
+                    if(data[i].isChecked){
+                        chk = "checked";
+                    }
+                    oLi.innerHTML = "<div class='hitarea expandable-hitarea'></div><a href='javascript:;'>"+data[i].orgName+"</a>";
+                    oLi.data = data[i];
+                    if(data[i].lev == 1){
+                        $("#navigation").append(oLi);
+                    }else{
+                        $(oUl).append(oLi)
+                    }
+                    if(document.body.docT){
+                        if(document.body.docT.idC){
+                            if(data[i].id==document.body.docT.idC){
+                                $(oLi).find("a").click();
+                            }
+                        }
+                    }
+                    if(data[i].children){
+                        this.loopLoad(data[i].children, $(oLi), data[i].isChecked);
+                    }
+
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="resource" style="display:none">
+        <div class="resource-div">
+            <span>
+                暂无组织架构、
+            </span>
+            <span id="addTissue" style="cursor: pointer">
+                添加组织
+            </span>
+        </div>
+    </div>
+    <div class="resourceAd" style="">
+        <div class="resourceAd-head">
+            <input type="text" class="resourceAd-head-in"/>
+            <a href="javascript:;" class="resourceAd-head-a">查询</a>
+        </div>
+        <div class="resourceAd-con">
+            <div class="resourceAd-con-left">
+                <div class="left-div">
+                    <span class="left-div-fir">权限分类</span>
+                    <span class="left-div-two" style="cursor: pointer">根目录</span>
+                </div>
+
+            </div>
+            <div class="resourceAd-con-right">
+                <div class="right-head">
+
+                </div>
+                <div class="right-con">
+                    <div class="right-con-div">
+                        <a href="javascript:;" id="newTiss">新建</a>
+                        <a href="javascript:;" id="deleteTiss">删除</a>
+                        <a href="javascript:;" id="comTiss">编辑</a>
+                    </div>
+                    <!--<div class="right-con-tit">-->
+                        <!--<span>权限列表</span>-->
+                        <!--<span>权限操作</span>-->
+                    <!--</div>-->
+                    <div class="right-con-fot">
+                        <table style="display:none" id="fotTable">
+                            <thead>
+                                <tr>
+                                    <th width="10%">id</th>
+                                    <th width="15%">创建时间</th>
+                                    <th width="15%">创建人</th>
+                                    <th width="15%">名称</th>
+                                    <th width="10%">状态</th>
+                                    <th width="25%">备注</th>
+                                    <th width="10%">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="fotTbody">
+                                    <td id="id"></td>
+                                    <td id="createdTime"></td>
+                                    <td id="createdBy"></td>
+                                    <td id="orgName"></td>
+                                    <td id="statusText"></td>
+                                    <td id="remark"></td>
+                                    <td><a href="javascript:;" id="stateU"></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="inputAnswer" class="popup gc_box" style="display:none">
+        <div class="title" style="">
+            <h2>新增组织</h2>
+            <div>
+                <a class="min" href="javascript:;" title="最小化" style="display:none;"></a>
+                <a class="max" href="javascript:;" title="最大化" style="display:none;"></a>
+                <a class="revert" href="javascript:;" title="还原" style="display:none;"></a>
+                <a class="close" href="javascript:;" title="关闭" style="display:block;"></a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="resourchSe" id="addReInpDiv">
+                <ul class="resourchSe-ul">
+                    <li class="ml20"><label>名称：</label><input type="text" id="addReInp"/></li>
+                    <li class="ml20"><label>备注：</label><input type="text" id="memoInp"/></li>
+                    <li class="ml20"><label>默认启用：</label><input type="checkbox" id="stateInp"/></li>
+                </ul>
+                <div class="mod-search-div" id="addRe" style="width:70px;height: 62px;margin:0 auto;">
+                    <a href="javascript:;" class="mod-searchBtn"><span>确定</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

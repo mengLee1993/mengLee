@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>拖拽</title>
+<script src='/commonstatic/base/js/jquery.js'></script>
+<script src="/commonstatic/base/js/docassistant.js"></script>
+<script src="/commonstatic/base/js/public.js"></script>
+<script src="/commonstatic/base/js/jquery.cookie.js"></script>
+<script src="../../../reqConfig.js"></script>
+
+<script src="/commonstatic/base/js/validate.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#loginBtn").click(function(){
+	        var user = $("#user").val();
+	        var password = $("#password").val();
+        	getAjaxResult("/sysAcct/LoginAcct","POST",{"acctTitle":user,"acctPassword":password},"loginSuc(data)");
+        });
+    });
+
+    function loginSuc(data){
+        data = JSON.parse(data);
+        $.cookie('orgId',data.rspBody.oInfoId);
+        $.cookie('acctType',data.rspBody.acctType);//0超级管理员， 1管理员， 2用户
+        window.location.href="/static/project/limitManage/html-gulp-www/default.html";
+    };
+</script>
+</head>
+<body>
+
+<h2>登录</h2>
+<p><input type="text" name="" placeholder="请输入用户名" id="user"></p>
+<p><input type="password" name="" placeholder="请输入密码" id="password"></p>
+<p><a href="javascript:;" id="loginBtn">登录</a></p>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+    <link rel="stylesheet" href="/commonstatic/base/css/base_blue.css">
+    <link rel="stylesheet" href="/commonstatic/plugin/popup/css/manhuaDialog.1.0.css">
+    <link rel="stylesheet" href="../css/useManage.css">
+    <script src='/commonstatic/base/js/jquery.js'></script>
+    <script src="/commonstatic/base/js/docassistant.js"></script>
+    <script src="/commonstatic/base/js/public.js"></script>
+    <script src="/commonstatic/plugin/popup/script/manhuaDialog.1.0.js"></script>
+    <script>
+        $(function(){
+            //openWin("600","500","userNewPopup",true);
+            openWin("400","200","userDetailPopup",true);
+            $("#organizationList").css("width",$(".userNewPopup-ulist-listBox").length * 150 +"px");
+
+            //组织显示
+            $("#selectOrganization").on("click",function(){
+                if($("#selectOrganizationPopup").is(":hidden")){
+                    $("#selectOrganizationPopup").show();
+                }else{
+                    $("#selectOrganizationPopup").hide();
+                }
+            });
+
+
+            //角色显示
+            $("#selectRole").on("click",function(){
+                if($("#selectRolePopup").is(":hidden")){
+                    $("#selectRolePopup").show();
+                }else{
+                    $("#selectRolePopup").hide();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="useMange-content">
+        <div class="useMange-content-new">新建用户</div>
+        <div class="useMange-content-search">
+            <input class="fl useMange-content-search__input">
+            <div class="fl useMange-content-search__btn">搜索</div>
+        </div>
+        <table class="useMange-content-table">
+            <tr class="useMange-content-table-trow">
+                <th class="useMange-content-table-title">行号</th>
+                <th class="useMange-content-table-title">用户名</th>
+                <th class="useMange-content-table-title">用户信息</th>
+                <th class="useMange-content-table-title">角色信息</th>
+                <th class="useMange-content-table-title">操作用户</th>
+                <th class="useMange-content-table-title">组织关系</th>
+                <!--<th class="useMange-content-table-title"></th>-->
+            </tr>
+            <tr class="useMange-content-table-trow">
+                <td class="useMange-content-table-content"></td>
+                <td class="useMange-content-table-content"></td>
+                <td class="useMange-content-table-content"></td>
+                <td class="useMange-content-table-content"></td>
+                <td class="useMange-content-table-content"></td>
+                <td class="useMange-content-table-content"></td>
+            </tr>
+        </table>
+        <!--新增用户-->
+        <div id="userNewPopup" class="popup" style="height:400px;z-index: 1000; left: 50%; position: absolute; top: 40%; margin-left: -195px;display: none;">
+            <div class="title">
+                <h2>新增用户</h2>
+                <div>
+                    <a class="min" href="javascript:;" title="最小化" style="display:none;"></a>
+                    <a class="max" href="javascript:;" title="最大化" style="display:none;"></a>
+                    <a class="revert" href="javascript:;" title="还原" style="display:none;"></a>
+                    <a class="close" href="javascript:;" title="关闭"></a>
+                </div>
+            </div>
+            <div class="content userNewPopup" style="height: 400px;!important;">
+                <ul class="userNewPopup-ulist clearfix">
+                    <li class="userNewPopup-ulist-list">
+                        <span class="userNewPopup-ulist-list-name fl">名称</span>
+                        <input type="text" class="userNewPopup-ulist-list-input">
+                    </li>
+                    <li class="userNewPopup-ulist-list">
+                        <span class="userNewPopup-ulist-list-name fl">密码</span>
+                        <input type="text" class="userNewPopup-ulist-list-input">
+                    </li>
+                    <li class="userNewPopup-ulist-list userNewPopup-ulist-listPosition">
+                        <span class="userNewPopup-ulist-list-name fl">选择组织</span>
+                        <input type="text" class="userNewPopup-ulist-list-input fl" id="selectOrganization">
+                        <div class="userNewPopup-ulist-listPopup" id="selectOrganizationPopup" style="display: none;">
+                            <div id="organizationList">
+                                <ul class="userNewPopup-ulist-listBox">
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                </ul>
+                                <ul class="userNewPopup-ulist-listBox">
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                </ul>
+                                <ul class="userNewPopup-ulist-listBox">
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                </ul>
+                                <ul class="userNewPopup-ulist-listBox">
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                    <li class="userNewPopup-ulListBox-list">123</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="userNewPopup-ulist-list userNewPopup-ulist-listPosition">
+                        <span class="userNewPopup-ulist-list-name fl">选择角色</span>
+                        <input type="text" class="userNewPopup-ulist-list-input" id="selectRole">
+                        <div class="userNewPopup-ulist-listPopup2" id="selectRolePopup" style="display: none;">
+                            <ul class="userNewPopup-ulist2-listBox">
+                                <li class="userNewPopup-ulListBox-list">选择角色：</li>
+                                <li class="userNewPopup-ulListBox-list">
+                                    <input type="checkbox" class="userNewPopup-ulListBox-list-check">
+                                    <span>角色1</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <div class="userNewPopup-sure">确定</div>
+            </div>
+        </div>
+        <!--查看角色-->
+        <div id="userDetailPopup" class="popup" style="height:400px;z-index: 1000; left: 50%; position: absolute; top: 40%; margin-left: -195px;display: none;">
+            <div class="title">
+                <h2>新增用户</h2>
+                <div>
+                    <a class="min" href="javascript:;" title="最小化" style="display:none;"></a>
+                    <a class="max" href="javascript:;" title="最大化" style="display:none;"></a>
+                    <a class="revert" href="javascript:;" title="还原" style="display:none;"></a>
+                    <a class="close" href="javascript:;" title="关闭"></a>
+                </div>
+            </div>
+            <div class="content userDetailPopup">
+                <div class="userDetailPopup-search clearfix">
+                    <input type="text" class="userDetailPopup-search-input">
+                    <div class="userDetailPopup-search-btn">搜索</div>
+                </div>
+                <table class="userDetailPopup-table">
+                    <!--<tr class="userDetailPopup-table-trow">
+                        <th class="userDetailPopup-table-trow-th"></th>
+                        <th class="userDetailPopup-table-trow-th"></th>
+                        <th class="userDetailPopup-table-trow-th"></th>
+                    </tr>-->
+                    <tr class="userDetailPopup-table-trow">
+                        <td class="userDetailPopup-table-trow-td">a</td>
+                        <td class="userDetailPopup-table-trow-td">角色1</td>
+                        <td class="userDetailPopup-table-trow-td" style="color: #00a1ff;cursor:pointer;">添加</td>
+                    </tr>
+                    <tr class="userDetailPopup-table-trow">
+                        <td class="userDetailPopup-table-trow-td"></td>
+                        <td class="userDetailPopup-table-trow-td"></td>
+                        <td class="userDetailPopup-table-trow-td"></td>
+                    </tr>
+                    <tr class="userDetailPopup-table-trow">
+                        <td class="userDetailPopup-table-trow-td"></td>
+                        <td class="userDetailPopup-table-trow-td"></td>
+                        <td class="userDetailPopup-table-trow-td"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

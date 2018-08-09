@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link  rel="stylesheet" href="chosen.min.css"/>
+</head>
+省份
+<select id="province" unionSel="city,qu" multiple="multiple">
+</select>
+市：
+<select id="city" unionSel="qu">
+</select>
+区：
+<select id="qu">
+</select>
+<body>
+<script type="text/javascript" src="script/jquery-1.7.1.js"></script> 
+<script src="chosen.jquery.js"></script>
+<script>
+$(function() {
+	var data = [{
+		'province': '福建省',
+		city: [{
+		'province': 'a1',
+		city: [{'province':'a11',city:[]}, {'province':'a11',city:[]}, {'province':'a11',city:[]}]
+	},{
+		'province': 'a2',
+		city: [{'province':'a11',city:[]}, {'province':'a11',city:[]}, {'province':'a11',city:[]}]
+	}]
+	},{
+		'province': '河北省',
+		city: [{
+		'province': 'b1',
+		city: [{'province':'a11',city:[]}, {'province':'a11',city:[]}, {'province':'a11',city:[]}]
+	},{
+		'province': 'b2',
+		city: [{'province':'a11',city:[]}, {'province':'a11',city:[]}, {'province':'a11',city:[]}]
+	}]
+	}];
+	/*
+	var data = [{
+		'province': '福建省',
+		city: ['福州市', '南平市', '厦门市']
+	},
+	{
+		'province': '湖南省',
+		city: ['长沙市', '长沙市1', '长沙市2']
+	}];
+	*/
+	//初始化方法，初始化chosen控件和数据
+	var init = function() {
+		var option = [];
+		$.each(data,
+		function(index, item) {
+			var province = item.province;
+			option.push('<option>',province,'</option>');
+		});
+		option = option.join('');
+		$('#province').html(option);
+		$("#province").chosen({
+			no_results_text: "Oops, nothing found!",
+//			 allow_single_deselect : true,
+			width: "300PX",
+			enable_split_word_search: false,
+			placeholder_text_single: '请选择',
+			
+		});
+		$("#city").chosen({
+			
+			no_results_text: "Oops, nothing found!",
+			width: "100PX",
+			enable_split_word_search: false,
+			placeholder_text_single: '请选择'
+		});
+		$("#qu").chosen({
+			no_results_text: "Oops, nothing found!",
+			width: "100PX",
+			enable_split_word_search: false,
+			placeholder_text_single: '请选择'
+		});
+	}
+	//执行init方法
+	init();
+	//省份变动触发事件
+	$('#province').change(function(){
+		var province = $(this).val();
+		var citys = null;
+		$.each(data,function(index,item){
+			if(item.province == province){
+				citys = item.city;
+			}
+		});
+		document.getElementById("city").jsonData = citys;
+//		var option = [];
+//		$.each(citys,function(index,item){
+//			option.push('<option>',item.province,'</option>');
+//		});
+//		$('#city').html(option.join(''));
+//		$('#city').trigger('chosen:updated');
+//		clearSel($('#province').attr("union"));
+	});
+
+	//2级变动触发事件
+	$('#city').change(function(){
+		var province = $(this).val();
+		var citys = null;
+		$.each(document.getElementById("city").jsonData,function(index,item){
+			if(item.province == province){
+				citys = item.city;
+			}
+		});
+		
+		var option = [];
+		$.each(citys,function(index,item){
+			option.push('<option>',item.province,'</option>');
+		});
+		$('#qu').html(option.join(''));
+		$('#qu').trigger('chosen:updated');
+	});
+});
+
+function clearSel(unionSel)
+{
+	
+	if(unionSel != null)
+	{
+		var option = [];
+		for(var nI=0; nI<unionSel.split(",").length; nI++)
+		{
+			var ctrlId = unionSel.split(",")[nI];
+			if(ctrlId != null)
+			{
+				if(this.parentCtrl == null)
+					var obj	= document.getElementById(ctrlId);
+				else
+					var obj = $subNode(this.parentCtrl, ctrlId);
+				obj.innerHTML ="";
+				$addoOption(obj,"","请选择","");
+			}
+			
+		}
+	}
+}
+</script>
+</body>
+</html>

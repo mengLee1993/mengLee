@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        首页
+    </title>
+    <link rel="stylesheet" href="../../base/css/base_orange.css">
+    <link rel="stylesheet" type="text/css" href="css/manhuaDialog.1.0.css">
+    <script src="../../base/js/jquery.js" type="text/javascript"></script>
+    <script src="../../base/js/docassistant.js" type="text/javascript"></script>
+    <script src="../../base/js/public.js" type="text/javascript"></script>
+    <script type="text/javascript" src="script/manhuaDialog.1.0.js"></script>
+    <script src="../../base/js/common_opt.js" type="text/javascript"></script>
+
+    <style>
+        .comUpload .imgDelete {
+            display: inline-block;
+        }
+    </style>
+
+</head>
+<body>
+<button type="button" changeThemeTo="blue" class="change-skin"
+        style="background-color: #00a1ff;color:#fff;width:100px;height:30px;border-radius: 5px;line-height: 30px;position: fixed;top:40%;right:0;z-index: 1000;">
+    换肤
+</button>
+<button type="button" changeThemeTo="orange" class="change-skin"
+        style="background-color:#f14400;color:#fff;width:100px;height:30px;border-radius: 5px;line-height: 30px;position: fixed;top:60%;right:0;z-index: 1000;">
+    换肤
+</button>
+<!--警示弹窗-->
+<a href="javascript:;" comtype="messageBox" messageType="error" title="删除信息" content="确定要删除选中的商品?"
+   subcontent="一旦删除将不可恢复">删除弹窗</a>
+<!--成功弹窗-->
+<!--<a href="javascript:;" comtype="messageBox" messageType="success" title="提示信息" content="保存成功">成功弹窗</a>-->
+
+</body>
+
+</html>

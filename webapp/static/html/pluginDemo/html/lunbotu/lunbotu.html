@@ -66,9 +66,10 @@
 			height: 280px;
 		}
 	</style>
-	<script type="text/javascript" src="../../lm_js/jquery.js"></script>
-	<script type="text/javascript" src="../../lm_js/public.js"></script>
-	<script type="text/javascript" src="../../lm_js/reqConfig.js"></script>
+	<script type="text/javascript" src="../../../../base/js/jquery.js"></script>
+	<script type="text/javascript" src="../../../../base/js/docassistant.js"></script>
+	<script type="text/javascript" src="../../../../base/js/public.js"></script>
+	<script type="text/javascript" src="../../../../reqConfig.js"></script>
 </head>
 <body>
 
@@ -95,11 +96,11 @@
 		container.onmouseover = function(){
 			startMove(leftBtn,{opacity:100,left:0});
 			startMove(rightBtn,{opacity:100,right:0});
-		}
+		};
 		container.onmouseout = function(){
 			startMove(leftBtn,{opacity:0,left:-48});
 			startMove(rightBtn,{opacity:0,right:-48});
-		}
+		};
 		var oUL = document.getElementsByTagName("ul")[0];
 	    var firstChild = oUL.children[0].cloneNode(true);
 	    oUL.appendChild(firstChild);
@@ -116,7 +117,7 @@
 	    	startMove(oUL,{left:currIndex * -520});
 	    	setNavClass(currIndex > 4 ? 0 : currIndex);
 	    	autoPlay();
-	    }
+	    };
 
 	    leftBtn.onclick = function(){
 	    	currIndex--;
@@ -127,7 +128,7 @@
 	    	startMove(oUL,{left:currIndex * -520});
 	    	setNavClass(currIndex);
 	    	autoPlay();
-	    }
+	    };
 
 	    function setNavClass(index){
 	    	for(var i = 0; i < spanList.length; i++){
@@ -144,7 +145,7 @@
 	    	if(e.keyCode == 37){
 	    		leftBtn.onclick();
 	    	}
-	    }
+	    };
 	    var timer;
 	    function autoPlay(){
 	    	clearInterval(timer);
@@ -187,7 +188,7 @@
                 var i = 0; //用来保存对象中属性个数
                 //使用for in完成多值运动，当定时器执行一次，就循环每一个运动属性分别取值赋值
                 for(var attrName in attrJSON){
-                    var cur = attrName == "opacity" ? Math.round(getStyle(element,"opacity") * 100) : parseInt(getStyle(element,attrName))
+                    var cur = attrName == "opacity" ? Math.round(getStyle(element,"opacity") * 100) : parseInt(getStyle(element,attrName));
                     //使用运动属性中的目标值-元素的当前值/时间系数求出此时运动速度
                     var speed = (attrJSON[attrName] - cur) / 5;
                     //由于CSS中px单位忽略小数所以针对正负数不同进行向上向下取整

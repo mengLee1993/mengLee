@@ -24,6 +24,7 @@
         }
     </style>
     <script type="text/javascript" src="../../../../base/js/jquery.js"></script>
+    <script type="text/javascript" src="../../../../base/js/docassistant.js"></script>
     <script type="text/javascript" src="../../../../base/js/public.js"></script>
     <script type="text/javascript" src="../../../../reqConfig.js"></script>
 </head>
@@ -54,7 +55,7 @@
         document.body.appendChild(div);
         div.className = "divHH";
         var txt = document.createTextNode("♥");
-        div.appendChild(txt)
+        div.appendChild(txt);
         div.style.cssText = "width: 80px;height: 80px;background: none; border-radius: 50%; position: absolute; left:" + x +"px; top:" + y + "px";
         document.body.style.background = "#000";
         setInterval(function(){
@@ -90,7 +91,7 @@
             var y = e.clientY - 20;
             createBall(x,y,speedX,speedY);
         }
-    }
+    };
     //图片布局，移动样式
     var box = document.getElementById("box");
     var imgNodes = document.getElementsByTagName("img");
@@ -100,7 +101,7 @@
         initialize(imgNodes[i]);//调用函数
         imgNodes[i].onmouseover = function(){
             this.pause = false;//当鼠标移入时，停止运动。
-        }
+        };
         imgNodes[i].onmouseout = function(){
             this.pause = true;//鼠标移出，继续运动
         }

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>计算器</title>
     <script type="text/javascript" src="../../../../base/js/jquery.js"></script>
+    <script type="text/javascript" src="../../../../base/js/docassistant.js"></script>
     <script type="text/javascript" src="../../../../base/js/public.js"></script>
     <script type="text/javascript" src="../../../../reqConfig.js"></script>
 </head>
@@ -33,7 +34,7 @@
         function btnClick(str){
             arr.push(str);
 
-            document.getElementById("input_id").value = arr.join("");;
+            document.getElementById("input_id").value = arr.join("");
         }
 
         function equalClick(){
@@ -46,7 +47,7 @@
                 }
             }
             var arr1 = arr.slice(0, index);
-            var arr2 = arr.slice((index + 1), arr.length)
+            var arr2 = arr.slice((index + 1), arr.length);
             var sign = arr[index];
             var num1 = parseInt(arr1.join(""));
             var num2 = parseInt(arr2.join(""));

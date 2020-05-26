@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>定时器</title>
     <script type="text/javascript" src="../../../../base/js/jquery.js"></script>
+    <script type="text/javascript" src="../../../../base/js/docassistant.js"></script>
     <script type="text/javascript" src="../../../../base/js/public.js"></script>
 </head>
 <body>
@@ -52,7 +53,7 @@
                 isTrue = true;
                 document.getElementById("btn1").innerHTML = "暂停计时";
             }
-        })
+        });
         btn2.addEventListener("click", function(){
             if(isTrue){
                 document.getElementById("btn1").innerHTML = "开始计时";

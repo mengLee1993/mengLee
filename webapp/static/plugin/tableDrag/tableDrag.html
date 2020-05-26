@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格列自由拖动排序js代码</title>
+
+    <link href="columnDrag.css" rel="stylesheet" type="text/css">
+    <script src="../../base/js/jquery.js"></script>
+    <script src="../../base/js/docassistant.js"></script>
+    <script src="../../base/js/public.js"></script>
+    <style>
+        @charset "utf-8";
+
+        body {
+            color: #333;
+            text-align: center;
+            font: 12px "微软雅黑";
+        }
+
+        ul,
+        ol,
+        li {
+            list-style-type: none;
+            vertical-align: 0
+        }
+
+        a {
+            outline-style: none;
+            color: #535353;
+            text-decoration: none
+        }
+
+        a:hover {
+            color: #D40000;
+            text-decoration: none
+        }
+
+        .clear {
+            height: 0;
+            overflow: hidden;
+            clear: both
+        }
+
+        .datouwang {
+            height: 100px;
+            line-height: 100px;
+            font-size: 30px;
+            font-family: '微软雅黑';
+            text-align: center;
+            font-weight: normal
+        }
+
+        #chenkbox {
+            margin: 0px auto;
+            /*width: 800px;*/
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            table-layout: fixed;
+            background-color: #fff;
+        }
+
+        th {
+            background: #ebf3f0;
+            font-size: 13px;
+            color: #000002;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        th,
+        td {
+            text-align: center;
+            border: 1px solid #dcdbdb;
+            padding: 8px 10px;
+        }
+
+        #box {
+            position: absolute;
+            display: none;
+            background: #fff;
+            text-align: center;
+            top: 0;
+            background-color: #000;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            height: 100%;
+            cursor: move;
+        }
+
+        #box p {
+            line-height: 34px;
+        }
+    </style>
+</head>
+<body><script src="/demos/googlegg.js"></script>
+
+<h1 class="datouwang">JS表格列自由拖拽排序特效代码</h1>
+
+<div id="chenkbox" style="overflow:inherit;    overflow-x: auto;">
+    <!--isAjax=1走ajax 是0 localStorage 默认不传是1-->
+    <!--isSort=1点击th排序，0点击th不排序 默认不传是1-->
+    <table id="tableSort" parentCtrlDrag="chenkbox" boxCtrl="box" dragTable="dragTable" isAjax="0" templateid="templateRow">
+        <thead>
+            <tr>
+                <th> 序列 </th>
+                <th> 名称 </th>
+                <th> 数量 </th>
+                <th> 单价(Q点) </th>
+                <th> 总计(Q点) </th>
+            </tr>
+        </thead>
+        <tbody>
+        <!--<tr id="cloneRow">
+            <td>1</td>
+            <td>农场话费A</td>
+            <td>2</td>
+            <td>50</td>
+            <td>100</td>
+        </tr>
+        <tr id="cloneRow">
+            <td>2</td>
+            <td>飞车道具C</td>
+            <td>1</td>
+            <td>80</td>
+            <td>80</td>
+        </tr>
+        <tr id="cloneRow">
+            <td>3</td>
+            <td>空间K</td>
+            <td>1</td>
+            <td>120</td>
+            <td>120</td>
+        </tr>
+        <tr id="cloneRow">
+            <td>4</td>
+            <td>农场狗粮C</td>
+            <td>4</td>
+            <td>60</td>
+            <td>240</td>
+        </tr>
+        <tr id="cloneRow">
+            <td>5</td>
+            <td>音速种子</td>
+            <td>2</td>
+            <td>110</td>
+            <td>220</td>
+        </tr>
+        <tr id="cloneRow">
+            <td>6</td>
+            <td>农场化肥D</td>
+            <td>5</td>
+            <td>60</td>
+            <td>300</td>
+        </tr>
+        <tr id="cloneRow">
+            <td>7</td>
+            <td>AVA装扮C</td>
+            <td>1</td>
+            <td>300</td>
+            <td>300</td>
+        </tr>
+        <tr id="cloneRow">
+            <td>8</td>
+            <td>三国道具C</td>
+            <td>15</td>
+            <td>60</td>
+            <td>900</td>
+        </tr>
+        <tr id="cloneRow">
+            <td>9</td>
+            <td>DNF道具B</td>
+            <td>4</td>
+            <td>300</td>
+            <td>1200</td>
+        </tr>
+        <tr id="cloneRow">
+            <td>10</td>
+            <td>农场化肥H</td>
+            <td>6</td>
+            <td>80</td>
+            <td>120</td>
+        </tr>
+        <tr id="cloneRow">
+            <td>11</td>
+            <td>农场化肥B</td>
+            <td>1</td>
+            <td>80</td>
+            <td>80</td>
+        </tr>
+        <tr id="cloneRow">
+            <td>12</td>
+            <td>Q宠元宝</td>
+            <td>100</td>
+            <td>1</td>
+            <td>100</td>
+        </tr>
+        <tr id="cloneRow">
+            <td>13</td>
+            <td>三国道具K</td>
+            <td>9</td>
+            <td>20</td>
+            <td>180</td>
+        </tr>-->
+        <tr id="templateRow" style="display: none;">
+            <td>13</td>
+            <td>三国道具K</td>
+            <td>9</td>
+            <td>20</td>
+            <td>180</td>
+        </tr>
+        </tbody>
+    </table>
+    <div id="box"></div>
+</div>
+<script src="../../base/js/jquery.js"></script>
+<script src="tableDrag.js"></script>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+</div>
+</body>
+</html>

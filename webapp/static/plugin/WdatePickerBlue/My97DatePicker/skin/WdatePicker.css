@@ -1,0 +1,29 @@
+.Wdate{
+	border: 1px solid #ccc;
+	height:22px;
+	line-height:20px;
+	padding:0 5px;
+	background:#fff url(datePicker.png) no-repeat right center !important;
+}
+.table-list .Wdate[disabled=disabled],.table-list .Wdate[disabled=true],.table-list .Wdate[disabled]{
+	border: none !important;
+	background:none !important;
+}
+.Wdate[disabled=disabled],.Wdate[disabled=true],.Wdate[disabled]{
+	background:#d7d7d7 !important;
+}
+.Wdate[disabled=false]{
+	border: 1px solid #ccc !important;
+	background:#fff url(datePicker.png) no-repeat right center !important;
+}
+.Wdate::-ms-clear{display:none;}
+.WdateFmtErr{
+	font-weight:bold;
+	color:red;
+}
+.trade_inputdisWdate{
+	background: #d7d7d7 url(datePicker.png) no-repeat right center !important;
+}
+.usual_inputdisWdate{
+	background: #d7d7d7 url(datePicker.png) no-repeat right center !important;
+}

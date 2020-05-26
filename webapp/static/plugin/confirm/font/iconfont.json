@@ -1,0 +1,982 @@
+{
+  "id": "1774973",
+  "name": "天源迪科图标库",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "14639496",
+      "name": "u1716",
+      "font_class": "u1716",
+      "unicode": "e80b",
+      "unicode_decimal": 59403
+    },
+    {
+      "icon_id": "14639539",
+      "name": "u2411",
+      "font_class": "u2411",
+      "unicode": "e80c",
+      "unicode_decimal": 59404
+    },
+    {
+      "icon_id": "14639542",
+      "name": "电话_u961",
+      "font_class": "dianhua_u961",
+      "unicode": "e80d",
+      "unicode_decimal": 59405
+    },
+    {
+      "icon_id": "14639545",
+      "name": "店铺",
+      "font_class": "dianpu",
+      "unicode": "e80e",
+      "unicode_decimal": 59406
+    },
+    {
+      "icon_id": "14639549",
+      "name": "工业品",
+      "font_class": "gongyepin",
+      "unicode": "e80f",
+      "unicode_decimal": 59407
+    },
+    {
+      "icon_id": "14639574",
+      "name": "星形",
+      "font_class": "xingxing",
+      "unicode": "e810",
+      "unicode_decimal": 59408
+    },
+    {
+      "icon_id": "14331591",
+      "name": "下拉",
+      "font_class": "xiala",
+      "unicode": "e80a",
+      "unicode_decimal": 59402
+    },
+    {
+      "icon_id": "14331585",
+      "name": "下拉 copy",
+      "font_class": "xialacopy",
+      "unicode": "e809",
+      "unicode_decimal": 59401
+    },
+    {
+      "icon_id": "14280408",
+      "name": "LiRa_preservation",
+      "font_class": "LiRa_preservation",
+      "unicode": "e808",
+      "unicode_decimal": 59400
+    },
+    {
+      "icon_id": "14280387",
+      "name": "LiRa_agree",
+      "font_class": "LiRa_agree",
+      "unicode": "e807",
+      "unicode_decimal": 59399
+    },
+    {
+      "icon_id": "14265443",
+      "name": "LiRa_also1",
+      "font_class": "LiRa_also1",
+      "unicode": "e786",
+      "unicode_decimal": 59270
+    },
+    {
+      "icon_id": "14265444",
+      "name": "LiRa_add",
+      "font_class": "LiRa_add",
+      "unicode": "e787",
+      "unicode_decimal": 59271
+    },
+    {
+      "icon_id": "14265445",
+      "name": "LiRa_also",
+      "font_class": "LiRa_also",
+      "unicode": "e788",
+      "unicode_decimal": 59272
+    },
+    {
+      "icon_id": "14265446",
+      "name": "LiRa_apple",
+      "font_class": "LiRa_apple",
+      "unicode": "e789",
+      "unicode_decimal": 59273
+    },
+    {
+      "icon_id": "14265447",
+      "name": "LiRa_bad1",
+      "font_class": "LiRa_bad1",
+      "unicode": "e78a",
+      "unicode_decimal": 59274
+    },
+    {
+      "icon_id": "14265448",
+      "name": "LiRa_calendar",
+      "font_class": "LiRa_calendar",
+      "unicode": "e78b",
+      "unicode_decimal": 59275
+    },
+    {
+      "icon_id": "14265449",
+      "name": "LiRa_bottom",
+      "font_class": "LiRa_bottom",
+      "unicode": "e78c",
+      "unicode_decimal": 59276
+    },
+    {
+      "icon_id": "14265450",
+      "name": "LiRa_cancellation",
+      "font_class": "LiRa_cancellation",
+      "unicode": "e78d",
+      "unicode_decimal": 59277
+    },
+    {
+      "icon_id": "14265451",
+      "name": "LiRa_check",
+      "font_class": "LiRa_check",
+      "unicode": "e78e",
+      "unicode_decimal": 59278
+    },
+    {
+      "icon_id": "14265452",
+      "name": "LiRa_android",
+      "font_class": "LiRa_android",
+      "unicode": "e78f",
+      "unicode_decimal": 59279
+    },
+    {
+      "icon_id": "14265453",
+      "name": "LiRa_apply",
+      "font_class": "LiRa_apply",
+      "unicode": "e790",
+      "unicode_decimal": 59280
+    },
+    {
+      "icon_id": "14265454",
+      "name": "LiRa_camera",
+      "font_class": "LiRa_camera",
+      "unicode": "e791",
+      "unicode_decimal": 59281
+    },
+    {
+      "icon_id": "14265455",
+      "name": "LiRa_bad",
+      "font_class": "LiRa_bad",
+      "unicode": "e792",
+      "unicode_decimal": 59282
+    },
+    {
+      "icon_id": "14265456",
+      "name": "LiRa_circular",
+      "font_class": "LiRa_circular",
+      "unicode": "e793",
+      "unicode_decimal": 59283
+    },
+    {
+      "icon_id": "14265457",
+      "name": "LiRa_approval",
+      "font_class": "LiRa_approval",
+      "unicode": "e794",
+      "unicode_decimal": 59284
+    },
+    {
+      "icon_id": "14265458",
+      "name": "LiRa_cloud-upload",
+      "font_class": "LiRa_cloud-upload",
+      "unicode": "e795",
+      "unicode_decimal": 59285
+    },
+    {
+      "icon_id": "14265459",
+      "name": "LiRa_column",
+      "font_class": "LiRa_column",
+      "unicode": "e796",
+      "unicode_decimal": 59286
+    },
+    {
+      "icon_id": "14265460",
+      "name": "LiRa_browser",
+      "font_class": "LiRa_browser",
+      "unicode": "e797",
+      "unicode_decimal": 59287
+    },
+    {
+      "icon_id": "14265461",
+      "name": "LiRa_cross2",
+      "font_class": "LiRa_cross2",
+      "unicode": "e798",
+      "unicode_decimal": 59288
+    },
+    {
+      "icon_id": "14265462",
+      "name": "LiRa_collapse2",
+      "font_class": "LiRa_collapse2",
+      "unicode": "e799",
+      "unicode_decimal": 59289
+    },
+    {
+      "icon_id": "14265463",
+      "name": "LiRa_check2",
+      "font_class": "LiRa_check2",
+      "unicode": "e79a",
+      "unicode_decimal": 59290
+    },
+    {
+      "icon_id": "14265464",
+      "name": "LiRa_clip",
+      "font_class": "LiRa_clip",
+      "unicode": "e79b",
+      "unicode_decimal": 59291
+    },
+    {
+      "icon_id": "14265465",
+      "name": "LiRa_copyright",
+      "font_class": "LiRa_copyright",
+      "unicode": "e79c",
+      "unicode_decimal": 59292
+    },
+    {
+      "icon_id": "14265466",
+      "name": "LiRa_check1",
+      "font_class": "LiRa_check1",
+      "unicode": "e79d",
+      "unicode_decimal": 59293
+    },
+    {
+      "icon_id": "14265467",
+      "name": "LiRa_comment",
+      "font_class": "LiRa_comment",
+      "unicode": "e79e",
+      "unicode_decimal": 59294
+    },
+    {
+      "icon_id": "14265468",
+      "name": "LiRa_dal",
+      "font_class": "LiRa_dal",
+      "unicode": "e79f",
+      "unicode_decimal": 59295
+    },
+    {
+      "icon_id": "14265469",
+      "name": "LiRa_collapse",
+      "font_class": "LiRa_collapse",
+      "unicode": "e7a0",
+      "unicode_decimal": 59296
+    },
+    {
+      "icon_id": "14265470",
+      "name": "LiRa_cloud-download",
+      "font_class": "LiRa_cloud-download",
+      "unicode": "e7a1",
+      "unicode_decimal": 59297
+    },
+    {
+      "icon_id": "14265471",
+      "name": "LiRa_down02",
+      "font_class": "LiRa_down02",
+      "unicode": "e7a2",
+      "unicode_decimal": 59298
+    },
+    {
+      "icon_id": "14265472",
+      "name": "LiRa_delete",
+      "font_class": "LiRa_delete",
+      "unicode": "e7a3",
+      "unicode_decimal": 59299
+    },
+    {
+      "icon_id": "14265473",
+      "name": "LiRa_dar",
+      "font_class": "LiRa_dar",
+      "unicode": "e7a4",
+      "unicode_decimal": 59300
+    },
+    {
+      "icon_id": "14265474",
+      "name": "LiRa_data",
+      "font_class": "LiRa_data",
+      "unicode": "e7a5",
+      "unicode_decimal": 59301
+    },
+    {
+      "icon_id": "14265475",
+      "name": "LiRa_copy",
+      "font_class": "LiRa_copy",
+      "unicode": "e7a6",
+      "unicode_decimal": 59302
+    },
+    {
+      "icon_id": "14265476",
+      "name": "LiRa_cross",
+      "font_class": "LiRa_cross",
+      "unicode": "e7a7",
+      "unicode_decimal": 59303
+    },
+    {
+      "icon_id": "14265477",
+      "name": "LiRa_cross1",
+      "font_class": "LiRa_cross1",
+      "unicode": "e7a8",
+      "unicode_decimal": 59304
+    },
+    {
+      "icon_id": "14265478",
+      "name": "LiRa_dad",
+      "font_class": "LiRa_dad",
+      "unicode": "e7a9",
+      "unicode_decimal": 59305
+    },
+    {
+      "icon_id": "14265479",
+      "name": "LiRa_dau",
+      "font_class": "LiRa_dau",
+      "unicode": "e7aa",
+      "unicode_decimal": 59306
+    },
+    {
+      "icon_id": "14265480",
+      "name": "LiRa_edit1",
+      "font_class": "LiRa_edit1",
+      "unicode": "e7ab",
+      "unicode_decimal": 59307
+    },
+    {
+      "icon_id": "14265481",
+      "name": "LiRa_fill",
+      "font_class": "LiRa_fill",
+      "unicode": "e7ac",
+      "unicode_decimal": 59308
+    },
+    {
+      "icon_id": "14265482",
+      "name": "LiRa_dialogue",
+      "font_class": "LiRa_dialogue",
+      "unicode": "e7ad",
+      "unicode_decimal": 59309
+    },
+    {
+      "icon_id": "14265483",
+      "name": "LiRa_file",
+      "font_class": "LiRa_file",
+      "unicode": "e7ae",
+      "unicode_decimal": 59310
+    },
+    {
+      "icon_id": "14265484",
+      "name": "LiRa_edit",
+      "font_class": "LiRa_edit",
+      "unicode": "e7af",
+      "unicode_decimal": 59311
+    },
+    {
+      "icon_id": "14265485",
+      "name": "LiRa_home1",
+      "font_class": "LiRa_home1",
+      "unicode": "e7b0",
+      "unicode_decimal": 59312
+    },
+    {
+      "icon_id": "14265486",
+      "name": "LiRa_help",
+      "font_class": "LiRa_help",
+      "unicode": "e7b1",
+      "unicode_decimal": 59313
+    },
+    {
+      "icon_id": "14265487",
+      "name": "LiRa_download",
+      "font_class": "LiRa_download",
+      "unicode": "e7b2",
+      "unicode_decimal": 59314
+    },
+    {
+      "icon_id": "14265488",
+      "name": "LiRa_fabulous",
+      "font_class": "LiRa_fabulous",
+      "unicode": "e7b3",
+      "unicode_decimal": 59315
+    },
+    {
+      "icon_id": "14265489",
+      "name": "LiRa_enter",
+      "font_class": "LiRa_enter",
+      "unicode": "e7b4",
+      "unicode_decimal": 59316
+    },
+    {
+      "icon_id": "14265490",
+      "name": "LiRa_expand",
+      "font_class": "LiRa_expand",
+      "unicode": "e7b5",
+      "unicode_decimal": 59317
+    },
+    {
+      "icon_id": "14265491",
+      "name": "LiRa_fabulous1",
+      "font_class": "LiRa_fabulous1",
+      "unicode": "e7b6",
+      "unicode_decimal": 59318
+    },
+    {
+      "icon_id": "14265492",
+      "name": "LiRa_Load",
+      "font_class": "LiRa_Load",
+      "unicode": "e7b7",
+      "unicode_decimal": 59319
+    },
+    {
+      "icon_id": "14265493",
+      "name": "LiRa_last-page",
+      "font_class": "LiRa_last-page",
+      "unicode": "e7b8",
+      "unicode_decimal": 59320
+    },
+    {
+      "icon_id": "14265494",
+      "name": "LiRa_expand1",
+      "font_class": "LiRa_expand1",
+      "unicode": "e7b9",
+      "unicode_decimal": 59321
+    },
+    {
+      "icon_id": "14265495",
+      "name": "LiRa_key",
+      "font_class": "LiRa_key",
+      "unicode": "e7ba",
+      "unicode_decimal": 59322
+    },
+    {
+      "icon_id": "14265496",
+      "name": "LiRa_feedback",
+      "font_class": "LiRa_feedback",
+      "unicode": "e7bb",
+      "unicode_decimal": 59323
+    },
+    {
+      "icon_id": "14265497",
+      "name": "LiRa_home",
+      "font_class": "LiRa_home",
+      "unicode": "e7bc",
+      "unicode_decimal": 59324
+    },
+    {
+      "icon_id": "14265498",
+      "name": "LiRa_like1",
+      "font_class": "LiRa_like1",
+      "unicode": "e7bd",
+      "unicode_decimal": 59325
+    },
+    {
+      "icon_id": "14265499",
+      "name": "LiRa_forward",
+      "font_class": "LiRa_forward",
+      "unicode": "e7be",
+      "unicode_decimal": 59326
+    },
+    {
+      "icon_id": "14265500",
+      "name": "LiRa_like",
+      "font_class": "LiRa_like",
+      "unicode": "e7bf",
+      "unicode_decimal": 59327
+    },
+    {
+      "icon_id": "14265501",
+      "name": "LiRa_form",
+      "font_class": "LiRa_form",
+      "unicode": "e7c0",
+      "unicode_decimal": 59328
+    },
+    {
+      "icon_id": "14265502",
+      "name": "LiRa_milepost",
+      "font_class": "LiRa_milepost",
+      "unicode": "e7c1",
+      "unicode_decimal": 59329
+    },
+    {
+      "icon_id": "14265503",
+      "name": "LiRa_enlarge",
+      "font_class": "LiRa_enlarge",
+      "unicode": "e7c2",
+      "unicode_decimal": 59330
+    },
+    {
+      "icon_id": "14265504",
+      "name": "LiRa_more1",
+      "font_class": "LiRa_more1",
+      "unicode": "e7c3",
+      "unicode_decimal": 59331
+    },
+    {
+      "icon_id": "14265505",
+      "name": "LiRa_left",
+      "font_class": "LiRa_left",
+      "unicode": "e7c4",
+      "unicode_decimal": 59332
+    },
+    {
+      "icon_id": "14265506",
+      "name": "LiRa_Load1",
+      "font_class": "LiRa_Load1",
+      "unicode": "e7c5",
+      "unicode_decimal": 59333
+    },
+    {
+      "icon_id": "14265507",
+      "name": "LiRa_loading",
+      "font_class": "LiRa_loading",
+      "unicode": "e7c6",
+      "unicode_decimal": 59334
+    },
+    {
+      "icon_id": "14265508",
+      "name": "LiRa_next-page",
+      "font_class": "LiRa_next-page",
+      "unicode": "e7c7",
+      "unicode_decimal": 59335
+    },
+    {
+      "icon_id": "14265509",
+      "name": "LiRa_information",
+      "font_class": "LiRa_information",
+      "unicode": "e7c8",
+      "unicode_decimal": 59336
+    },
+    {
+      "icon_id": "14265510",
+      "name": "LiRa_loop",
+      "font_class": "LiRa_loop",
+      "unicode": "e7c9",
+      "unicode_decimal": 59337
+    },
+    {
+      "icon_id": "14265511",
+      "name": "LiRa_list1",
+      "font_class": "LiRa_list1",
+      "unicode": "e7ca",
+      "unicode_decimal": 59338
+    },
+    {
+      "icon_id": "14265512",
+      "name": "LiRa_help1",
+      "font_class": "LiRa_help1",
+      "unicode": "e7cb",
+      "unicode_decimal": 59339
+    },
+    {
+      "icon_id": "14265513",
+      "name": "LiRa_no-preview",
+      "font_class": "LiRa_no-preview",
+      "unicode": "e7cc",
+      "unicode_decimal": 59340
+    },
+    {
+      "icon_id": "14265514",
+      "name": "LiRa_location",
+      "font_class": "LiRa_location",
+      "unicode": "e7cd",
+      "unicode_decimal": 59341
+    },
+    {
+      "icon_id": "14265515",
+      "name": "LiRa_more",
+      "font_class": "LiRa_more",
+      "unicode": "e7ce",
+      "unicode_decimal": 59342
+    },
+    {
+      "icon_id": "14265516",
+      "name": "LiRa_notes",
+      "font_class": "LiRa_notes",
+      "unicode": "e7cf",
+      "unicode_decimal": 59343
+    },
+    {
+      "icon_id": "14265517",
+      "name": "LiRa_notes1",
+      "font_class": "LiRa_notes1",
+      "unicode": "e7d0",
+      "unicode_decimal": 59344
+    },
+    {
+      "icon_id": "14265518",
+      "name": "LiRa_down",
+      "font_class": "LiRa_down",
+      "unicode": "e7d1",
+      "unicode_decimal": 59345
+    },
+    {
+      "icon_id": "14265519",
+      "name": "LiRa_lock",
+      "font_class": "LiRa_lock",
+      "unicode": "e7d2",
+      "unicode_decimal": 59346
+    },
+    {
+      "icon_id": "14265520",
+      "name": "LiRa_pdf",
+      "font_class": "LiRa_pdf",
+      "unicode": "e7d3",
+      "unicode_decimal": 59347
+    },
+    {
+      "icon_id": "14265521",
+      "name": "LiRa_list",
+      "font_class": "LiRa_list",
+      "unicode": "e7d4",
+      "unicode_decimal": 59348
+    },
+    {
+      "icon_id": "14265522",
+      "name": "LiRa_notice",
+      "font_class": "LiRa_notice",
+      "unicode": "e7d5",
+      "unicode_decimal": 59349
+    },
+    {
+      "icon_id": "14265523",
+      "name": "LiRa_preview",
+      "font_class": "LiRa_preview",
+      "unicode": "e7d6",
+      "unicode_decimal": 59350
+    },
+    {
+      "icon_id": "14265524",
+      "name": "LiRa_reduce1",
+      "font_class": "LiRa_reduce1",
+      "unicode": "e7d7",
+      "unicode_decimal": 59351
+    },
+    {
+      "icon_id": "14265525",
+      "name": "LiRa_misery",
+      "font_class": "LiRa_misery",
+      "unicode": "e7d8",
+      "unicode_decimal": 59352
+    },
+    {
+      "icon_id": "14265526",
+      "name": "LiRa_plus",
+      "font_class": "LiRa_plus",
+      "unicode": "e7d9",
+      "unicode_decimal": 59353
+    },
+    {
+      "icon_id": "14265527",
+      "name": "LiRa_narrow",
+      "font_class": "LiRa_narrow",
+      "unicode": "e7da",
+      "unicode_decimal": 59354
+    },
+    {
+      "icon_id": "14265528",
+      "name": "LiRa_phone",
+      "font_class": "LiRa_phone",
+      "unicode": "e7db",
+      "unicode_decimal": 59355
+    },
+    {
+      "icon_id": "14265529",
+      "name": "LiRa_p0",
+      "font_class": "LiRa_p0",
+      "unicode": "e7dc",
+      "unicode_decimal": 59356
+    },
+    {
+      "icon_id": "14265530",
+      "name": "LiRa_qq",
+      "font_class": "LiRa_qq",
+      "unicode": "e7dd",
+      "unicode_decimal": 59357
+    },
+    {
+      "icon_id": "14265531",
+      "name": "LiRa_refresh",
+      "font_class": "LiRa_refresh",
+      "unicode": "e7de",
+      "unicode_decimal": 59358
+    },
+    {
+      "icon_id": "14265532",
+      "name": "LiRa_right02",
+      "font_class": "LiRa_right02",
+      "unicode": "e7df",
+      "unicode_decimal": 59359
+    },
+    {
+      "icon_id": "14265533",
+      "name": "LiRa_release",
+      "font_class": "LiRa_release",
+      "unicode": "e7e0",
+      "unicode_decimal": 59360
+    },
+    {
+      "icon_id": "14265534",
+      "name": "LiRa_order",
+      "font_class": "LiRa_order",
+      "unicode": "e7e1",
+      "unicode_decimal": 59361
+    },
+    {
+      "icon_id": "14265535",
+      "name": "LiRa_personal",
+      "font_class": "LiRa_personal",
+      "unicode": "e7e2",
+      "unicode_decimal": 59362
+    },
+    {
+      "icon_id": "14265536",
+      "name": "LiRa_reduce",
+      "font_class": "LiRa_reduce",
+      "unicode": "e7e3",
+      "unicode_decimal": 59363
+    },
+    {
+      "icon_id": "14265537",
+      "name": "LiRa_screen1",
+      "font_class": "LiRa_screen1",
+      "unicode": "e7e4",
+      "unicode_decimal": 59364
+    },
+    {
+      "icon_id": "14265538",
+      "name": "LiRa_screen",
+      "font_class": "LiRa_screen",
+      "unicode": "e7e5",
+      "unicode_decimal": 59365
+    },
+    {
+      "icon_id": "14265539",
+      "name": "LiRa_search",
+      "font_class": "LiRa_search",
+      "unicode": "e7e6",
+      "unicode_decimal": 59366
+    },
+    {
+      "icon_id": "14265540",
+      "name": "LiRa_right",
+      "font_class": "LiRa_right",
+      "unicode": "e7e7",
+      "unicode_decimal": 59367
+    },
+    {
+      "icon_id": "14265541",
+      "name": "LiRa_select-files",
+      "font_class": "LiRa_select-files",
+      "unicode": "e7e8",
+      "unicode_decimal": 59368
+    },
+    {
+      "icon_id": "14265542",
+      "name": "LiRa_picture",
+      "font_class": "LiRa_picture",
+      "unicode": "e7e9",
+      "unicode_decimal": 59369
+    },
+    {
+      "icon_id": "14265543",
+      "name": "LiRa_setup",
+      "font_class": "LiRa_setup",
+      "unicode": "e7ea",
+      "unicode_decimal": 59370
+    },
+    {
+      "icon_id": "14265544",
+      "name": "LiRa_shopping1",
+      "font_class": "LiRa_shopping1",
+      "unicode": "e7eb",
+      "unicode_decimal": 59371
+    },
+    {
+      "icon_id": "14265545",
+      "name": "LiRa_security",
+      "font_class": "LiRa_security",
+      "unicode": "e7ec",
+      "unicode_decimal": 59372
+    },
+    {
+      "icon_id": "14265546",
+      "name": "LiRa_refresh2",
+      "font_class": "LiRa_refresh2",
+      "unicode": "e7ed",
+      "unicode_decimal": 59373
+    },
+    {
+      "icon_id": "14265547",
+      "name": "LiRa_region",
+      "font_class": "LiRa_region",
+      "unicode": "e7ee",
+      "unicode_decimal": 59374
+    },
+    {
+      "icon_id": "14265548",
+      "name": "LiRa_remind",
+      "font_class": "LiRa_remind",
+      "unicode": "e7ef",
+      "unicode_decimal": 59375
+    },
+    {
+      "icon_id": "14265549",
+      "name": "LiRa_shopping",
+      "font_class": "LiRa_shopping",
+      "unicode": "e7f0",
+      "unicode_decimal": 59376
+    },
+    {
+      "icon_id": "14265550",
+      "name": "LiRa_telephone",
+      "font_class": "LiRa_telephone",
+      "unicode": "e7f1",
+      "unicode_decimal": 59377
+    },
+    {
+      "icon_id": "14265551",
+      "name": "LiRa_scan",
+      "font_class": "LiRa_scan",
+      "unicode": "e7f2",
+      "unicode_decimal": 59378
+    },
+    {
+      "icon_id": "14265552",
+      "name": "LiRa_smile",
+      "font_class": "LiRa_smile",
+      "unicode": "e7f3",
+      "unicode_decimal": 59379
+    },
+    {
+      "icon_id": "14265553",
+      "name": "LiRa_twitter",
+      "font_class": "LiRa_twitter",
+      "unicode": "e7f4",
+      "unicode_decimal": 59380
+    },
+    {
+      "icon_id": "14265554",
+      "name": "LiRa_star",
+      "font_class": "LiRa_star",
+      "unicode": "e7f5",
+      "unicode_decimal": 59381
+    },
+    {
+      "icon_id": "14265555",
+      "name": "LiRa_service",
+      "font_class": "LiRa_service",
+      "unicode": "e7f6",
+      "unicode_decimal": 59382
+    },
+    {
+      "icon_id": "14265556",
+      "name": "LiRa_user",
+      "font_class": "LiRa_user",
+      "unicode": "e7f7",
+      "unicode_decimal": 59383
+    },
+    {
+      "icon_id": "14265557",
+      "name": "LiRa_upload",
+      "font_class": "LiRa_upload",
+      "unicode": "e7f8",
+      "unicode_decimal": 59384
+    },
+    {
+      "icon_id": "14265558",
+      "name": "LiRa_share",
+      "font_class": "LiRa_share",
+      "unicode": "e7f9",
+      "unicode_decimal": 59385
+    },
+    {
+      "icon_id": "14265559",
+      "name": "LiRa_shop",
+      "font_class": "LiRa_shop",
+      "unicode": "e7fa",
+      "unicode_decimal": 59386
+    },
+    {
+      "icon_id": "14265560",
+      "name": "LiRa_wechat",
+      "font_class": "LiRa_wechat",
+      "unicode": "e7fb",
+      "unicode_decimal": 59387
+    },
+    {
+      "icon_id": "14265561",
+      "name": "LiRa_word",
+      "font_class": "LiRa_word",
+      "unicode": "e7fc",
+      "unicode_decimal": 59388
+    },
+    {
+      "icon_id": "14265562",
+      "name": "LiRa_user1",
+      "font_class": "LiRa_user1",
+      "unicode": "e7fd",
+      "unicode_decimal": 59389
+    },
+    {
+      "icon_id": "14265563",
+      "name": "LiRa_windows",
+      "font_class": "LiRa_windows",
+      "unicode": "e7fe",
+      "unicode_decimal": 59390
+    },
+    {
+      "icon_id": "14265564",
+      "name": "LiRa_top",
+      "font_class": "LiRa_top",
+      "unicode": "e7ff",
+      "unicode_decimal": 59391
+    },
+    {
+      "icon_id": "14265565",
+      "name": "LiRa_words",
+      "font_class": "LiRa_words",
+      "unicode": "e800",
+      "unicode_decimal": 59392
+    },
+    {
+      "icon_id": "14265566",
+      "name": "LiRa_xlsx",
+      "font_class": "LiRa_xlsx",
+      "unicode": "e801",
+      "unicode_decimal": 59393
+    },
+    {
+      "icon_id": "14265567",
+      "name": "LiRa_time",
+      "font_class": "LiRa_time",
+      "unicode": "e802",
+      "unicode_decimal": 59394
+    },
+    {
+      "icon_id": "14265568",
+      "name": "LiRa_work",
+      "font_class": "LiRa_work",
+      "unicode": "e803",
+      "unicode_decimal": 59395
+    },
+    {
+      "icon_id": "14265569",
+      "name": "LiRa_up",
+      "font_class": "LiRa_up",
+      "unicode": "e804",
+      "unicode_decimal": 59396
+    },
+    {
+      "icon_id": "14265570",
+      "name": "LiRa_video",
+      "font_class": "LiRa_video",
+      "unicode": "e805",
+      "unicode_decimal": 59397
+    },
+    {
+      "icon_id": "14265571",
+      "name": "LiRa_weibo",
+      "font_class": "LiRa_weibo",
+      "unicode": "e806",
+      "unicode_decimal": 59398
+    }
+  ]
+}

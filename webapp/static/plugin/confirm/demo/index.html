@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+    <link rel="stylesheet" type="text/css" href="../font/iconfont.css"/>
+    
+    <link rel="stylesheet" href="../css/confirm.css">
+    <script src="../../../base/js/jquery.js"></script>
+    <script src="../js/confirm.js"></script>
+</head>
+<body>
+<div id="confirm" style="width: 100%;height: 30px;line-height: 30px;">confirm</div>
+<div id="confirm2" style="width: 100%;height: 30px;line-height: 30px;">confirm 定时关闭</div>
+<div id="confirm3" style="width: 100%;height: 30px;line-height: 30px;">del</div>
+<div id="confirm4" style="width: 100%;height: 30px;line-height: 30px;">confirm 样式2</div>
+
+<script>
+
+    $(function(){
+        
+        //提示 -- 带主题
+        $("#confirm").on("click",function(){
+            jQuery.confirm("提示内容","标题提示",function(result){
+                if(result==true){
+                    alert("确定成功");
+                }else{
+                    alert("取消成功");
+                }
+            },"确定按钮名称","取消按钮名称",null);
+        });
+
+        $("#confirm2").on("click",function(){
+            jQuery.confirm("提示内容","标题提示",function(result){
+                if(result==true){
+                    alert("确定成功");
+                }else{
+                    alert("取消成功");
+                }
+            },"确定按钮名称","取消按钮名称",null,2000);
+        });
+        
+        //删除 -- 带主题
+        $("#confirm3").on("click",function(){
+            jQuery.confirm("提示内容","标题提示",function(result){
+                if(result==true){
+                    alert("确定成功");
+                }else{
+                    alert("取消成功");
+                }
+            },"确定按钮名称","取消按钮名称","del");
+        });
+
+        //删除 -- 带主题
+        $("#confirm4").on("click",function(){
+            jQuery.confirm("提示内容","标题提示",function(result){
+                if(result==true){
+                    alert("确定成功");
+                }else{
+                    alert("取消成功");
+                }
+            },"确定按钮名称","取消按钮名称","com");
+        });
+        
+    })
+</script>
+</body>
+</html>

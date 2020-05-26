@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../../base/css/trade-base.css">
+    <link rel="stylesheet" href="../css/ajaxWait.css">
+    <script src="../../../base/js/jquery.js"></script>
+    <script src="../../../base/js/public.js"></script>
+    <script src="../../../base/js/docassistant.js"></script>
+    <script src="../../../reqConfig.js"></script>
+    <script src="../js/ajaxWait.js"></script>
+</head>
+<body>
+<script>
+    getAjaxResult("/tr-cust-month-balance/settleaccount","POST",{periodYear: "2019", periodMonth: "08", modelCodes: "CO", operTitle: ""},function(data){
+        data = JSON.parse(data);
+        if(data.retCode == "0000000"){
+            alert("ok");
+        }
+    })
+</script>
+</body>
+</html>

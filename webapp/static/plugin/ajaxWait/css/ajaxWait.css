@@ -1,0 +1,176 @@
+#ajax_wait{
+    position:absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 99999999999999999999999999999999999;
+    margin: auto;
+    width:240px;
+    height:29px;
+}
+
+.ajax_wait{
+    position:absolute;
+    top:0;
+    background-color:#33cc99;
+    width:29px;
+    height:29px;
+    -webkit-animation:bounce_ajax_wait 1.3s infinite normal;
+    -moz-animation:bounce_ajax_wait 1.3s infinite normal;
+    -o-animation:bounce_ajax_wait 1.3s infinite normal;
+    -ms-animation:bounce_ajax_wait 1.3s infinite normal;
+    animation:bounce_ajax_wait 1.3s infinite normal;
+    -moz-transform:scale(.3);
+    -webkit-transform:scale(.3);
+    -ms-transform:scale(.3);
+    -o-transform:scale(.3);
+    transform:scale(.3);
+    border-radius:19px;
+}
+
+#ajax_wait_1{
+    left:0;
+    -moz-animation-delay:0.52s;
+    -webkit-animation-delay:0.52s;
+    -ms-animation-delay:0.52s;
+    -o-animation-delay:0.52s;
+    animation-delay:0.52s;
+}
+
+#ajax_wait_2{
+    left:30px;
+    -moz-animation-delay:0.65s;
+    -webkit-animation-delay:0.65s;
+    -ms-animation-delay:0.65s;
+    -o-animation-delay:0.65s;
+    animation-delay:0.65s;
+}
+
+#ajax_wait_3{
+    left:60px;
+    -moz-animation-delay:0.78s;
+    -webkit-animation-delay:0.78s;
+    -ms-animation-delay:0.78s;
+    -o-animation-delay:0.78s;
+    animation-delay:0.78s;
+}
+
+#ajax_wait_4{
+    left:90px;
+    -moz-animation-delay:0.91s;
+    -webkit-animation-delay:0.91s;
+    -ms-animation-delay:0.91s;
+    -o-animation-delay:0.91s;
+    animation-delay:0.91s;
+}
+
+#ajax_wait_5{
+    left:120px;
+    -moz-animation-delay:1.04s;
+    -webkit-animation-delay:1.04s;
+    -ms-animation-delay:1.04s;
+    -o-animation-delay:1.04s;
+    animation-delay:1.04s;
+}
+
+#ajax_wait_6{
+    left:150px;
+    -moz-animation-delay:1.17s;
+    -webkit-animation-delay:1.17s;
+    -ms-animation-delay:1.17s;
+    -o-animation-delay:1.17s;
+    animation-delay:1.17s;
+}
+
+#ajax_wait_7{
+    left:180px;
+    -moz-animation-delay:1.3s;
+    -webkit-animation-delay:1.3s;
+    -ms-animation-delay:1.3s;
+    -o-animation-delay:1.3s;
+    animation-delay:1.3s;
+}
+
+#ajax_wait_8{
+    left:210px;
+    -moz-animation-delay:1.43s;
+    -webkit-animation-delay:1.43s;
+    -ms-animation-delay:1.43s;
+    -o-animation-delay:1.43s;
+    animation-delay:1.43s;
+}
+
+@-moz-keyframes bounce_ajax_wait{
+    0%{
+        -moz-transform:scale(1);
+        background-color:#33cc99;
+    }
+
+    100%{
+        -moz-transform:scale(.3);
+        background-color:#0099cc;
+    }
+
+}
+
+@-webkit-keyframes bounce_ajax_wait{
+    0%{
+        -webkit-transform:scale(1);
+        background-color:#33cc99;
+    }
+
+    100%{
+        -webkit-transform:scale(.3);
+        background-color:#0099cc;
+    }
+
+}
+
+@-ms-keyframes bounce_ajax_wait{
+    0%{
+        -ms-transform:scale(1);
+        background-color:#33cc99;
+    }
+
+    100%{
+        -ms-transform:scale(.3);
+        background-color:#0099cc;
+    }
+
+}
+
+@-o-keyframes bounce_ajax_wait{
+    0%{
+        -o-transform:scale(1);
+        background-color:#33cc99;
+    }
+
+    100%{
+        -o-transform:scale(.3);
+        background-color:#0099cc;
+    }
+
+}
+
+@keyframes bounce_ajax_wait{
+    0%{
+        transform:scale(1);
+        background-color:#33cc99;
+    }
+
+    100%{
+        transform:scale(.3);
+        background-color:#0099cc;
+    }
+
+}
+#ajax_waitBox{
+    position:fixed;
+    width: 100%;
+    opacity: 0.8;
+    background:grey;
+    display: none;
+    top: 0;
+    z-index: 99999999999999;
+}

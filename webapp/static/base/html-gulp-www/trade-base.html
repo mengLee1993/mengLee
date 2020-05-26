@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>公共样式</title>
+	<link rel="stylesheet" href="../../plugin/WdatePickerBlue/My97DatePicker/skin/WdatePicker.css">
+	<link rel="stylesheet" href="../../plugin/select/chosen_blue.css">
+	<link rel="stylesheet" href="../../plugin/popup/css/manhuaDialog.1.0_blue.css">
+	<link rel="stylesheet" href="../../plugin/page/css/table_blue.css">
+	<link rel="stylesheet" href="../css/trade-base.css">
+	<script src="../../base/js/jquery.js"></script>
+	<script src="../../plugin/select/chosen.jquery.js"></script>
+	<script src="../../base/js/public.js"></script>
+	<script src="../../base/js/docassistant.js"></script>
+	<script src="../../plugin/WdatePickerBlue/My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript" src="../../plugin/page/script/jquery.page.js"></script>
+	<script src="../../plugin/popup/script/manhuaDialog.1.0.js"></script>
+	<script src="../../base/js/ajaxupload.js"></script>
+	<script type="text/javascript" src="../../reqConfig.js"></script>
+	<script>
+        var requestUrl = "";
+	</script>
+	<style>
+		h1{
+			font-size: 20px;
+			line-height: 30px;
+			background-color: lightpink;
+			border: 1px dashed red;
+			margin: 10px auto;
+		}
+		.lh40{
+			line-height:40px;
+		}
+		.font-title{
+			font-weight:bold;
+			font-size:14px;
+		}
+	</style>
+
+</head>
+
+<body>
+<div style="padding:20px;">
+	<div class="trade_base pt20 mb50">
+		<i class="icon iconfont icon-roundcheckfill"></i>
+		<h1 class="lh40 font-title">一. 主色</h1>
+		<div class="clearfix pt10 pb10">
+			<div class="circle bg_main mr30"></div>
+			<div class="circle bg_m0 mr30"></div>
+		</div>
+		<h1 class="lh40 font-title">二. 辅助色</h1>
+		<div class="clearfix pt10 pb10">
+			<div class="circle as_93c mr30"></div>
+			<div class="circle as_ee mr30"></div>
+			<div class="circle as_ec4 mr30"></div>
+			<div class="circle as_00a mr30"></div>
+			<div class="circle as_5dd mr30"></div>
+			<div class="circle as_1f2 mr30"></div>
+			<div class="circle as_515 mr30"></div>
+			<div class="circle as_83 mr30"></div>
+			<div class="circle as_f0 mr30"></div>
+		</div>
+		<h1 class="lh40 font-title">三.弹窗新版按钮</h1>
+		<a href="javascript:;" class="btn-search trade_btn">
+			<i></i>
+			<b>搜索</b>
+		</a>
+		<a href="javascript:;" class="btn-reset trade_btn">
+			<i></i>
+			<b>重置</b>
+		</a>
+		<a href="javascript:;" class="btn-sure trade_btn">
+			<span>确认</span>
+		</a>
+		<a href="javascript:;" class="btn-cancel trade_btn">
+			<span>取消</span>
+		</a>
+		<h1 class="lh40 font-title">三.新版按钮</h1>
+		<div class="mb10 mt10">
+			<a href="javascript:;" class="btn-add trade_btn">
+				<i></i>
+				<span>新增</span>
+			</a>
+			<a href="javascript:;" class="btn-adddis trade_btndis">
+				<i></i>
+				<span>新增</span>
+			</a>
+			<a href="javascript:;" class="btn_del trade_btn">
+				<i></i>
+				<span>删除</span>
+			</a>
+			<a href="javascript:;" class="btn_deldis trade_btndis">
+				<i></i>
+				<span>删除</span>
+			</a>
+			<a href="javascript:;" class="btn-revamp trade_btn">
+				<i></i>
+				<span>修改</span>
+			</a>
+			<a href="javascript:;" class="btn-revampdis trade_btndis">
+				<i></i>
+				<span>修改</span>
+			</a>
+			<a href="javascript:;" class="btn-detail trade_btn">
+				<i></i>
+				<span>详情</span>
+			</a>
+			<a href="javascript:;" class="btn-search trade_btn">
+				<i></i>
+				<span>搜索</span>
+			</a>
+			<a href="javascript:;" class="btn-reset trade_btn">
+				<i></i>
+				<span>重置</span>
+			</a>
+			<a href="javascript:;" class="btn-add trade_btn">
+				<i></i>
+				<span>子项新增</span>
+			</a>
+			<!-- <a href="javascript:;" class="btn-revamp trade_btndis">
+                <i></i>
+                <span>置灰按钮</span>
+            </a> -->
+			<a href="javascript:;" class="btn-exit trade_btn">
+				<i></i>
+				<span>退出</span>
+			</a>
+			<a href="javascript:;" class="btn-exitdis trade_btndis">
+				<i></i>
+				<span>退出</span>
+			</a>
+			<a href="javascript:;" class="btn-sure trade_btn">
+				<i></i>
+				<span>确认</span>
+			</a>
+			<a href="javascript:;" class="btn-suredis trade_btndis">
+				<i></i>
+				<span>确认</span>
+			</a>
+			<a href="javascript:;" class="btn-cancel trade_btn">
+				<i></i>
+				<span>取消</span>
+			</a>
+			<a href="javascript:;" class="btn-canceldis trade_btndis">
+				<i></i>
+				<span>取消</span>
+			</a>
+			<a href="javascript:;" class="btn-returnsure trade_btn">
+				<i></i>
+				<span>反确认</span>
+			</a>
+			<a href="javascript:;" class="btn-returnsuredis trade_btndis">
+				<i></i>
+				<span>反确认</span>
+			</a>
+		</div>
+		<div class="mb10 mt10">
+			<a href="javascript:;" class="btn-void trade_btn">
+				<i></i>
+				<span>作废</span>
+			</a>
+			<a href="javascript:;" class="btn-voiddis trade_btndis">
+				<i></i>
+				<span>作废</span>
+			</a>
+			<a href="javascript:;" class="btn-save trade_btn">
+				<i></i>
+				<span>保存</span>
+			</a>
+			<a href="javascript:;" class="btn-savedis trade_btndis">
+				<i></i>
+				<span>保存</span>
+			</a>
+			<!-- 贸易 -->
+			<a href="javascript:;" class="btn-expoprt trade_btn">
+				<i></i>
+				<span>导出</span>
+			</a>
+			<a href="javascript:;" class="btn-import trade_btn">
+				<i></i>
+				<span>导入</span>
+			</a>
+			<a href="javascript:;" class="btn-pick trade_btn">
+				<i></i>
+				<span>提取</span>
+			</a>
+			<a href="javascript:;" class="btn-pickdis trade_btndis">
+				<i></i>
+				<span>提取</span>
+			</a>
+			<a href="javascript:;" class="btn-sync trade_btn">
+				<i></i>
+				<span>同步</span>
+			</a>
+			<a href="javascript:;" class="btn-release trade_btn">
+				<i></i>
+				<span>发布</span>
+			</a>
+			<a href="javascript:;" class="btn-back trade_btn">
+				<i></i>
+				<span>返回</span>
+			</a>
+			<a href="javascript:;" class="btn-enter trade_btn">
+				<i></i>
+				<span>确认</span>
+			</a>
+			<a href="javascript:;" class="btn-remove trade_btn">
+				<i></i>
+				<span>撤销</span>
+			</a>
+			<a href="javascript:;" class="btn-removedis trade_btndis">
+				<i></i>
+				<span>撤销</span>
+			</a>
+			<a href="javascript:;" class="btn-closure trade_btn">
+				<i></i>
+				<span>结束</span>
+			</a>
+			<a href="javascript:;" class="btn-closuredis trade_btndis">
+				<i></i>
+				<span>结束</span>
+			</a>
+			<a href="javascript:;" class="btn-activate trade_btn">
+				<i></i>
+				<span>激活</span>
+			</a>
+			<a href="javascript:;" class="btn-sub trade_btn">
+				<i></i>
+				<span>提交</span>
+			</a>
+			<a href="javascript:;" class="btn-order trade_btn">
+				<i></i>
+				<span>制单</span>
+			</a>
+			<a href="javascript:;" class="btn-examine trade_btn">
+				<i></i>
+				<span>审核</span>
+			</a>
+			
+		</div>
+		<div class="mb10 mt10">
+			<a href="javascript:;" class="btn-examinedis trade_btndis">
+				<i></i>
+				<span>审核</span>
+			</a>
+			<a href="javascript:;" class="btn-quote trade_btn">
+				<i></i>
+				<span>引用</span>
+			</a>
+			<a href="javascript:;" class="btn-credit trade_btn">
+				<i></i>
+				<span>授权</span>
+			</a>
+			<a href="javascript:;" class="money-share trade_btn">
+				<i></i>
+				<span>分摊</span>
+			</a>
+			<a href="javascript:;" class="btn-getorder trade_btn">
+				<i></i>
+				<span>提取</span>
+			</a>
+			<a href="javascript:;" class="money-bill trade_btn">
+				<i></i>
+				<span>金额调整</span>
+			</a>
+			<!-- 报批、下发、变更、有效期 -->
+			<a href="javascript:;" class="btn-approval trade_btn">
+				<i></i>
+				<span>报批</span>
+			</a>
+			<a href="javascript:;" class="btn-approvaldis trade_btndis">
+				<i></i>
+				<span>报批</span>
+			</a>
+			<a href="javascript:;" class="btn-Issued trade_btn">
+				<i></i>
+				<span>下发</span>
+			</a>
+			<a href="javascript:;" class="btn-Issuedis trade_btndis">
+				<i></i>
+				<span>下发</span>
+			</a>
+			<a href="javascript:;" class="btn-change trade_btn">
+				<i></i>
+				<span>变更</span>
+			</a>
+			<a href="javascript:;" class="btn-changedis trade_btndis">
+				<i></i>
+				<span>变更</span>
+			</a>
+			<a href="javascript:;" class="btn-validity trade_btn">
+				<i></i>
+				<span>有效期</span>
+			</a>
+			<a href="javascript:;" class="btn-validitydis trade_btndis">
+				<i></i>
+				<span>有效期</span>
+			</a>
+			<!-- 上传下载 -->
+			<a href="javascript:;" class="btn-uploading trade_btn">
+				<i></i>
+				<span>上传</span>
+			</a>
+			<a href="javascript:;" class="btn-uploadingdis trade_btndis">
+				<i></i>
+				<span>上传</span>
+			</a>
+			<a href="javascript:;" class="btn-download trade_btn">
+				<i></i>
+				<span>下载</span>
+			</a>
+			<a href="javascript:;" class="btn-downloaddis trade_btndis">
+				<i></i>
+				<span>下载</span>
+			</a>
+		</div>
+		<div class="mb10 mt10">
+			<a href="javascript:;" class="btn-print trade_btn">
+				<i></i>
+				<span>打印</span>
+			</a>
+			<a href="javascript:;" class="btn-printdis trade_btndis">
+				<i></i>
+				<span>打印</span>
+			</a>
+			<a href="javascript:;" class="select-file trade_btn">
+				<i></i>
+				<span>选择文件</span>
+			</a>
+			<a href="javascript:;" class="select-contract trade_btn">
+				<i></i>
+				<span>挑选合同子项</span>
+			</a>
+			<a href="javascript:;" class="select-contractdis trade_btndis">
+				<i></i>
+				<span>挑选合同子项</span>
+			</a>
+			<a href="javascript:;" class="money-adjust trade_btn">
+				<i></i>
+				<span>金额不平调整</span>
+			</a>
+			<a href="javascript:;" class="money-adjustdis trade_btndis">
+				<i></i>
+				<span>金额不平调整</span>
+			</a>
+			<a href="javascript:;" class="btn-enabled trade_btn">
+				<i></i>
+				<span>启用</span>
+			</a>
+			<a href="javascript:;" class="btn-enabledis trade_btndis">
+				<i></i>
+				<span>启用</span>
+			</a>
+			<a href="javascript:;" class="btn-disabled trade_btn">
+				<i></i>
+				<span>停用</span>
+			</a>
+			<a href="javascript:;" class="btn-disabledis trade_btndis">
+				<i></i>
+				<span>停用</span>
+			</a>
+			<a href="javascript:;" class="btn-generate trade_btn">
+				<i></i>
+				<span>生成</span>
+			</a>
+			<a href="javascript:;" class="btn-generatedis trade_btndis">
+				<i></i>
+				<span>生成</span>
+			</a>
+			<a href="javascript:;" class="btn-copy trade_btn">
+				<i></i>
+				<span>复制</span>
+			</a>
+			<a href="javascript:;" class="btn-copydis trade_btndis">
+				<i></i>
+				<span>复制</span>
+			</a>
+			<a href="javascript:;" class="btn-stock trade_btn">
+				<i></i>
+				<span>领料出库</span>
+			</a>
+		</div>
+		<div class="mt10 mb10">
+			<a href="javascript:;" class="btn-resh trade_btn">
+				<i></i>
+				<span>刷新</span>
+			</a>
+			<a href="javascript:;" class="btn-reshdis trade_btndis">
+				<i></i>
+				<span>刷新</span>
+			</a>
+			<a href="javascript:;" class="btn-start trade_btn">
+				<i></i>
+				<span>开始</span>
+			</a>
+			<a href="javascript:;" class="btn-startdis trade_btndis">
+				<i></i>
+				<span>开始</span>
+			</a>
+			<a href="javascript:;" class="btn-prev trade_btn">
+				<i></i>
+				<span>预览</span>
+			</a>
+			<a href="javascript:;" class="btn-prevdis trade_btndis">
+				<i></i>
+				<span>预览</span>
+			</a>
+			<a href="javascript:;" class="btn-lock trade_btn">
+				<i></i>
+				<span>封锁</span>
+			</a>
+			<a href="javascript:;" class="btn-lockdis trade_btndis">
+				<i></i>
+				<span>封锁</span>
+			</a>
+			<a href="javascript:;" class="btn-inapply trade_btn">
+				<i></i>
+				<span>入库申请</span>
+			</a>
+			<a href="javascript:;" class="btn-inapplydis trade_btndis">
+				<i></i>
+				<span>入库申请</span>
+			</a>
+			<a href="javascript:;" class="btn-baleoper trade_btn">
+				<i></i>
+				<span>捆包操作</span>
+			</a>
+			<a href="javascript:;" class="btn-baleoperdis trade_btndis">
+				<i></i>
+				<span>捆包操作</span>
+			</a>
+			<a href="javascript:;" class="btn-metalbalance trade_btn">
+				<i></i>
+				<span>并包</span>
+			</a>
+			<a href="javascript:;" class="btn-metalbalancedis trade_btndis">
+				<i></i>
+				<span>并包</span>
+			</a>
+			<a href="javascript:;" class="btn-set trade_btn">
+				<i></i>
+				<span>设置</span>
+			</a>
+			<a href="javascript:;" class="btn-setdis trade_btndis">
+				<i></i>
+				<span>设置</span>
+			</a>
+			<a href="javascript:;" class="btn-maching trade_btn">
+				<i></i>
+				<span>加工明细</span>
+			</a>
+			<a href="javascript:;" class="btn-machingdis trade_btndis">
+				<i></i>
+				<span>加工明细</span>
+			</a>
+			<a href="javascript:;" class="btn-addrow trade_btn">
+				<i></i>
+				<span>增加行</span>
+			</a>
+			<a href="javascript:;" class="btn-addrowdis trade_btndis">
+				<i></i>
+				<span>增加行</span>
+			</a>
+		</div>
+		<h1 class="lh40 font-title">四. 输入框</h1>
+		<div class="clearfix pt10 pb10">
+			<div class="mt10">
+				<input type="text" class="trade_input mr10">
+				<input type="text" class="trade_inputdis" disabled="disabled">
+				<input type="text" class="usual_input mr10">
+				<input type="text" class="usual_inputdis" disabled="disabled">
+				<div class="trade_inputselcpop mt10">
+					<input type="text" class=""><b class=""> ···</b>
+				</div>
+			</div>
+		</div>
+		<h1 class="lh40 font-title">五. 弹窗输入框</h1>
+		<input type="text" class="trade_inputpop">
+		<input type="text" class="trade_inputpopdis" disabled="disabled">
+		<h2 class="lh40 font-title">文本框（备注）</h2>
+		<div class="mt10">
+			<textarea name="" id="" style="width:80%;" class="trade_textarea" ></textarea>
+		</div>
+		<div class="mt10 textin">
+			<label>下拉框</label>
+			<select name="" id="testSel" class="initSelSty">
+				<option value="1">成功</option>
+				<option value="1">失败</option>
+			</select>
+			<select name="" id="testSel" class="initSelSty usual_selectdis">
+				<option value="1">成功</option>
+				<option value="1">失败</option>
+			</select>
+		</div>
+		<h1 class="lh40 font-title">六. 时间插件</h1>
+		<label for="endDate1" class="mr5 startDateText fl">延长报价截止时间</label>
+		<div class="fl mr10">
+			<input id="startDate1" type="text" name="startDate1" class="Wdate std-size-autoW Wdatedouble fl"
+				   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true,maxDate:'#F{$dp.$D(\'endDate1\')}'})" readonly="true">
+			<span class="fl Wdateline">-</span>
+			<input type="text" id="endDate1" name="endDate1" class="Wdate std-size-autoW Wdatedouble fl"
+				   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true,minDate:'#F{$dp.$D(\'startDate1\')}',startDate:'#F{$dp.$D(\'startDate1\')}'})"
+				   readonly="true">
+		</div>
+		<input id="startDate1" type="text" name="startDate1" class="Wdate Wdatedoublepop"
+			   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',readOnly:true,maxDate:'#F{$dp.$D(\'endDate1\')}'})" readonly="true">
+		<input id="startDate1" type="text" name="startDate1" class="Wdate trade_inputpopdis Wdatedoublepop"
+			   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',readOnly:true,maxDate:'#F{$dp.$D(\'endDate1\')}'})" readonly="true">
+		<input type="text" id="endDate1" name="endDate1" class="Wdate Wdatesingle"
+			   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',readOnly:true,minDate:'#F{$dp.$D(\'startDate1\')}',startDate:'#F{$dp.$D(\'startDate1\')}'})"
+			   readonly="true">
+		<input type="text" id="createdDt" name="createdDt" class="Wdate trade_inputdisWdate" disabled="disabled"
+			   style="box-sizing:border-box;" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',readOnly:true})" readonly="true">
+		<input type="text" id="createdDt" name="createdDt" class="Wdate usual_inputdisWdate" disabled="disabled"
+			   style="box-sizing:border-box;" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',readOnly:true})" readonly="true">
+		<h1 class="lh40 font-title">七. 选项卡</h1>
+		<p class="mr20 mt20">最新选项卡--工贸</p>
+		<div class="nd-tab mt10 mb10">
+			<!--<h class="juzhong">查询结果</h>-->
+			<ul class="nd-tab-ul" comtype="tabCtrl" contentCls="tabCon">
+				<li class="tabTitLi nd-tab-ul-li"><span>质量外设计</span></li>
+				<li class="nd-tab-ul-li"><span>规格尺寸</span></li>
+				<li class="nd-tab-ul-li"><span>制造要求</span></li>
+				<li class="nd-tab-ul-li"><span>厚板需求</span></li>
+				<li class="nd-tab-ul-li"><span>物流信息</span></li>
+				<li class="nd-tab-ul-li"><span>价格金额</span></li>
+			</ul>
+		</div>
+		<p class="mr20 mt20">选项卡二</p>
+		<div class="ndtwo-tab mt10 mb10 clearfix">
+			<!--<h class="juzhong">查询结果</h>-->
+			<ul class="ndtwo-tab-ul fl" comtype="tabCtrl" contentCls="tabCon">
+				<li class="tabTitLi ndtwo-tab-ul__li"><span>质量外设计</span></li>
+				<li class="ndtwo-tab-ul__li"><span>规格尺寸</span></li>
+				<li class="ndtwo-tab-ul__li"><span>制造要求</span></li>
+				<li class="ndtwo-tab-ul__li"><span>厚板需求</span></li>
+				<li class="ndtwo-tab-ul__li"><span>物流信息</span></li>
+				<li class="ndtwo-tab-ul__li"><span>价格金额</span></li>
+			</ul>
+			<div class="fr">
+				<a href="javascript:;" class="btn-addrow trade_btn fr">
+					<i></i>
+					<span>增加行</span>
+				</a>
+			</div>
+		</div>
+		<h1 class="lh40 font-title">八. 表格</h1>
+		<h1 class="lh40 font-title">标准表格(带有固定表头固定列)</h1>
+		<div>
+			<div id="aDiv" class="table-listbox">
+				<table cellspacing="0" cellpadding="0" id="" templateId="templateRow" reqPath="" reqParam='{}' page="addPage"
+					   noData="noDataCon" class="table-list" clsallchk="clsAllChk" clschk="clsChk">
+					<thead class="table-list-header">
+						<th class="table-list-header__th lock-col lock-row" style="width:1%;">
+							<input type="checkbox" name="" class="clsChk" id="chkCoding">
+						</th>
+						<th class="table-list-header__th lock-row" style="width:2%;">
+							序号
+						</th>
+						<th class="table-list-header__th lock-row" style="width:12%">出库单号</th>
+						<th class="table-list-header__th lock-row" style="width:10%">状态</th>
+						<th class="table-list-header__th lock-row" style="width:11%">出库日期</th>
+						<th class="table-list-header__th lock-row" style="width:10%">出库方式</th>
+						<th class="table-list-header__th lock-row" style="width:12%">提单号</th>
+						<th class="table-list-header__th lock-row" style="width:12%">客户代码</th>
+						<th class="table-list-header__th lock-row" style="width:10%">客户名称</th>
+						<th class="table-list-header__th lock-row" style="width:10%">客户简称</th>
+						<th class="table-list-header__th lock-row" style="width:10%">操作</th>
+					</thead>
+					<tbody>
+						<tr class="table-list-tr">
+							<td class="table-list-tr__item lock-col">
+								<div class="w18">
+									<input type="checkbox" name="" id="">
+								</div>
+							</td>
+							<td class="table-list-tr__item">
+								<div class="w26">
+									<p class="table-list-tr__texellips">1</p>
+								</div>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">1</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">首钢</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">1</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">1</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">311098</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">首钢</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">首钢</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">首钢</p>
+							</td>
+							<td class="table-list-tr__item">
+								<a href="javascript:;" class="contpro-table__icon contpro-table__icon1"></a>
+								<a href="javascript:;" class="contpro-table__icon contpro-table__icon3"></a>
+							</td>
+						</tr>
+						<tr class="table-list-tr table-list-even">
+							<td class="table-list-tr__item lock-col">
+								<div class="w18">
+									<input type="checkbox" name="" id="">
+								</div>
+							</td>
+							<td class="table-list-tr__item">
+								<div class="w26">
+									<p class="table-list-tr__texellips">1</p>
+								</div>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">1</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">首钢</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">1</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">1</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">311098</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">首钢</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">首钢</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">首钢</p>
+							</td>
+							<td class="table-list-tr__item">
+								<a href="javascript:;" class="contpro-table__icon contpro-table__icon1"></a>
+								<a href="javascript:;" class="contpro-table__icon contpro-table__icon3"></a>
+							</td>
+						</tr>
+						<tr class="table-list-tr table-list-checked">
+							<td class="table-list-tr__item lock-col">
+								<div class="w18">
+									<input type="checkbox" name="" id="">
+								</div>
+							</td>
+							<td class="table-list-tr__item">
+								<div class="w26">
+									<p class="table-list-tr__texellips">1</p>
+								</div>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">1</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">首钢</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">1</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">1</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">311098</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">首钢</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">首钢</p>
+							</td>
+							<td class="table-list-tr__item">
+								<p class="table-list-tr__texellips">首钢</p>
+							</td>
+							<td class="table-list-tr__item">
+								<a href="javascript:;" class="contpro-table__icon contpro-table__icon1"></a>
+								<a href="javascript:;" class="contpro-table__icon contpro-table__icon3"></a>
+							</td>
+						</tr>
+						<tr class="table-list-tr table-list-even">
+						<td class="table-list-tr__item lock-col">
+							<div class="w18">
+								<input type="checkbox" name="" id="">
+							</div>
+						</td>
+						<td class="table-list-tr__item">
+							<div class="w26">
+								<p class="table-list-tr__texellips">1</p>
+							</div>
+						</td>
+						<td class="table-list-tr__item">
+							<p class="table-list-tr__texellips">1</p>
+						</td>
+						<td class="table-list-tr__item">
+							<p class="table-list-tr__texellips">首钢</p>
+						</td>
+						<td class="table-list-tr__item">
+							<p class="table-list-tr__texellips">1</p>
+						</td>
+						<td class="table-list-tr__item">
+							<p class="table-list-tr__texellips">1</p>
+						</td>
+						<td class="table-list-tr__item">
+							<p class="table-list-tr__texellips">311098</p>
+						</td>
+						<td class="table-list-tr__item">
+							<p class="table-list-tr__texellips">首钢</p>
+						</td>
+						<td class="table-list-tr__item">
+							<p class="table-list-tr__texellips">首钢</p>
+						</td>
+						<td class="table-list-tr__item">
+							<p class="table-list-tr__texellips">首钢</p>
+						</td>
+						<td class="table-list-tr__item">
+							<a href="javascript:;" class="contpro-table__icon contpro-table__icon1"></a>
+							<a href="javascript:;" class="contpro-table__icon contpro-table__icon3"></a>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				<div id="noDataCon" class="noDataCon" style="display:none;">
+					<i></i>
+					<p>暂无数据......</p>
+				</div>
+			</div>
+			<div class="tcdPageCode addPage" style="text-align: center"></div>
+		</div>
+		<h1 class="lh40 font-title">九.上传插件</h1>
+		<div comType="uploadCtrl" uploadType="" uploadBgSrc="../images/comUploadBg1.png" reqPath="" uploadSize='{"w":"100","h":"100"}'
+			 filetype="custom" fileExt="rar|zip|doc|docx|pdf" fileSize="2097152">
+		</div>
+		<!-- <div comtype="uploadCtrl" uploadtype="" uploadbgsrc="../images/comUploadBg1.png" reqpath="" uploadsize="{&quot;w&quot;:&quot;100&quot;,&quot;h&quot;:&quot;100&quot;}" filetype="custom" fileext="rar|zip|doc|docx|pdf" filesize="2097152" class="comUpload" style="width: 100px !important; height: 100px !important;"><a href="javascript:;" class="imgDelete"></a><img src="../images/comUploadBg1.png" alt="" class="comShowImg"><p id="uploadBtn" class="uploadBtn   " style="width: 100px !important; height: 100px !important;"></p></div> -->
+		<h1 class="lh40 font-title">十.弹框</h1>
+		<button id="alertWindBtn">点我看弹窗</button>
+		<!-- 成功提示框 -->
+		<div id="elasticFrame" class="popup elasticFrame" style="display: none;">
+			<div class="title">
+				<h2>提示</h2>
+				<div>
+					<a class="min" href="javascript:;" title="最小化" style="display:none;"></a>
+					<a class="max" href="javascript:;" title="最大化" style="display:none;"></a>
+					<a class="revert" href="javascript:;" title="还原" style="display:none;"></a>
+					<a class="close" href="javascript:;" title="关闭" style="display:block;"></a>
+				</div>
+			</div>
+			<div class="content supplier-list-con">
+				<div class="main content-div">
+					<!-- <i class="tan-span1 elasticFrame__span1"></i> -->
+					<!--问号图标-->
+					<i class="tan-span1 elasticFrame__spanicon"></i>
+					<!--对号图标-->
+					<span class="tan-span2 elasticFrame__span2">成功提交内部核审</span>
+				</div>
+				<div class="btn">
+					<a href="javascript:;" class="btnOne elasticFrame__enter">确定</a>
+					<a href="javascript:;" class="btnSecond elasticFrame__cancel">取消</a>
+				</div>
+			</div>
+		</div>
+		<h1 class="lh40 font-title">十一.行内小标题</h1>
+		<div>
+			<div class="trade-title clearfix">
+				<i class="trade-title__icon upIcon"></i>
+				<span class="trade-title__text">查询区</span>
+			</div>
+			<div class="trade-title mt10 clearfix">
+				<i class="trade-title__icon downIcon"></i>
+				<span class="trade-title__text">查询区</span>
+			</div>
+		</div>
+		<h1 class="lh40 font-title">十一.弹框小标题</h1>
+		<div>
+			<div class="trade-titlepop clearfix">
+				<i class="trade-titlepop__line mr6 fl"></i>
+				<span class="trade-titlepop__text fl">产品规范</span>
+				<a href="javascript:;" class="btn-add trade_btn fr">
+					<i></i>
+					<span>新增</span>
+				</a>
+			</div>
+		</div>
+		<h1 class="lh40 font-title">十二.加工新增弹窗</h1>
+		<button id="popBtn">新增修改弹窗</button>
+		<div id="editPop" class="popup" style="display: none;">
+			<div class="title">
+				<h2>提示</h2>
+				<div>
+					<a class="min" href="javascript:;" title="最小化" style="display:none;"></a>
+					<a class="max" href="javascript:;" title="最大化" style="display:none;"></a>
+					<a class="revert" href="javascript:;" title="还原" style="display:none;"></a>
+					<a class="close" href="javascript:;" title="关闭" style="display:block;"></a>
+				</div>
+			</div>
+			<div class="content editPopCon pl20 pr20 pt16">
+				<ul class="editPopCon-ul">
+					<li class="editPopCon-ulitemBox clearfix mb6">
+						<div class="editPopCon-ulitemBox__item">
+							<label for="#" class="editPopCon-ulitemBox__label">
+								<i class="editPopCon-ulitemBox__require">*</i>
+								加工标准代码
+							</label>
+							<input type="text" class="editPopCon-ulitemBox__input trade_inputpop">
+						</div>
+						<div class="editPopCon-ulitemBox__item">
+							<label for="#" class="editPopCon-ulitemBox__label">
+								<i class="editPopCon-ulitemBox__require">*</i>
+								加工标准名称
+							</label>
+							<input type="text" class="editPopCon-ulitemBox__input trade_inputpop">
+						</div>
+					</li>
+					<li class="editPopCon-ulitemBox clearfix mb6">
+						<div class="editPopCon-ulitemBox__item">
+							<label for="#" class="editPopCon-ulitemBox__label">
+								<i class="editPopCon-ulitemBox__require">&nbsp;</i>
+								启用标记
+							</label>
+							<input type="checkbox" class="editPopCon-ulitemBox__chec">
+						</div>
+						<div class="editPopCon-ulitemBox__item">
+							<label for="#" class="editPopCon-ulitemBox__label">
+								<i class="editPopCon-ulitemBox__require">&nbsp;</i>
+								创建时间
+							</label>
+							<input type="text" class="editPopCon-ulitemBox__input trade_inputpop">
+						</div>
+					</li>
+				</ul>
+				<div class="editPopBtn">
+					<a href="javascript:;" class="btnOne elasticFrame__enter">确定</a>
+					<a href="javascript:;" class="btnSecond elasticFrame__cancel">取消</a>
+				</div>
+			</div>
+		</div>
+		<!--<h1 class="lh40 font-title">十三.树</h1>-->
+
+		<!--<div class="materialBox-main_tree pl10">-->
+			<!--<div class="materialBox-main_treetable-list mt6" id="treeList">-->
+				<!--<table class="" id="categoryList"  t="materialName" c="bsMdMaterielTypeVOList"-->
+					   <!--jsonid="channelCategoryId" comType="treeListCtrl" treetype="treeList2"-->
+					   <!--templateid="templateTreeRow" arrowStatus="treeIcon" treecell="treeCell" arrowStatus="treeIcon"-->
+					   <!--reqmethod="POST" reqpath="" reqparam='{"materialSid":null}'>-->
+					<!--<tbody>-->
+					<!--<tr id="templateTreeRow" class="" style="display: none">-->
+						<!--<td class="materialName" id="treeCell">-->
+							<!--<div class="" >-->
+								<!--<i id="openIcon" class="up-treeIcon icon iconfont mt5 mr2" style="font-size:6px"></i>-->
+								<!--<span id="materialName" style="width:100%;" class="treemaintext cpointer" title=""></span>-->
+							<!--</div>-->
+						<!--</td>-->
+					<!--</tr>-->
+					<!--</tbody>-->
+				<!--</table>-->
+			<!--</div>-->
+			<!--<div style="display: none"><div class="tcdPageCode" id="treePage"></div></div>-->
+		<!--</div>-->
+	</div>
+	</div>
+</div>
+</body>
+<script>
+
+</script>
+<script>
+    $(function () {
+        nayiLock("aDiv");
+        //支持多级表头的锁定
+        // nayiLock("bDiv");
+
+        //支持对多个div的锁定
+        // 分页代码
+        $(".tcdPageCode").createPage({
+            pageCount: 6,
+            current: 1,
+            backFn: function (p) {
+                onRefresh();
+            }
+        });
+        //下拉框
+        $(".initSelSty").chosen({
+            //disable_search_threshold: 5,
+            width:"220px",
+            no_results_text: "没有匹配结果!",
+            enable_split_word_search: false,
+            placeholder_text_single: '请选择'
+        });
+        //弹框
+        // openWin("360", "240","money", true);
+        //关闭弹框
+        // closePopupWin();
+        $("#alertWindBtn").click(function () {
+            // openWin("345", "157", "elasticFrame", true);
+            var alertBox = new clsAlertBoxCtrl();
+            alertBox.Alert("请选择要删除数据","提示",1);
+        });
+		$("#popBtn").click(function(){
+            openWin("600", "335", "editPop", true);
+        });
+		/*初始化树*/
+        // var treeJsonData = {"retCode":"0000000","retDesc":"success!","timestamp":"2019-04-16 21:06:23.740","rspBody":[{"createdBy":"zhangsan","createdByName":"张三","createdDt":"2019-03-30","updatedBy":"NA","updatedByName":null,"updatedDt":"2019-03-30","pageNum":1,"pageSize":10,"startRow":0,"order":null,"version":1,"companySid":1,"companyCode":"HEB","companyName":null,"deptSid":null,"deptCode":null,"deptName":null,"partitionId":null,"materialSid":1,"parentSid":0,"materialCode":"TEST_A","materialName":"基础数据测试","status":"10","bigTypeSid":1,"midTypeSid":null,"minTypeSid":null,"brandName":null,"materialSpec":null,"measureUnit":null,"validFlag":null,"dataLevel":1,"dataFrom":null,"remark":null,"instanceId":null,"totalInventory":null,"bigTypeName":"基础数据测试","midTypeName":null,"minTypeName":null,"bsMdMaterielTypeVOList":[],"settleType":null,"bigTypeCode":"TEST_A","midTypeCode":null,"minTypeCode":null,"mergeTypeCode":null,"mergeTypeName":null,"startTime":null,"endTime":null,"materialPrice":null,"excludeSid":null},{"createdBy":"zhangsan","createdByName":"张三","createdDt":"2019-04-09","updatedBy":"NA","updatedByName":null,"updatedDt":"2019-04-09","pageNum":1,"pageSize":10,"startRow":0,"order":null,"version":1,"companySid":1,"companyCode":"HEB","companyName":null,"deptSid":null,"deptCode":null,"deptName":null,"partitionId":null,"materialSid":4,"parentSid":0,"materialCode":"2","materialName":"设备用资材","status":"10","bigTypeSid":4,"midTypeSid":null,"minTypeSid":null,"brandName":null,"materialSpec":null,"measureUnit":null,"validFlag":null,"dataLevel":1,"dataFrom":null,"remark":null,"instanceId":null,"totalInventory":null,"bigTypeName":"设备用资材","midTypeName":null,"minTypeName":null,"bsMdMaterielTypeVOList":[],"settleType":null,"bigTypeCode":"2","midTypeCode":null,"minTypeCode":null,"mergeTypeCode":null,"mergeTypeName":null,"startTime":null,"endTime":null,"materialPrice":null,"excludeSid":null},{"createdBy":"zhangsan","createdByName":"张三","createdDt":"2019-04-09","updatedBy":"NA","updatedByName":null,"updatedDt":"2019-04-09","pageNum":1,"pageSize":10,"startRow":0,"order":null,"version":1,"companySid":1,"companyCode":"HEB","companyName":null,"deptSid":null,"deptCode":null,"deptName":null,"partitionId":null,"materialSid":5,"parentSid":0,"materialCode":"3","materialName":"生产用资材","status":"10","bigTypeSid":5,"midTypeSid":null,"minTypeSid":null,"brandName":null,"materialSpec":null,"measureUnit":null,"validFlag":null,"dataLevel":1,"dataFrom":null,"remark":null,"instanceId":null,"totalInventory":null,"bigTypeName":"生产用资材","midTypeName":null,"minTypeName":null,"bsMdMaterielTypeVOList":[],"settleType":null,"bigTypeCode":"3","midTypeCode":null,"minTypeCode":null,"mergeTypeCode":null,"mergeTypeName":null,"startTime":null,"endTime":null,"materialPrice":null,"excludeSid":null},{"createdBy":"zhangsan","createdByName":"张三","createdDt":"2019-04-09","updatedBy":"NA","updatedByName":null,"updatedDt":"2019-04-09","pageNum":1,"pageSize":10,"startRow":0,"order":null,"version":1,"companySid":1,"companyCode":"HEB","companyName":null,"deptSid":null,"deptCode":null,"deptName":null,"partitionId":null,"materialSid":6,"parentSid":0,"materialCode":"4","materialName":"工器具","status":"10","bigTypeSid":6,"midTypeSid":null,"minTypeSid":null,"brandName":null,"materialSpec":null,"measureUnit":null,"validFlag":null,"dataLevel":1,"dataFrom":null,"remark":null,"instanceId":null,"totalInventory":null,"bigTypeName":"工器具","midTypeName":null,"minTypeName":null,"bsMdMaterielTypeVOList":[],"settleType":null,"bigTypeCode":"4","midTypeCode":null,"minTypeCode":null,"mergeTypeCode":null,"mergeTypeName":null,"startTime":null,"endTime":null,"materialPrice":null,"excludeSid":null},{"createdBy":"zhangsan","createdByName":"张三","createdDt":"2019-04-09","updatedBy":"NA","updatedByName":null,"updatedDt":"2019-04-09","pageNum":1,"pageSize":10,"startRow":0,"order":null,"version":1,"companySid":1,"companyCode":"HEB","companyName":null,"deptSid":null,"deptCode":null,"deptName":null,"partitionId":null,"materialSid":7,"parentSid":0,"materialCode":"5","materialName":"劳防用品","status":"10","bigTypeSid":7,"midTypeSid":null,"minTypeSid":null,"brandName":null,"materialSpec":null,"measureUnit":null,"validFlag":null,"dataLevel":1,"dataFrom":null,"remark":null,"instanceId":null,"totalInventory":null,"bigTypeName":"劳防用品","midTypeName":null,"minTypeName":null,"bsMdMaterielTypeVOList":[],"settleType":null,"bigTypeCode":"5","midTypeCode":null,"minTypeCode":null,"mergeTypeCode":null,"mergeTypeName":null,"startTime":null,"endTime":null,"materialPrice":null,"excludeSid":null},{"createdBy":"zhangsan","createdByName":"张三","createdDt":"2019-04-09","updatedBy":"NA","updatedByName":null,"updatedDt":"2019-04-09","pageNum":1,"pageSize":10,"startRow":0,"order":null,"version":1,"companySid":1,"companyCode":"HEB","companyName":null,"deptSid":null,"deptCode":null,"deptName":null,"partitionId":null,"materialSid":8,"parentSid":0,"materialCode":"6","materialName":"办公用品","status":"10","bigTypeSid":8,"midTypeSid":null,"minTypeSid":null,"brandName":null,"materialSpec":null,"measureUnit":null,"validFlag":null,"dataLevel":1,"dataFrom":null,"remark":null,"instanceId":null,"totalInventory":null,"bigTypeName":"办公用品","midTypeName":null,"minTypeName":null,"bsMdMaterielTypeVOList":[],"settleType":null,"bigTypeCode":"6","midTypeCode":null,"minTypeCode":null,"mergeTypeCode":null,"mergeTypeName":null,"startTime":null,"endTime":null,"materialPrice":null,"excludeSid":null},{"createdBy":"zhangsan","createdByName":"张三","createdDt":"2019-04-09","updatedBy":"NA","updatedByName":null,"updatedDt":"2019-04-09","pageNum":1,"pageSize":10,"startRow":0,"order":null,"version":1,"companySid":1,"companyCode":"HEB","companyName":null,"deptSid":null,"deptCode":null,"deptName":null,"partitionId":null,"materialSid":9,"parentSid":0,"materialCode":"7","materialName":"包装资材","status":"10","bigTypeSid":9,"midTypeSid":null,"minTypeSid":null,"brandName":null,"materialSpec":null,"measureUnit":null,"validFlag":null,"dataLevel":1,"dataFrom":null,"remark":null,"instanceId":null,"totalInventory":null,"bigTypeName":"包装资材","midTypeName":null,"minTypeName":null,"bsMdMaterielTypeVOList":[],"settleType":null,"bigTypeCode":"7","midTypeCode":null,"minTypeCode":null,"mergeTypeCode":null,"mergeTypeName":null,"startTime":null,"endTime":null,"materialPrice":null,"excludeSid":null},{"createdBy":"zhangsan","createdByName":"张三","createdDt":"2019-04-09","updatedBy":"NA","updatedByName":null,"updatedDt":"2019-04-09","pageNum":1,"pageSize":10,"startRow":0,"order":null,"version":1,"companySid":1,"companyCode":"HEB","companyName":null,"deptSid":null,"deptCode":null,"deptName":null,"partitionId":null,"materialSid":10,"parentSid":0,"materialCode":"8","materialName":"印刷品","status":"10","bigTypeSid":10,"midTypeSid":null,"minTypeSid":null,"brandName":null,"materialSpec":null,"measureUnit":null,"validFlag":null,"dataLevel":1,"dataFrom":null,"remark":null,"instanceId":null,"totalInventory":null,"bigTypeName":"印刷品","midTypeName":null,"minTypeName":null,"bsMdMaterielTypeVOList":[],"settleType":null,"bigTypeCode":"8","midTypeCode":null,"minTypeCode":null,"mergeTypeCode":null,"mergeTypeName":null,"startTime":null,"endTime":null,"materialPrice":null,"excludeSid":null}]}
+        // $("#categoryList")[0].data = treeJsonData;
+        // document.body.jsCtrl.ctrl=$("#categoryList")[0];
+        // document.body.jsCtrl.init();
+    });
+    /**固定表头+列**/
+    //scrollDivId   滚动的div的id
+    function nayiLock(scrollDivId) {
+        jQuery("#" + scrollDivId).scroll(function () {
+            var left = jQuery("#" + scrollDivId).scrollLeft();
+            jQuery(this).find(".lock-col").each(function () {
+                jQuery(this).css({
+                    "position": "relative",
+                    "left": left,
+                    "background-color": "#daefff",
+                    "z-index": jQuery(this).hasClass("lock-row") ? 20 : 10
+                });
+            });
+
+            var top = jQuery("#" + scrollDivId).scrollTop();
+            jQuery(this).find(".lock-row").each(function () {
+                jQuery(this).css({
+                    "position": "relative",
+                    "top": top,
+                    "background-color": "#daefff",
+                    "z-index": jQuery(this).hasClass("lock-col") ? 20 : 9
+                });
+            });
+        });
+    }
+    /*******************上传附件回调函数************************/
+    function clsUploadCtrl$successAfter(ctrl, response) {
+        // return true;
+    }
+    /***************已有数据渲染标准表格*********************/
+    //serveList为要渲染表格的id名
+    function serveListInit(data) {
+        var initJson = {
+            "rspBody": {
+                "resultData": []
+            }
+        };
+        initJson.rspBody.resultData = data;
+        $("#serveList").attr("comType", "standardTableCtrl")
+        $("#serveList")[0].data = initJson;
+        document.body.jsCtrl.ctrl = $("#serveList")[0];
+        document.body.jsCtrl.init();
+    }
+</script>
+
+</html>

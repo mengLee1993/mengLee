@@ -1,7 +1,7 @@
 /*****************************测试地址*************************************/
 var requestUrl = "/api";
 var jsonMetadata = {"rspBody":null};
-var valiClass = new clsValidateCtrl();
+var valiClass = typeof clsValidateCtrl != "undefined" ? new clsValidateCtrl() : null;
 var param = {};
 
 

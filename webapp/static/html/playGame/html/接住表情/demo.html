@@ -1,11 +1,14 @@
 <!doctype html>
-<html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
     <head>
         <meta charset="utf-8">
         <title>消除QQ表情小游戏</title>
         <script type="text/javascript" src="../../../../base/js/jquery.js"></script>
-        <script type="text/javascript" src="../../../../base/js/public.js"></script>
-        <script type="text/javascript" src="../../loadConfig.js"></script>
         <script src="js/global.js"></script>
         <style>
             *{margin:0;padding:0; list-style:none;}
@@ -32,22 +35,22 @@
                     H = parseInt(getCss(oMin,'height'));
                 oBtn.onclick = function(){
                     this.disabled = true;
-                    this.value = '游戏正在进行中...'
-                    console.dir(oBtn)
-                    oMin.innerHTML = '<i></i>'
+                    this.value = '游戏正在进行中...';
+                    console.dir(oBtn);
+                    oMin.innerHTML = '<i></i>';
                     var oI = getTagName(oMin,'i')[0];
                     var b = 0,t = 0;
-                    var k = 2
-                    aB[0].innerHTML = b
-                    aB[1].innerHTML = t
-                    fn()
+                    var k = 2;
+                    aB[0].innerHTML = b;
+                    aB[1].innerHTML = t;
+                    fn();
                     function fn(){
                         oI.style.top = '0';
                         oI.style.left = $fn.random([0,W-24]) + 'px';
-                        oI.innerHTML = '<img src="QQexp/'+ $fn.random([1,51]) +'.gif"/>'
+                        oI.innerHTML = '<img src="QQexp/'+ $fn.random([1,51]) +'.gif"/>';
                         $fn.Move(oI,'top',k,H-24,function(){
-                            ++t
-                            aB[1].innerHTML = t
+                            ++t;
+                            aB[1].innerHTML = t;
                             $fn.shaKe(oBox,'top',10,function(){
                                 if(!score()) fn()
                             })
@@ -56,34 +59,44 @@
 
                     function score(){
                         if(t == 10){
-                            alert('GAME OVER')
+                            alert('GAME OVER');
                             oBtn.disabled = false;
-                            oBtn.value = '开始游戏'
+                            oBtn.value = '开始游戏';
                             oI.style.top = '-23px';
                             return true
                         }
                         if(b == 30){
-                            alert('你赢了')
+                            alert('你赢了');
                             oBtn.disabled = false;
-                            oBtn.value = '开始游戏'
+                            oBtn.value = '开始游戏';
                             oI.style.top = '-23px';
                             return true
                         }
                     }
 
                     oI.onmousedown = function(){
-                        clearInterval(oI.timer)
-                        this.innerHTML = '<img src="QQexp/36.gif"/>'
+                        clearInterval(oI.timer);
+                        this.innerHTML = '<img src="QQexp/36.gif"/>';
                         oI.timer = null;
-                        ++b
-                        k+=0.2
-                        k.toFixed(1)
-                        aB[0].innerHTML = b
+                        ++b;
+                        k+=0.2;
+                        k.toFixed(1);
+                        aB[0].innerHTML = b;
                         $fn.shaKe(oI,'left',10,function(){
                             if(!score()) fn()
                         })
                     }
-                }
+                };
+                //头部、尾部引用
+                $("body").children().eq(0).before("<div id='headerLoad'></div>").css({"margin-top":"60px"});
+                $("body").append("<div id='footerLoad'></div>");
+                $("#headerLoad").load("../load/header.html",function(){
+                    //判断页面位置，修改头部导航栏跳转相对链接
+                    $(".lm_submenu a").each(function(){
+                        $(this).attr("href",$(this).attr("href"));
+                    });
+                }).css({"position":"fixed","top":0,"width":"100%","z-index":22222222222});
+                $("#footerLoad").load("../load/footer.html",function(){});
             };
         </script>
     </head>

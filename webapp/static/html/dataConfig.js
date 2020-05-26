@@ -31,12 +31,12 @@ var dataConfig = {
             {
                 "menuName":"插件案例",
                 "menuUrl":"../../pluginDemo/html/load/index.html",
-                "menuCode":"My share",
+                "menuCode":"Plugin demo",
             },
             {
                 "menuName":"小游戏",
                 "menuUrl":"../../playGame/html/load/index.html",
-                "menuCode":"My share",
+                "menuCode":"Play game",
             }
         ]
 

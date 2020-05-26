@@ -116,8 +116,10 @@ function loadingProc(isFinal){
 }
 
 if(!sessionStorage.getItem("dataConfig") || (sessionStorage.getItem("dataConfig") && !JSON.parse(sessionStorage.getItem("dataConfig")).login.login.isLogin)){
-    window.close();
-    //jumpUrl("../../login/html/login.html","0000000",0)
+    if(window.location.href.indexOf("login/html/login.html") == -1){
+        window.location.href = "../../login/html/login.html";
+
+    }
 }else{
     var dataConfig = JSON.parse(sessionStorage.getItem("dataConfig"));
 }

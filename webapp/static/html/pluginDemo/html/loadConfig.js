@@ -8,5 +8,5 @@ $(function(){
             $(this).attr("href",$(this).attr("href"));
         });
     }).css({"position":"fixed","top":0,"width":"100%","z-index":22222222222});
-    $("#footerLoad").load(relativeUrl + "../load/footer.html",function(){});
+    $("#footerLoad").load("../load/footer.html",function(){});
 });

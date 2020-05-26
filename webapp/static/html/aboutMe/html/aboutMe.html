@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--通用-->
+    <link rel="stylesheet" href="../../../base/css/trade-base.css">
+    <script src="../../../base/js/jquery.js"></script>
+    <script src="../../../base/js/public.js"></script>
+    <script src="../../../base/js/docassistant.js"></script>
+    <script src="../../../base/js/validate.js"></script>
+    <script src="../../../base/js/jquery.cookie.js"></script>
+    <script src="../../../reqConfig.js"></script>
+    <script src="../../../commonLm.js"></script>
+    <div id="aboutMe" style="line-height: 50px;padding: 50px;color: #fff;font-size: 30px;">
+
+    </div>
+    <audio src = "../images/thatGirl.mp3" onplay="this.currentTime=0" autoplay="autoplay"></audio>
+    <script>
+        let resultData = dataConfig.aboutMe.aboutMe;
+
+        let divTyping = document.getElementById('aboutMe')
+        let i = 0,
+            timer = 0,
+            str = '姓名：' + resultData.name + "<br/>" + '年龄：' + resultData.age + "<br/>" + '岗位：' + resultData.work + "<br/>" + '学校：' + resultData.school + "<br/>" + '邮箱：' + resultData.email + "<br/>" + '电话：' + resultData.tel + "<br/>";
+
+        function typing () {
+            if (i <= str.length) {
+                divTyping.innerHTML = str.slice(0, i++) + '_'
+                timer = setTimeout(typing, 200)
+            }
+            else {
+                divTyping.innerHTML = str//结束打字,移除 _ 光标
+                clearTimeout(timer)
+            }
+        }
+
+        typing()
+    </script>
+</body>
+</html>

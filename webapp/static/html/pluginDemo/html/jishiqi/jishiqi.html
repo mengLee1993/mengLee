@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+    <script type="text/javascript" src="../../../../base/js/jquery.js"></script>
+    <script type="text/javascript" src="../../../../base/js/public.js"></script>
+</head>
+<body>
+    <div style="color: #fff;">
+        <span id = "hours">00</span>:
+        <span id = "min">00</span>:
+        <span id = "sec">00</span>
+        <button id = "btn1">开始计时</button>
+        <button id = "btn2">结束计时</button>
+        <div id = "div_id"></div>
+    </div>
+    <script type="text/javascript">
+        /*function $(id){
+            return document.getElementById(id);
+        }*/
+        function getNum(num){
+            if(num < 10){
+                return '0' + num;
+            }else{
+                return num;
+            }
+        }
+        var i = 0;
+        var tag = null;
+        var isTrue = false;
+        function startTime(){
+            tag = setInterval(function(){
+                i++;
+                document.getElementById("sec").innerHTML = getNum(i % 60);
+                document.getElementById("min").innerHTML = getNum(parseInt((i / 60) % 60));
+                document.getElementById("hours").innerHTML = getNum(parseInt((i / 3600) % 24));
+            }, 10)
+        }
+        function stopTime(){
+            clearInterval(tag);
+            document.getElementById("div_id").innerHTML += document.getElementById("hours").innerHTML + ":" + document.getElementById("min").innerHTML + ":" + document.getElementById("sec").innerHTML + "<br/>"
+        }
+        btn1.addEventListener("click", function(){
+            if(isTrue){
+                stopTime();
+                isTrue = false;
+                document.getElementById("btn1").innerHTML = "开始计时";
+                s
+            }else{
+                startTime();
+                isTrue = true;
+                document.getElementById("btn1").innerHTML = "暂停计时";
+            }
+        })
+        btn2.addEventListener("click", function(){
+            if(isTrue){
+                document.getElementById("btn1").innerHTML = "开始计时";
+                stop();
+                isTrue = false;
+            }
+            i = 0;
+            document.getElementById("sec").innerHTML = "00";
+            document.getElementById("min").innerHTML = "00";
+            document.getElementById("hours").innerHTML = "00";
+            document.getElementById("div_id").innerHTML = "";
+        })
+    </script>
+</body>
+</html>

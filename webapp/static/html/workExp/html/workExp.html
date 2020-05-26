@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--通用-->
+    <link rel="stylesheet" href="../../../base/css/trade-base.css">
+    <script src="../../../base/js/jquery.js"></script>
+    <script src="../../../base/js/public.js"></script>
+    <script src="../../../base/js/docassistant.js"></script>
+    <script src="../../../base/js/validate.js"></script>
+    <script src="../../../base/js/jquery.cookie.js"></script>
+    <script src="../../../reqConfig.js"></script>
+    <script src="../../../commonLm.js"></script>
+    <!--页面-->
+</head>
+<body>
+<div style="width: 100%;box-sizing: border-box;padding: 10px;">
+    <h1 style="padding: 10px 0 ;">公司：</h1>
+    <div id="aDiv" class="table-listbox">
+        <table cellspacing="0" cellpadding="0" id="tableList" templateid="templateRow" idx="idx" nodata="noDataCon" class="table-list"  clsChk="clsChk" clsAllChk="clsAllChk" chkId="chkCoding"  style="width: 100%">
+            <thead class="table-list-header">
+            <tr><th class="table-list-header__th lock-col lock-row" style="width:1%;">
+                <input type="checkbox" comType="checkAll" unionTableId="tableList" chkId="chkCoding" class="clsAllChk">
+            </th>
+                <th class="table-list-header__th lock-row" style="width:2%;">
+                    序号
+                </th>
+                <th class="table-list-header__th lock-row" style="width:12%">公司</th>
+                <th class="table-list-header__th lock-row" style="width:10%">入职时间</th>
+                <th class="table-list-header__th lock-row" style="width:11%">离职时间</th>
+                <th class="table-list-header__th lock-row" style="width:10%">工作时长</th>
+                <th class="table-list-header__th lock-row" style="width:10%">操作</th>
+            </tr></thead>
+            <tbody>
+            <tr class="table-list-tr" id="templateRow" style="display: none;">
+                <td class="table-list-tr__item lock-col">
+                    <div class="w18">
+                        <input type="checkbox" id="chkCoding" class="clsChk">
+                    </div>
+                </td>
+                <td class="table-list-tr__item" id="idx"></td>
+                <td class="table-list-tr__item" id="companyName"></td>
+                <td class="table-list-tr__item" id="startTime"></td>
+                <td class="table-list-tr__item" id="endTime"></td>
+                <td class="table-list-tr__item" id="times"></td>
+                <td class="table-list-tr__item">
+                    <a href="javascript:;" class="contpro-table__icon contpro-table__icon1" id="editOpe"></a>
+                    <!--<a href="javascript:;" class="contpro-table__icon contpro-table__icon3"></a>-->
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div id="noDataCon" class="noDataCon" style="display:none;">
+            <i></i>
+            <p>暂无数据......</p>
+        </div>
+    </div>
+    <h1 style="padding: 10px 0 ;">项目：</h1>
+    <div id="aDiv" class="table-listbox">
+        <table cellspacing="0" cellpadding="0" id="tableListChild" templateid="templateRow" idx="idx" nodata="noDataCon2" class="table-list"  clsChk="clsChk" clsAllChk="clsAllChk" chkId="chkCoding"  style="width: 100%">
+            <thead class="table-list-header">
+            <tr><th class="table-list-header__th lock-col lock-row" style="width:1%;">
+                <input type="checkbox" comType="checkAll" unionTableId="tableListChild" chkId="chkCoding" class="clsAllChk">
+            </th>
+                <th class="table-list-header__th lock-row" style="width:2%;">
+                    序号
+                </th>
+                <th class="table-list-header__th lock-row" style="width:12%">项目名称</th>
+                <th class="table-list-header__th lock-row" style="width:10%">项目开始时间</th>
+                <th class="table-list-header__th lock-row" style="width:11%">项目结束时间</th>
+                <th class="table-list-header__th lock-row" style="width:10%">项目时长</th>
+                <!--<th class="table-list-header__th lock-row" style="width:10%">项目链接</th>-->
+                <th class="table-list-header__th lock-row" style="width:10%">项目介绍</th>
+                <th class="table-list-header__th lock-row" style="width:10%">操作</th>
+            </tr></thead>
+            <tbody>
+            <tr class="table-list-tr" id="templateRow" style="display: none;">
+                <td class="table-list-tr__item lock-col">
+                    <div class="w18">
+                        <input type="checkbox" id="chkCoding" class="clsChk">
+                    </div>
+                </td>
+                <td class="table-list-tr__item" id="idx"></td>
+                <td class="table-list-tr__item" id="projectName"></td>
+                <td class="table-list-tr__item" id="startTime"></td>
+                <td class="table-list-tr__item" id="endTime"></td>
+                <td class="table-list-tr__item" id="times"></td>
+                <!--<td class="table-list-tr__item" id="projectUrl"></td>-->
+                <td class="table-list-tr__item" id="projectText"></td>
+                <td class="table-list-tr__item">
+                    <a href="javascript:;" class="contpro-table__icon contpro-table__icon1" id="editOpe"></a>
+                    <!--<a href="javascript:;" class="contpro-table__icon contpro-table__icon3"></a>-->
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div id="noDataCon2" class="noDataCon" style="display:none;">
+            <i></i>
+            <p>暂无数据......</p>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        var resultData = {
+            "rspBody":{
+                "resultData":dataConfig.workExp.workExp,
+            }
+        };
+        initplugPath($("#tableList")[0],"standardTableCtrl",resultData);
+    });
+
+    function clsStandardTableCtrl$progress(jsonItem, cloneRow) {
+        if(this.ctrl.id == "tableList"){
+            $(cloneRow).on("click",function(){
+                if(!jsonItem.children)jsonItem.children=[];
+                initplugPath($("#tableListChild")[0],"standardTableCtrl",{"rspBody":{"resultData":jsonItem.children}});
+            });
+        }
+    }
+</script>
+</body>
+</html>

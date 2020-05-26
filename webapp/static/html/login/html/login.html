@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"  style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <!--通用-->
+    <link rel="stylesheet" href="../../../base/css/trade-base.css">
+    <script src="../../../base/js/jquery.js"></script>
+    <script src="../../../base/js/public.js"></script>
+    <script src="../../../base/js/docassistant.js"></script>
+    <script src="../../../base/js/validate.js"></script>
+    <script src="../../../base/js/jquery.cookie.js"></script>
+    <script src="../../../reqConfig.js"></script>
+    <script src="../../dataConfig.js"></script>
+
+    <!--插件-->
+    <link rel="stylesheet" href="../../../plugin/WdatePickerBlue/My97DatePicker/skin/WdatePicker.css">
+    <script src="../../../plugin/WdatePickerBlue/My97DatePicker/WdatePicker.js"></script>
+
+    <link rel="stylesheet" href="../../../plugin/tip/css/tip-twitter/tip-twitter.css">
+    <script src="../../../plugin/tip/script/jquery.poshytip.js"></script>
+
+
+    <!--页面-->
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/login.js"></script>
+
+<body style="height: 100%;margin: 0px">
+<div class="loginWrap">
+    <div class="loginWrap-main">
+        <div class="tc mt40 loginWrap-main__chonse" id="mainBox">
+            <label for="" class="fl labelName">用&nbsp;户&nbsp;&nbsp;名</label><input type="text" class="loginWrap-main__input mt2 required" placeholder="" id="usrName">
+            <label for="" class="fl labelName">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</label><input type="password" class="loginWrap-main__input mt2 in required ennewPassWord" placeholder="" id="passwd">
+            <label for="" class="fl labelName">登录日期</label>
+            <input style=" border: none!important;" class="loginWrap-main__input Wdate mt2 required" type="text" readonly="true" name="startDate" id="loginMonth" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" autocomplete="off">
+        </div>
+        <div class="important-Colouring p6" style="height: 20px">
+            <span class="show-important" style="display: none">用户名或密码输入不正确！</span></div>
+        <div class="mt5">
+            <a  class="loginWrap-main__btn " id="loginSubmit" style="cursor: pointer">登录</a>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            //登录
+            $("#loginSubmit").on("click",function (){
+                initValidate($("#mainBox")[0]);
+                if (!valiClass.validateAll4Ctrl($("#mainBox")[0])) {
+                    return false;
+                }
+                var loginJsonSuc = {
+                    "usrName":"lihaha",
+                    "passwd":"lhh123456",
+                }
+                var loginJson = {
+                    "usrName":"",
+                    "passwd":"",
+                    "loginMonth":"",
+                }
+                var isSuc = true;
+                getValue4Desc(loginJson,$("#mainBox")[0]);
+                for(var key in loginJsonSuc){
+                    if(loginJson[key] != loginJsonSuc[key]){
+                        isSuc = false;
+                    }
+                }
+                if(isSuc){
+                    sessionStorage.setItem("dataConfig",JSON.stringify(dataConfig));
+                    jumpUrl("../../../index.html","0000000",0);
+                }
+            });
+        })
+    </script>
+</div>
+</body>
+</html>

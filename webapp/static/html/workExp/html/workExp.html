@@ -87,6 +87,9 @@
                 <a href="javascript:" class="btn-search trade_btn" id="delBtn">
                     <b>删除</b>
                 </a>
+                <a href="javascript:" class="btn-search trade_btn" id="submitBtn">
+                    <b>提交页面</b>
+                </a>
             </li>
         </ul>
     </div>
@@ -288,6 +291,14 @@
     $(function(){
         initplugPath($("#tableList")[0],"standardTableCtrl",{"rspBody":{"resultData":dataMain}});
         initplugPath($("#tableListChild")[0],"standardTableCtrl",{"rspBody":{"resultData":dataChild}});
+
+        //提交页面 修改sessionStorage
+        $("#submitBtn").on("click",function(){
+            dataConfig.workExp.workExp = dataMain;
+            sessionStorage.setItem("dataConfig",JSON.stringify(dataConfig));
+            alert("保存数据库成功！");
+        });
+
         //搜索
         $("#searchBtn").on("click",function(){
             var dataSearch = $("#tableList").search();
@@ -308,6 +319,7 @@
                 dataMain = $("#tableList").del(cacheArr);
                 $("#tableList")[0].cacheArr = [];
                 initplugPath($("#tableList")[0],"standardTableCtrl",{"rspBody":{"resultData":data}});
+                initplugPath($("#tableListChild")[0],"standardTableCtrl",{"rspBody":{"resultData":[]}});
             }else{
                 alert("请勾选数据");
             }
@@ -323,6 +335,7 @@
             dataMain = $("#tableList").save();
             $("#tableList")[0].cacheArr = [];
             initplugPath($("#tableList")[0],"standardTableCtrl",{"rspBody":{"resultData":dataMain}});
+            initplugPath($("#tableListChild")[0],"standardTableCtrl",{"rspBody":{"resultData":[]}});
             closePopupWin();
         });
 
@@ -364,6 +377,7 @@
                 dataChild = $("#tableListChild").del(cacheArr);
                 $("#tableListChild")[0].cacheArr = [];
                 initplugPath($("#tableListChild")[0],"standardTableCtrl",{"rspBody":{"resultData":dataChild}});
+                initData(mainClick);
             }else{
                 alert("请勾选数据");
             }
@@ -380,6 +394,7 @@
             $("#tableListChild")[0].cacheArr = [];
             initplugPath($("#tableListChild")[0],"standardTableCtrl",{"rspBody":{"resultData":dataChild}});
             closePopupWin();
+            initData(mainClick);
         });
     });
 
@@ -539,6 +554,15 @@
             return sidMax;
         }
     });
+
+    //子表变化，主表数据改变
+    function initData(sid) {
+        for(var nI = 0; nI < dataMain.length; nI++ ){
+            if(dataMain[nI].sid == sid){
+                dataMain[nI].children = dataChild;
+            }
+        }
+    }
 
 
     /*//动态监听全局变量

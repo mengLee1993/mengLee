@@ -10,7 +10,6 @@
     <script src="../../../base/js/validate.js"></script>
     <script src="../../../base/js/jquery.cookie.js"></script>
     <script src="../../../reqConfig.js"></script>
-    <script src="../../../commonLm.js"></script>
 
     <!--页面-->
     <link rel="stylesheet" type="text/css" href="../css/bootstrap-3.3.4.css">
@@ -24,8 +23,8 @@
             <img src="../images/logo.jpg">
         </a>
         <div class="navbar-right hc-contact p768">
-            <a href="javascript:;">微信</a>
-            <a href="javascript:;">博客</a>
+            <a href="javascript:">微信</a>
+            <a href="javascript:">博客</a>
         </div>
         <div id="oiBtn" class="hc-oi p1100">
             <em></em>
@@ -76,7 +75,7 @@
             "rspBody":{
                 "resultData":dataConfig.nav.index,
             }
-        }
+        };
         initplugPath($("#navBox")[0],"standardTableCtrl",resultData);
     });
     function clsStandardTableCtrl$progress(jsonItem, cloneRow) {

@@ -3,8 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="../../../base/js/jquery.js"></script>
+    <script src="../../../base/js/public.js"></script>
+    <script src="../../../base/js/docassistant.js"></script>
+    <script src="../../../base/js/validate.js"></script>
+    <script src="../../../base/js/jquery.cookie.js"></script>
+    <script src="../../../reqConfig.js"></script>
+
+
+    <!--引入样式文件-->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/editormd.preview.css" />
+
+    <!--引入js文件-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/marked.min.js"></script>
+    <script src="js/prettify.min.js"></script>
+    <script src="js/raphael.min.js"></script>
+    <script src="js/underscore.min.js"></script>
+    <script src="js/sequence-diagram.min.js"></script>
+    <script src="js/flowchart.min.js"></script>
+    <script src="js/jquery.flowchart.min.js"></script>
+    <script src="js/editormd.js"></script>
 </head>
 <body>
+    <div style="width: 100%;">
+        <a href="" style="color: #fff;">123</a>
+    </div>
+    <div style="width: 100%;margin-bottom: 20px;">
+        <h1>转换前</h1>
+        <textarea id="demo1" style="width:800px;height:300px;">
+    hadoop命令需在hadoop目录下使用
+**常用命令**
 
+    HDFS格式化:
+    bin/hadoop namenode -format    格式化namenode
+    bin/hadoop datanode -format    格式化datanode
+
+    *如不是第一次格式化，为了保证clusterID一致性,
+    *需先删除hdfs临时目录,
+    *即在配置文件中配置的hadoop.tmp.dir参数路径
+        </textarea>
+        <!--输入需要转换的markdown文件结束-->
+
+        <!--点击该按钮进行转换-->
+        <button onclick="mdToHml();" type="button">点击转Html</button>
+        <h1>转换后</h1>
+
+        <!--在该div中展示,如有初始化的数据可以放在textarea中-->
+        <div id="testEditorMdview">
+            <textarea id="appendTest" style="display:none;"></textarea>
+        </div>
+    </div>
 </body>
 </html>

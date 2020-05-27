@@ -2,7 +2,7 @@ var dataConfig = {
     "login":{//登录
         "login":{
             "usrName":"lihaha",
-            "passwd":"lhh123456",
+            "passwd":"gogo",
             "isLogin":true,
         }
     },
@@ -30,12 +30,12 @@ var dataConfig = {
             },
             {
                 "menuName":"插件案例",
-                "menuUrl":"../../pluginDemo/html/load/index.html",
+                "menuUrl":"../../pluginDemo/html/load/index.html?pluginDemo=1",
                 "menuCode":"Plugin demo",
             },
             {
                 "menuName":"小游戏",
-                "menuUrl":"../../playGame/html/load/index.html",
+                "menuUrl":"../../pluginDemo/html/load/index.html",
                 "menuCode":"Play game",
             }
         ]
@@ -184,13 +184,103 @@ var dataConfig = {
         ]
     },
     "myShare":{//我的分享
-        "myShare":{
+        "myShare":[
+            {
+                "name":"linux命令",
+                "htmlUrl":"../md/linux命令.html",
+                "mdUrl":"../md/linux命令.md"
+            },
+            {
+                "name":"node安装",
+                "htmlUrl":"../md/node安装.html",
+                "mdUrl":"../md/node安装.md"
+            },
+            {
+                "name":"JDK安装",
+                "htmlUrl":"../md/JDK安装.html",
+                "mdUrl":"../md/JDK安装.md"
+            },
+            {
+                "name":"Tomcat安装",
+                "htmlUrl":"../md/Tomcat安装.html",
+                "mdUrl":"../md/Tomcat安装.md"
+            },
+            {
+                "name":"nginx安装",
+                "htmlUrl":"../md/nginx安装.html",
+                "mdUrl":"../md/nginx安装.md"
+            },
+            {
+                "name":"gulp安装",
+                "htmlUrl":"../md/gulp安装.html",
+                "mdUrl":"../md/gulp安装.md"
+            },
+            {
+                "name":"破解idea",
+                "htmlUrl":"../md/破解idea.html",
+                "mdUrl":"../md/破解idea.md"
+            },
+            {
+                "name":"svn新建账户",
+                "htmlUrl":"../md/svn新建账户.html",
+                "mdUrl":"../md/svn新建账户.md"
+            },
 
-        }
+        ]
+    },
+    "pluginDemo":{
+        "pluginDemo":[
+            /*{
+                "url":"../html/mdTohtml/demo.html",
+                "name":"md文件转换"
+            },*/
+            {
+                "url":"../../../pluginDemo/html/fangdajing/fangdajing.html",
+                "name":"放大镜"
+            },
+            {
+                "url":"../../../pluginDemo/html/lunbotu/lunbotu.html",
+                "name":"轮播图"
+            },
+            {
+                "url":"../../../pluginDemo/html/jisuanqi/jisuanqi.html",
+                "name":"计算器"
+            },
+            {
+                "url":"../../../pluginDemo/html/jishiqi/jishiqi.html",
+                "name":"计时器"
+            },
+            {
+                "url":"../../../pluginDemo/html/floatImg/floatImg.html",
+                "name":"漂浮特效"
+            },
+        ]
+    },
+    "playGame":{
+        "playGame":[
+            {
+                "url":"../../../playGame/html/贪吃蛇/index.html",
+                "name":"贪吃蛇"
+            },
+            {
+                "url":"../../../playGame/html/别踩白块/index.html",
+                "name":"别踩白块"
+            },
+            {
+                "url":"../../../playGame/html/边界小游戏/bianjie.html",
+                "name":"边界小游戏"
+            },
+            {
+                "url":"../../../playGame/html/飞机大战/game1.0.html",
+                "name":"飞机大战"
+            },
+            {
+                "url":"../../../playGame/html/接住表情/demo.html",
+                "name":"接住表情"
+            },
+        ]
     }
 };
-
-
 /*
 sessionStorage.setItem("key", "value");
 sessionStorage.getItem("key");

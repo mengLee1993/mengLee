@@ -47,7 +47,11 @@
 </body>
 <script type="text/javascript">
     $(function(){
-        var resultData = {"rspBody":{"resultData":[{"name":"JDK安装","htmlUrl":"../md/JDK安装.html","mdUrl":"../md/JDK安装.md"},{"name":"Tomcat安装","htmlUrl":"../md/Tomcat安装.html","mdUrl":"../md/Tomcat安装.md"},{"name":"nginx安装","htmlUrl":"../md/nginx安装.html","mdUrl":"../md/nginx安装.md"},{"name":"node安装","htmlUrl":"../md/node安装.html","mdUrl":"../md/node安装.md"},{"name":"gulp安装","htmlUrl":"../md/gulp安装.html","mdUrl":"../md/gulp安装.md"},{"name":"破解idea","htmlUrl":"../md/破解idea.html","mdUrl":"../md/破解idea.md"},{"name":"svn新建账户","htmlUrl":"../md/svn新建账户.html","mdUrl":"../md/svn新建账户.md"},{"name":"linux命令","htmlUrl":"../md/linux命令.html","mdUrl":"../md/linux命令.md"}]}};
+        var resultData = {
+            "rspBody":{
+                "resultData":dataConfig.myShare.myShare,
+            }
+        };
         initplugPath($("#titleBox")[0],"standardTableCtrl",resultData);
         initplugPath($("#containerBox")[0],"standardTableCtrl",resultData);
         setTimeout(function(){

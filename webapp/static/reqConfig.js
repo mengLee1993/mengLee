@@ -115,14 +115,14 @@ function loadingProc(isFinal){
     }
 }
 
-/*if(!sessionStorage.getItem("dataConfig") || (sessionStorage.getItem("dataConfig") && !JSON.parse(sessionStorage.getItem("dataConfig")).login.login.isLogin)){
+if(!sessionStorage.getItem("dataConfig") || (sessionStorage.getItem("dataConfig") && !JSON.parse(sessionStorage.getItem("dataConfig")).login.login.isLogin)){
     if(window.location.href.indexOf("login/html/login.html") == -1){
         window.location.href = "../../login/html/login.html";
 
     }
 }else{
     var dataConfig = JSON.parse(sessionStorage.getItem("dataConfig"));
-}*/
+}
 
 
 

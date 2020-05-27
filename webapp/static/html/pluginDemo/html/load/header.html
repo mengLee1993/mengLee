@@ -250,14 +250,30 @@
 <div class="lm_container">
     <ul class="lm_menu">
         <li><a href="#s1">Plugin demo</a>
-            <ul class="lm_submenu">
-                <li><a href="../mdTohtml/demo.html">md文件转换</a></li>
-                <li><a href="../fangdajing/fangdajing.html">放大镜</a></li>
-                <li><a href="../lunbotu/lunbotu.html">轮播图</a></li>
-                <li><a href="../jisuanqi/jisuanqi.html">计算器</a></li>
-                <li><a href="../jishiqi/jishiqi.html">计时器</a></li>
-                <li><a href="../floatImg/floatImg.html">漂浮图片</a></li>
+            <ul class="lm_submenu" id="menuBox" templateId="templateRow">
+                <li id="templateRow" style="display: none"><a href=""></a></li>
             </ul>
         </li>
     </ul>
 </div>
+<script>
+    $(function(){
+        if(window.location.href.indexOf("pluginDemo/html/load/index.html") != -1){//主页
+            var resultData = GetQueryString("pluginDemo") ? dataConfig.pluginDemo.pluginDemo : dataConfig.playGame.playGame;
+        }else{//menu页
+            var resultData = window.location.href.indexOf("playGame") == -1 ? dataConfig.pluginDemo.pluginDemo : dataConfig.playGame.playGame;
+        }
+
+        var resultData = {
+            "rspBody":{
+                "resultData":resultData,
+            }
+        };
+        initplugPath($("#menuBox")[0],"standardTableCtrl",resultData);
+    });
+    function clsStandardTableCtrl$progress(jsonItem, cloneRow) {
+        if(this.ctrl.id == "menuBox"){
+            $(cloneRow).find("a").html(jsonItem.name).attr("href",jsonItem.url);
+        }
+    }
+</script>

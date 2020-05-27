@@ -1,28 +1,16 @@
-**JDK安装教程**
+**Tomcat安装(mac)**
 
-    jdk下载地址  http://www.oracle.com/technetwork/cn/java/javase/downloads/jdk8-downloads-2133151-zhs.html 
-    * 1.启动终端Terminal  
+*1.下载tomcat——http://tomcat.apache.org/download-80.cgi
 
-    *2.进入当前用户的home目录  #cd ~  
+*2.选择core下面的zip或者tar.gz文件
 
-    *3.创建.bash_profile  #touch .bash_profile  
+*3.放到Library（资源库）文件夹下面，并且重命名为ApacheTomcat
 
-    *4.编辑.bash_profile文件  #open -e .bash_profile  把这些代码拷入，JAVA_HOME后边的路径是你的安装路径 
-    /*******注释********/
-    如何查看自己java安装的路径 
-    //java  环境变量查看
-    #whereis Java
-    #ls -l  /usr/bin/java
-    //如果默认安装 这个命令可以打开jdk安装目录
-    #open /Library/Java/
+*4.进入ApacheTomcat文件夹下面bin目录下  #cd /Users/limeng/Library/tomcat/bin
 
-    #JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home
-    #CLASSPAHT=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-    #PATH=$JAVA_HOME/bin:$PATH:
-    #export JAVA_HOME
-    #export CLASSPATH
-    #export PATH
+*5.启动ApacheTomcat    #./startup.sh
+如果出现-bash: ./startup.sh: Permission denied，说明没有权限，需要chmod修改一下bin目录下的.sh权限
 
-    *5.保存文件，关闭.bash_profile  
-    *6.更新刚配置的环境变量  	#source .bash_profile  
-    *7.查看是否成功。#java -version
+*6.关闭tomcat  #ps -ef|grep tomcat  #kill -9 2235
+
+*7.打印日志   #tail -200f ../logs/catalina.out

@@ -1,5 +1,20 @@
-<textarea style="display:none;">
-**JDK安装教程**
+<!--引入样式文件-->
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/editormd.preview.css" />
+
+<!--引入js文件-->
+<script src="../js/jquery.min.js"></script>
+<script src="../js/marked.min.js"></script>
+<script src="../js/prettify.min.js"></script>
+<script src="../js/raphael.min.js"></script>
+<script src="../js/underscore.min.js"></script>
+<script src="../js/sequence-diagram.min.js"></script>
+<script src="../js/flowchart.min.js"></script>
+<script src="../js/jquery.flowchart.min.js"></script>
+<script src="../js/editormd.js"></script>
+<div id="shareMd">
+    <textarea style="display:none;">
+**JDK安装(mac)**
 
     jdk下载地址  http://www.oracle.com/technetwork/cn/java/javase/downloads/jdk8-downloads-2133151-zhs.html 
     * 1.启动终端Terminal  
@@ -25,6 +40,23 @@
     #export PATH
 
     *5.保存文件，关闭.bash_profile  
+
     *6.更新刚配置的环境变量  	#source .bash_profile  
+
     *7.查看是否成功。#java -version
-</textarea>
+    </textarea>
+</div>
+<script>
+    mdToHml("shareMd");
+    //markDown转HTMl的方法
+    function mdToHml(domId){
+        editormd.markdownToHTML(domId, {
+            htmlDecode: "style,script,iframe", //可以过滤标签解码
+            emoji: true,
+            taskList:true,
+            tex: true,               // 默认不解析
+            flowChart:true,         // 默认不解析
+            sequenceDiagram:true,  // 默认不解析
+        });
+    }
+</script>

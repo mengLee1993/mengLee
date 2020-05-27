@@ -1,4 +1,4 @@
-**JDK安装教程**
+**JDK安装(mac)**
 
     jdk下载地址  http://www.oracle.com/technetwork/cn/java/javase/downloads/jdk8-downloads-2133151-zhs.html 
     * 1.启动终端Terminal  
@@ -24,5 +24,7 @@
     #export PATH
 
     *5.保存文件，关闭.bash_profile  
+
     *6.更新刚配置的环境变量  	#source .bash_profile  
+
     *7.查看是否成功。#java -version

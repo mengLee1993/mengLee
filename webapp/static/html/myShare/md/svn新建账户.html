@@ -1,0 +1,51 @@
+<!--引入样式文件-->
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/editormd.preview.css" />
+
+<!--引入js文件-->
+<script src="../js/jquery.min.js"></script>
+<script src="../js/marked.min.js"></script>
+<script src="../js/prettify.min.js"></script>
+<script src="../js/raphael.min.js"></script>
+<script src="../js/underscore.min.js"></script>
+<script src="../js/sequence-diagram.min.js"></script>
+<script src="../js/flowchart.min.js"></script>
+<script src="../js/jquery.flowchart.min.js"></script>
+<script src="../js/editormd.js"></script>
+<div id="shareMd">
+    <textarea style="display:none;">
+**svn新建账户**
+
+    *1.找到SVN的安装目录
+        如果SVN进程已经启动，可以通过ps -ef | grep svn查询
+        如果SVN进程未启动，可以通过 find  / -name svn查询
+    *2.进入该目录的conf文件夹，其中包含authz、passwd、svnserve.conf三个文件
+    *3.vim passwd修改passwd加上想要添加的svn账号和密码，格式为：
+        username1 = password1
+        username2 = password2
+        如果文件为只读，登录root用户修改，su。然后wq保存。
+    *4.再进入authz，添加上在passwd中加入的用户名，格式为：
+        www=username1,username2
+        然后保存wq
+    *5.重启svn进程（测试不需要重启就可以生效）
+        找到svn的进程ID ps -ef | grep svn,然后使用kill -9 processid杀掉进程，或者通过killall svnserve杀掉进程
+        启动svn：sudo 	安装路径
+        这种方式启动的svn是在默认端口3690，通过netstat -nultp可以看到启动的端口，如果想在指定端口启动可以通过如下命令启动：
+        svnserve -d -r 安装目录   --listen-port 10001
+
+    </textarea>
+</div>
+<script>
+    mdToHml("shareMd");
+    //markDown转HTMl的方法
+    function mdToHml(domId){
+        editormd.markdownToHTML(domId, {
+            htmlDecode: "style,script,iframe", //可以过滤标签解码
+            emoji: true,
+            taskList:true,
+            tex: true,               // 默认不解析
+            flowChart:true,         // 默认不解析
+            sequenceDiagram:true,  // 默认不解析
+        });
+    }
+</script>

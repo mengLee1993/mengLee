@@ -3,29 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <!--
+    <script src="../../../base/js/jquery.js"></script>
     <script src="../../../base/js/public.js"></script>
     <script src="../../../base/js/docassistant.js"></script>
     <script src="../../../base/js/validate.js"></script>
     <script src="../../../base/js/jquery.cookie.js"></script>
-    -->
     <link rel="stylesheet" href="../../../base/css/trade-base.css">
-    <script src="../../../base/js/jquery.js"></script>
     <script src="../../../reqConfig.js"></script>
-    <!--引入样式文件-->
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/editormd.preview.css" />
-
-    <!--引入js文件-->
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/marked.min.js"></script>
-    <script src="../js/prettify.min.js"></script>
-    <script src="../js/raphael.min.js"></script>
-    <script src="../js/underscore.min.js"></script>
-    <script src="../js/sequence-diagram.min.js"></script>
-    <script src="../js/flowchart.min.js"></script>
-    <script src="../js/jquery.flowchart.min.js"></script>
-    <script src="../js/editormd.js"></script>
     <style>
         body{
             color: #fff;background: #000;
@@ -43,67 +27,45 @@
             margin: 20px 0;
             width: 100%;
         }
+        .containBox-list iframe{
+            width: 100%;
+        }
     </style>
 </head>
 <body>
-    <div class="titleBox" id="titleBox">
+    <div class="titleBox" id="titleBox" templateId="templateRow">
         <a id="templateRow" class="titleBox-a" href="" style="display: none;"></a>
     </div>
-    <div class="containBox">
-        <div class="containBox-list" id="templateMd" style="display: none;">
-            <div class="eachInitMd">
+    <div class="containBox" id="containerBox" templateId="templateRow">
+        <div class="containBox-list" id="templateRow" style="display: none">
+            <div class="maodian">
+                <iframe src="" frameborder="0"></iframe>
             </div>
         </div>
     </div>
 
 </body>
 <script type="text/javascript">
-    var json = [{"name":"JDK安装","htmlUrl":"../md/JDK安装.html","mdUrl":"../md/JDK安装.md"}];
-    initHtml(json);
-    setTimeout(function(){
-        initMd();
-    },1);
-    function initHtml(data){
-        for(var nI = 0; nI < data.length ; nI++ ){
-            var jsonItem = data[nI];
-            //初始化title
-            var templateRowT = $("#templateRow")[0];
-            var cloneRowT = templateRowT.cloneNode(true);
-            $(cloneRowT).attr("href","#_" + jsonItem.name).html(jsonItem.name);
-            cloneRowT.style.display = "";
-            templateRowT.parentNode.insertBefore(cloneRowT, templateRowT);
+    $(function(){
+        var resultData = {"rspBody":{"resultData":[{"name":"JDK安装","htmlUrl":"../md/JDK安装.html","mdUrl":"../md/JDK安装.md"},{"name":"Tomcat安装","htmlUrl":"../md/Tomcat安装.html","mdUrl":"../md/Tomcat安装.md"},{"name":"nginx安装","htmlUrl":"../md/nginx安装.html","mdUrl":"../md/nginx安装.md"},{"name":"node安装","htmlUrl":"../md/node安装.html","mdUrl":"../md/node安装.md"},{"name":"gulp安装","htmlUrl":"../md/gulp安装.html","mdUrl":"../md/gulp安装.md"},{"name":"破解idea","htmlUrl":"../md/破解idea.html","mdUrl":"../md/破解idea.md"},{"name":"svn新建账户","htmlUrl":"../md/svn新建账户.html","mdUrl":"../md/svn新建账户.md"},{"name":"linux命令","htmlUrl":"../md/linux命令.html","mdUrl":"../md/linux命令.md"}]}};
+        initplugPath($("#titleBox")[0],"standardTableCtrl",resultData);
+        initplugPath($("#containerBox")[0],"standardTableCtrl",resultData);
+        setTimeout(function(){
+            $("iframe").each(function(){
+                console.log($(this).contents().find("html").height());
+                $(this).css("height",$(this).contents().find("html").height() + "px")
+            });
+        },1000);
+    });
 
-
-            //初始化md展示
-            var templateRow = $("#templateMd")[0];
-            var cloneRow = templateRow.cloneNode(true);
-            $(cloneRow).attr("id","_" + jsonItem.name);
-            $(cloneRow).find("div:first").attr("id",jsonItem.name);
-            $(cloneRow).find("#" + jsonItem.name)[0].jsonData = jsonItem;
-            $(cloneRow).find("#" + jsonItem.name).load(jsonItem.htmlUrl,function(){});
-            cloneRow.style.display = "";
-            templateRow.parentNode.insertBefore(cloneRow, templateRow);
-
+    function clsStandardTableCtrl$progress(jsonItem, cloneRow) {
+        if(this.ctrl.id == "titleBox"){
+            $(cloneRow).html(jsonItem.name).attr("href","#" + jsonItem.name);
         }
-    }
-    initMd();
-    function initMd(){
-        $(".eachInitMd").each(function(){
-            var str = $(this).attr("id");
-            mdToHml(str);
-
-        })
-    }
-    //markDown转HTMl的方法
-    function mdToHml(domId){
-        editormd.markdownToHTML(domId, {
-            htmlDecode: "style,script,iframe", //可以过滤标签解码
-            emoji: true,
-            taskList:true,
-            tex: true,               // 默认不解析
-            flowChart:true,         // 默认不解析
-            sequenceDiagram:true,  // 默认不解析
-        });
+        if(this.ctrl.id == "containerBox"){
+            $(cloneRow).find("iframe").attr("src",jsonItem.htmlUrl);
+            $(cloneRow).find(".maodian").attr("id",jsonItem.name);
+        }
     }
 </script>
 </html>

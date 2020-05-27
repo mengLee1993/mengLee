@@ -14,22 +14,35 @@
 <script src="../js/editormd.js"></script>
 <div id="shareMd">
     <textarea style="display:none;">
-**Tomcat安装(mac)**
+**nginx安装(mac)**
 
-    *1.下载tomcat——http://tomcat.apache.org/download-80.cgi
+    *1.安装Command Line tools   #xcode-select —install
 
-    *2.选择core下面的zip或者tar.gz文件
+    *2.安装brew命令   #ruby -e “(curl -fsSL http://row.githubusercontent.com/Homebrew/install/master/install)”
 
-    *3.放到Library（资源库）文件夹下面，并且重命名为ApacheTomcat
+    *3.安装nginx    #brew install nginx
 
-    *4.进入ApacheTomcat文件夹下面bin目录下  #cd /Users/limeng/Library/tomcat/bin
+    *4.启动nginx    #sudo nginx
 
-    *5.启动ApacheTomcat    #./startup.sh
-		如果出现-bash: ./startup.sh: Permission denied，说明没有权限，需要chmod修改一下bin目录下的.sh权限
+    *5.安装成功，默认端口号8080
 
-    *6.关闭tomcat  #ps -ef|grep tomcat  #kill -9 2235
+    *6.打开文件夹物理路径，配置nginx    #vim /usr/local/etc/nginx/nginx.conf
 
-    *7.打印日志   #tail -200f ../logs/catalina.out
+    *7.进入nginx.conf文件，按“I”键编辑
+
+    *8.第一行换为user root owner
+
+
+
+    *9.按”esc”推出编辑，输入:wq保存nginx.conf文件
+
+    *10.重新启动nginx    #sudo nginx -s reload
+
+    *11.终止nginx    sudo nginx -s stop
+
+    *12.进入文件夹下面    #cd /usr/local/etc/nginx/
+
+    *13.服务器     #vim  /usr/local/nginx/conf/nginx.conf
     </textarea>
 </div>
 <script>

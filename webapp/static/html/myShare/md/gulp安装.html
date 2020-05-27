@@ -14,22 +14,14 @@
 <script src="../js/editormd.js"></script>
 <div id="shareMd">
     <textarea style="display:none;">
-**Tomcat安装(mac)**
+**gulp安装(服务器)**
 
-    *1.下载tomcat——http://tomcat.apache.org/download-80.cgi
+    gulp: command not found 解决
 
-    *2.选择core下面的zip或者tar.gz文件
+    问题：执行 npm install -g gulp 后， 执行 gulp -v 查看当前版本，出现 gulp: command not found 错误提示， package.json 的 devDependencies 里也木有 gulp 依赖。
 
-    *3.放到Library（资源库）文件夹下面，并且重命名为ApacheTomcat
+    解决：重设路径后再执行 npm install -g gulp 就可以正常安装了。   #npm config set prefix /usr/local
 
-    *4.进入ApacheTomcat文件夹下面bin目录下  #cd /Users/limeng/Library/tomcat/bin
-
-    *5.启动ApacheTomcat    #./startup.sh
-		如果出现-bash: ./startup.sh: Permission denied，说明没有权限，需要chmod修改一下bin目录下的.sh权限
-
-    *6.关闭tomcat  #ps -ef|grep tomcat  #kill -9 2235
-
-    *7.打印日志   #tail -200f ../logs/catalina.out
     </textarea>
 </div>
 <script>

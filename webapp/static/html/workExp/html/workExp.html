@@ -127,8 +127,27 @@
         </div>
     </div>
     <h1 style="padding: 10px 0 ;">项目：</h1>
+    <div class="searchBox">
+        <ul class="searchBox-ul clearfix" id="searchBoxChild">
+            <li class="searchBox-ul-list">
+                <span>项目</span>
+                <input id="projectName" type="text" class="trade_input mr10" autocomplete="off">
+            </li>
+            <li class="searchBox-ul-list fr">
+                <a href="javascript:" class="btn-search trade_btn" id="searchChildBtn" parentId="searchBoxChild" jsonkey="projectName">
+                    <b>搜索</b>
+                </a>
+                <a href="javascript:" class="btn-search trade_btn" id="addChildBtn" jsonKey="projectName,startTime,endTime,times,projectText">
+                    <b>新增</b>
+                </a>
+                <a href="javascript:" class="btn-search trade_btn" id="delChildBtn">
+                    <b>删除</b>
+                </a>
+            </li>
+        </ul>
+    </div>
     <div id="aDiv" class="table-listbox">
-        <table cellspacing="0" cellpadding="0" id="tableListChild" templateid="templateRow" idx="idx" nodata="noDataCon2" class="table-list"  clsChk="clsChk" clsAllChk="clsAllChk" chkId="chkCoding"  style="width: 100%">
+        <table cellspacing="0" cellpadding="0" id="tableListChild" templateid="templateRow" idx="idx" nodata="noDataCon2" class="table-list"  clsChk="clsChk" clsAllChk="clsAllChk" chkId="chkCoding"  searchId="searchChildBtn" addId="addChildBtn" editAddBoxId="tableListChildMain" saveId="saveChildBtn" isCacheCond="sid" style="width: 100%">
             <thead class="table-list-header">
             <tr><th class="table-list-header__th lock-col lock-row" style="width:1%;">
                 <input type="checkbox" comType="checkAll" unionTableId="tableListChild" chkId="chkCoding" class="clsAllChk">
@@ -159,7 +178,7 @@
                 <!--<td class="table-list-tr__item" id="projectUrl"></td>-->
                 <td class="table-list-tr__item" id="projectText"></td>
                 <td class="table-list-tr__item">
-                    <a href="javascript:" class="contpro-table__icon contpro-table__icon1" id="editOpe"></a>
+                    <a href="javascript:" class="contpro-table__icon contpro-table__icon1" id="editChildOpe"></a>
                     <!--<a href="javascript:;" class="contpro-table__icon contpro-table__icon3"></a>-->
                 </td>
             </tr>
@@ -212,12 +231,60 @@
 </div>
 
 
+<div id="createChildBox" class="popup gc_box"   style="display:none">
+    <div class="title" style="">
+        <h2>详情信息</h2>
+        <div>
+            <a class="min" href="javascript:" title="最小化" style="display:none;"></a>
+            <a class="max" href="javascript:" title="最大化" style="display:none;"></a>
+            <a class="revert" href="javascript:" title="还原" style="display:none;"></a>
+            <a class="close" href="javascript:" title="关闭" style="display:block;"></a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="searchBox">
+            <ul class="searchBox-ul clearfix" id="tableListChildMain">
+                <li class="searchBox-ul-list">
+                    <span>项目名称</span>
+                    <input id="projectName" type="text" class="trade_input mr10 required" autocomplete="off">
+                </li>
+                <li class="searchBox-ul-list">
+                    <span>入职时间</span>
+                    <input class="trade_input mr10 Wdate required" type="text" readonly="true" name="startDate" id="startTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+                </li>
+                <li class="searchBox-ul-list">
+                    <span>离职时间</span>
+                    <input class="trade_input mr10 Wdate required" type="text" readonly="true" name="startDate" id="endTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+                </li>
+                <li class="searchBox-ul-list">
+                    <span>项目时长</span>
+                    <input id="times" type="text" class="trade_input mr10 required" autocomplete="off">
+                </li>
+                <li class="searchBox-ul-list">
+                    <span>项目介绍</span>
+                    <input id="projectText" type="text" class="trade_input mr10 required" autocomplete="off">
+                </li>
+                <li class="searchBox-ul-list fr">
+                    <a href="javascript:" class="btn-search trade_btn" id="saveChildBtn" jsonKey="projectName,startTime,endTime,times,projectText">
+                        <b>保存</b>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
 
 <script>
-    var data = dataConfig.workExp.workExp;
+    var dataMain = dataConfig.workExp.workExp;//主
+    var dataChild = [];//子
+    var data = null;//$.extend方法中操作的json数据
+    var mainClick = null;
     $(function(){
-        initplugPath($("#tableList")[0],"standardTableCtrl",{"rspBody":{"resultData":data}});
-        initplugPath($("#tableListChild")[0],"standardTableCtrl",{"rspBody":{"resultData":[]}});
+        initplugPath($("#tableList")[0],"standardTableCtrl",{"rspBody":{"resultData":dataMain}});
+        initplugPath($("#tableListChild")[0],"standardTableCtrl",{"rspBody":{"resultData":dataChild}});
         //搜索
         $("#searchBtn").on("click",function(){
             var dataSearch = $("#tableList").search();
@@ -234,7 +301,9 @@
         $("#delBtn").on("click",function(){
             var cacheArr = $("#tableList")[0].cacheArr ? $("#tableList")[0].cacheArr : [];
             if(cacheArr.length > 0){
-                data = $("#tableList").del(cacheArr);
+                data = JSON.parse(JSON.stringify(dataMain));
+                dataMain = $("#tableList").del(cacheArr);
+                $("#tableList")[0].cacheArr = [];
                 initplugPath($("#tableList")[0],"standardTableCtrl",{"rspBody":{"resultData":data}});
             }else{
                 alert("请勾选数据");
@@ -247,8 +316,66 @@
             if (!valiClass.validateAll4Ctrl($("#tableListMain")[0])) {
                 return false;
             }
-            var dataSearch = $("#tableList").save();
-            initplugPath($("#tableList")[0],"standardTableCtrl",{"rspBody":{"resultData":dataSearch}});
+            data = JSON.parse(JSON.stringify(dataMain));
+            dataMain = $("#tableList").save();
+            $("#tableList")[0].cacheArr = [];
+            initplugPath($("#tableList")[0],"standardTableCtrl",{"rspBody":{"resultData":dataMain}});
+            closePopupWin();
+        });
+
+
+
+        /*
+        *
+        *
+        * 子表
+        *
+        *
+        *
+        * */
+        //搜索
+        $("#searchChildBtn").on("click",function(){
+            var dataSearch = $("#tableListChild").search();
+            initplugPath($("#tableListChild")[0],"standardTableCtrl",{"rspBody":{"resultData":dataSearch}});
+        });
+
+        //新增
+        $("#addChildBtn").on("click",function(){
+            if(!mainClick){
+                alert("请选择主表信息");
+                return;
+            }
+            openWin('1000', '530', 'createChildBox', true);
+            $("#tableListChild").add();
+
+        });
+        //删除
+        $("#delChildBtn").on("click",function(){
+            if(!mainClick){
+                alert("请选择主表信息");
+                return;
+            }
+            var cacheArr = $("#tableListChild")[0].cacheArr ? $("#tableListChild")[0].cacheArr : [];
+            if(cacheArr.length > 0){
+                data = JSON.parse(JSON.stringify(dataChild));
+                dataChild = $("#tableListChild").del(cacheArr);
+                $("#tableListChild")[0].cacheArr = [];
+                initplugPath($("#tableListChild")[0],"standardTableCtrl",{"rspBody":{"resultData":dataChild}});
+            }else{
+                alert("请勾选数据");
+            }
+
+        });
+        //保存（新建和编辑）
+        $("#saveChildBtn").on("click",function(){
+            initValidate($("#tableListChildMain")[0]);
+            if (!valiClass.validateAll4Ctrl($("#tableListChildMain")[0])) {
+                return false;
+            }
+            data = JSON.parse(JSON.stringify(dataChild));
+            dataChild = $("#tableListChild").save();
+            $("#tableListChild")[0].cacheArr = [];
+            initplugPath($("#tableListChild")[0],"standardTableCtrl",{"rspBody":{"resultData":dataChild}});
             closePopupWin();
         });
     });
@@ -257,7 +384,9 @@
         if(this.ctrl.id == "tableList"){
             $(cloneRow).on("click",function(){
                 if(!jsonItem.children)jsonItem.children=[];
-                initplugPath($("#tableListChild")[0],"standardTableCtrl",{"rspBody":{"resultData":jsonItem.children}});
+                mainClick = jsonItem.sid;
+                dataChild = jsonItem.children;
+                initplugPath($("#tableListChild")[0],"standardTableCtrl",{"rspBody":{"resultData":dataChild}});
             });
 
             //编辑
@@ -268,14 +397,18 @@
         }
         if(this.ctrl.id == "tableListChild"){
             //编辑
-            $(cloneRow).find("#editOpe").on("click",function(){
-
+            $(cloneRow).find("#editChildOpe").on("click",function(){
+                openWin('1000', '530', 'createChildBox', true);
+                $("#tableListChild").edit(jsonItem);
             });
         }
         if(isChecked(jsonItem,this.cacheArr,"id"))
             $(cloneRow).find("#chkCoding").attr("checked",true);
     }
     function clsStandardTableCtrl$after() {
+        if(this.ctrl.id == "tableList"){
+            mainClick = null;
+        }
         isAllCheck(this.ctrl);
     }
 
@@ -359,7 +492,7 @@
             for(var nI = 0; nI < data.length ; nI++ ){
                 var isTrue = true;
                 for(var key in jsonParam){
-                    if(data[nI][key].indexOf(jsonParam[key]) == -1){//如果没有找到，isTrue为false
+                    if(!data[nI][key] || (data[nI][key] && data[nI][key].indexOf(jsonParam[key]) == -1)){//如果没有找到，isTrue为false
                         isTrue = false;
                     }
                 }
@@ -396,13 +529,31 @@
             numMax = String(numMax);
             if(numMax.length == 1){
                 numMax = "00" + numMax;
-            }else if(numLast.length == 2){
+            }else if(numMax.length == 2){
                 numMax = "0" + numMax;
             }
             sidMax = sidMax + numMax;
             return sidMax;
         }
     });
+
+
+    /*//动态监听全局变量
+    var a = { watchValue:0 };
+    var lastTimeValue=a.watchValue;
+    Object.defineProperty(a, 'watchValue', {
+        get: function() {
+            console.log('get：' + watchValue);
+            return watchValue;
+        },
+        set: function(value) {
+            watchValue = value;
+            if(lastTimeValue!=watchValue){
+                lastTimeValue=watchValue;
+                console.log('value changed!! set: ' + watchValue);
+            }
+        }
+    });*/
 </script>
 </body>
 </html>

@@ -53,7 +53,7 @@ var dataConfig = {
     },
     "workExp":{//工作经历
         "workExp":[
-            {
+            /*{
                 "companyName":"新奥集团",
                 "startTime":"2016",
                 "endTime":"2018-06",
@@ -76,7 +76,7 @@ var dataConfig = {
                         "projectText":""
                     }
                 ]
-            },
+            },*/
             {
                 "companyName":"首钢集团",
                 "startTime":"2018-07",
@@ -188,7 +188,7 @@ var dataConfig = {
 
         }
     }
-}
+};
 
 
 /*

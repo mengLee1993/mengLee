@@ -54,12 +54,14 @@ var dataConfig = {
     "workExp":{//工作经历
         "workExp":[
             /*{
+                "sid":"001",
                 "companyName":"新奥集团",
                 "startTime":"2016",
                 "endTime":"2018-06",
                 "times":"2年",
                 "children":[
                     {
+                        "sid":"001001",
                         "projectName":"恩牛网",
                         "startTime":"2016",
                         "endTime":"2017-05",
@@ -68,6 +70,7 @@ var dataConfig = {
                         "projectText":""
                     },
                     {
+                        "sid":"001002",
                         "projectName":"阳光e购(1.0\2.0\3.0)",
                         "startTime":"2017-05",
                         "endTime":"2018-06",
@@ -78,12 +81,14 @@ var dataConfig = {
                 ]
             },*/
             {
+                "sid":"002",
                 "companyName":"首钢集团",
                 "startTime":"2018-07",
                 "endTime":"至今",
                 "times":"",
                 "children":[
                     {
+                        "sid":"002001",
                         "projectName":"采购平台",
                         "startTime":"2018-07",
                         "endTime":"2018-08",
@@ -92,6 +97,7 @@ var dataConfig = {
                         "projectText":""
                     },
                     {
+                        "sid":"002002",
                         "projectName":"竞拍平台",
                         "startTime":"2018-08",
                         "endTime":"2018-09",
@@ -100,6 +106,7 @@ var dataConfig = {
                         "projectText":""
                     },
                     {
+                        "sid":"002003",
                         "projectName":"酒钢客户服务平台",
                         "startTime":"2018-09",
                         "endTime":"2018-10",
@@ -110,6 +117,7 @@ var dataConfig = {
                         "password":""
                     },
                     {
+                        "sid":"002003",
                         "projectName":"自定义报表平台",
                         "startTime":"2018-11",
                         "endTime":"2019-01",
@@ -120,6 +128,7 @@ var dataConfig = {
                         "password":""
                     },
                     {
+                        "sid":"002004",
                         "projectName":"首钢营销工贸系统",
                         "startTime":"2019-03",
                         "endTime":"2020-01",
@@ -130,6 +139,7 @@ var dataConfig = {
                         "password":""
                     },
                     {
+                        "sid":"002005",
                         "projectName":"微服务监控运维平台",
                         "startTime":"2019-11",
                         "endTime":"2020-01",
@@ -140,6 +150,7 @@ var dataConfig = {
                         "password":""
                     },
                     {
+                        "sid":"002006",
                         "projectName":"首钢综合管理平台",
                         "startTime":"2020-02",
                         "endTime":"2020-04",
@@ -150,6 +161,7 @@ var dataConfig = {
                         "password":""
                     },
                     {
+                        "sid":"002007",
                         "projectName":"首安云考试系统",
                         "startTime":"2020-04",
                         "endTime":"2020-04",
@@ -160,6 +172,7 @@ var dataConfig = {
                         "password":""
                     },
                     {
+                        "sid":"002008",
                         "projectName":"经营决策系统",
                         "startTime":"2020",
                         "endTime":"2020",
@@ -170,6 +183,7 @@ var dataConfig = {
                         "password":""
                     },
                     {
+                        "sid":"002009",
                         "projectName":"首钢股份在线交易平台",
                         "startTime":"2020-04",
                         "endTime":"至今",

@@ -3,6 +3,7 @@ var requestUrl = "/api";
 var jsonMetadata = {"rspBody":null};
 var valiClass = typeof clsValidateCtrl != "undefined" ? new clsValidateCtrl() : null;
 var param = {};
+var jsonOrgdata = {"rspBody":null};
 
 
 /******************************************************************************
@@ -206,4 +207,34 @@ function CurentTime(now,times){//times year——年  month——月  day-—日
     if(times == "second")return clock;
 
     return(clock);
+}
+//反选checkbox      初始化table插件时，勾选后，翻页，反勾选当前条数据，progress方法执行
+function isChecked(jsonItem,cacheArr,sidKey){
+    //currentValue——当前jsonItem   cacheArr——勾选的数组  sidKey——主键名称
+    var isTrue = false;
+    for(var nI = 0; nI < cacheArr.length; nI++){
+        if(cacheArr[nI][sidKey] == jsonItem[sidKey]){
+            isTrue = true;
+        }
+    }
+    return isTrue
+}
+
+//针对列表子项勾选后，联动全选按钮  after方法执行
+function isAllCheck(dom){
+    //dom——table盒子的id（js节点）
+    //var classAll = $(dom).attr("clsAllChk");
+    var classChild = $(dom).attr("clsChk");
+    var listCheck = $(dom).find("[id=cloneRow]").find("."+classChild);
+    var numLength = 0;
+    for (var mI = 0; mI < listCheck.length; mI++){
+        if(listCheck.eq(mI).is(":checked")){
+            numLength++;
+        }
+    }
+    if(numLength == listCheck.length && numLength > 0){
+        $(dom).find("[comType=checkAll]").attr("checked",true);
+    }else{
+        $(dom).find("[comType=checkAll]").attr("checked",false);
+    }
 }

@@ -11,13 +11,84 @@
     <script src="../../../base/js/validate.js"></script>
     <script src="../../../base/js/jquery.cookie.js"></script>
     <script src="../../../reqConfig.js"></script>
+
+    <!--插件-->
+    <link rel="stylesheet" href="../../../plugin/popup/css/manhuaDialog.1.0_blue.css">
+    <script src="../../../plugin/popup/script/manhuaDialog.1.0.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../../../plugin/WdatePickerBlue/My97DatePicker/skin/WdatePicker.css">
+    <script src="../../../plugin/WdatePickerBlue/My97DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" href="../../../plugin/tip/css/tip-twitter/tip-twitter.css">
+    <script src="../../../plugin/tip/script/jquery.poshytip.js"></script>
+
+
     <!--页面-->
+    <style>
+        .searchBox-ul{
+            width: 100%;
+            padding: 20px;
+        }
+        .searchBox-ul-list{
+            width: 30%;
+            float: left;
+            margin: 10px 10px 10px 0;
+            box-sizing: border-box;
+        }
+        .searchBox-ul-list input{
+            float: left;
+        }
+        .searchBox-ul-list span{
+            float: left;
+            width: 100px;
+        }
+        .trade_btn{
+            border:1px solid #fff;
+            color:#fff;
+        }
+        .trade_btn:hover{
+            background: #000;
+            border: 1px solid #fff;
+        }
+        .trade_btn b{
+            color: #fff;
+        }
+        .popup{
+            border: 1px solid #fff;
+        }
+        .popup ,.popup .content, .popup .title h2{
+            background: #000;
+            color: #fff;
+        }
+        .popup .searchBox-ul-list{
+            width: 40%;
+            float: left;
+        }
+
+    </style>
 </head>
 <body>
 <div style="width: 100%;box-sizing: border-box;padding: 10px;">
     <h1 style="padding: 10px 0 ;">公司：</h1>
+    <div class="searchBox">
+        <ul class="searchBox-ul clearfix" id="searchBox">
+            <li class="searchBox-ul-list">
+                <span>公司</span>
+                <input id="companyName" type="text" class="trade_input mr10" autocomplete="off">
+            </li>
+            <li class="searchBox-ul-list fr">
+                <a href="javascript:" class="btn-search trade_btn" id="searchBtn" parentId="searchBox" jsonkey="companyName">
+                    <b>搜索</b>
+                </a>
+                <a href="javascript:" class="btn-search trade_btn" id="addBtn" jsonKey="companyName,startTime,endTime,times">
+                    <b>新增</b>
+                </a>
+                <a href="javascript:" class="btn-search trade_btn" id="delBtn">
+                    <b>删除</b>
+                </a>
+            </li>
+        </ul>
+    </div>
     <div id="aDiv" class="table-listbox">
-        <table cellspacing="0" cellpadding="0" id="tableList" templateid="templateRow" idx="idx" nodata="noDataCon" class="table-list"  clsChk="clsChk" clsAllChk="clsAllChk" chkId="chkCoding"  style="width: 100%">
+        <table cellspacing="0" cellpadding="0" id="tableList" templateid="templateRow" idx="idx" nodata="noDataCon" class="table-list"  clsChk="clsChk" clsAllChk="clsAllChk" chkId="chkCoding" searchId="searchBtn" addId="addBtn" editAddBoxId="tableListMain" saveId="saveBtn" isCacheCond="sid" style="width: 100%">
             <thead class="table-list-header">
             <tr><th class="table-list-header__th lock-col lock-row" style="width:1%;">
                 <input type="checkbox" comType="checkAll" unionTableId="tableList" chkId="chkCoding" class="clsAllChk">
@@ -100,14 +171,86 @@
         </div>
     </div>
 </div>
+
+<div id="createBox" class="popup gc_box"   style="display:none">
+    <div class="title" style="">
+        <h2>详情信息</h2>
+        <div>
+            <a class="min" href="javascript:" title="最小化" style="display:none;"></a>
+            <a class="max" href="javascript:" title="最大化" style="display:none;"></a>
+            <a class="revert" href="javascript:" title="还原" style="display:none;"></a>
+            <a class="close" href="javascript:" title="关闭" style="display:block;"></a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="searchBox">
+            <ul class="searchBox-ul clearfix" id="tableListMain">
+                <li class="searchBox-ul-list">
+                    <span>公司</span>
+                    <input id="companyName" type="text" class="trade_input mr10 required" autocomplete="off">
+                </li>
+                <li class="searchBox-ul-list">
+                    <span>入职时间</span>
+                    <input class="trade_input mr10 Wdate required" type="text" readonly="true" name="startDate" id="startTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+                </li>
+                <li class="searchBox-ul-list">
+                    <span>离职时间</span>
+                    <input class="trade_input mr10 Wdate required" type="text" readonly="true" name="startDate" id="endTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+                </li>
+                <li class="searchBox-ul-list">
+                    <span>工作时长</span>
+                    <input id="times" type="text" class="trade_input mr10 required" autocomplete="off">
+                </li>
+                <li class="searchBox-ul-list fr">
+                    <a href="javascript:" class="btn-search trade_btn" id="saveBtn" jsonKey="companyName,startTime,endTime,times">
+                        <b>保存</b>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
 <script>
+    var data = dataConfig.workExp.workExp;
     $(function(){
-        var resultData = {
-            "rspBody":{
-                "resultData":dataConfig.workExp.workExp,
+        initplugPath($("#tableList")[0],"standardTableCtrl",{"rspBody":{"resultData":data}});
+        initplugPath($("#tableListChild")[0],"standardTableCtrl",{"rspBody":{"resultData":[]}});
+        //搜索
+        $("#searchBtn").on("click",function(){
+            var dataSearch = $("#tableList").search();
+            initplugPath($("#tableList")[0],"standardTableCtrl",{"rspBody":{"resultData":dataSearch}});
+        });
+
+        //新增
+        $("#addBtn").on("click",function(){
+            openWin('1000', '530', 'createBox', true);
+            $("#tableList").add();
+
+        });
+        //删除
+        $("#delBtn").on("click",function(){
+            var cacheArr = $("#tableList")[0].cacheArr ? $("#tableList")[0].cacheArr : [];
+            if(cacheArr.length > 0){
+                data = $("#tableList").del(cacheArr);
+                initplugPath($("#tableList")[0],"standardTableCtrl",{"rspBody":{"resultData":data}});
+            }else{
+                alert("请勾选数据");
             }
-        };
-        initplugPath($("#tableList")[0],"standardTableCtrl",resultData);
+
+        });
+        //保存（新建和编辑）
+        $("#saveBtn").on("click",function(){
+            initValidate($("#tableListMain")[0]);
+            if (!valiClass.validateAll4Ctrl($("#tableListMain")[0])) {
+                return false;
+            }
+            var dataSearch = $("#tableList").save();
+            initplugPath($("#tableList")[0],"standardTableCtrl",{"rspBody":{"resultData":dataSearch}});
+            closePopupWin();
+        });
     });
 
     function clsStandardTableCtrl$progress(jsonItem, cloneRow) {
@@ -116,8 +259,150 @@
                 if(!jsonItem.children)jsonItem.children=[];
                 initplugPath($("#tableListChild")[0],"standardTableCtrl",{"rspBody":{"resultData":jsonItem.children}});
             });
+
+            //编辑
+            $(cloneRow).find("#editOpe").on("click",function(){
+                openWin('1000', '530', 'createBox', true);
+                $("#tableList").edit(jsonItem);
+            });
         }
+        if(this.ctrl.id == "tableListChild"){
+            //编辑
+            $(cloneRow).find("#editOpe").on("click",function(){
+
+            });
+        }
+        if(isChecked(jsonItem,this.cacheArr,"id"))
+            $(cloneRow).find("#chkCoding").attr("checked",true);
     }
+    function clsStandardTableCtrl$after() {
+        isAllCheck(this.ctrl);
+    }
+
+    $.fn.extend({
+        add:function(jsonItem){
+            var saveId = $(this).attr("saveId");//保存id
+            var addId = $(this).attr("addId");//添加id
+            var editAddBoxId = $(this).attr("editAddBoxId");//添加按钮的父级id
+            //绑定在saveBtn上的主键置唯为空
+            $("#" + saveId)[0]._sid = null;
+            //获取参数
+            var jsonParam = jsonItem ? jsonItem : this.jsonKeyTranslate(addId);
+            setValue4Desc(jsonParam,$("#" + editAddBoxId)[0]);
+        },
+        edit:function(jsonItem){
+            var saveId = $(this).attr("saveId");//保存id
+            var editAddBoxId = $(this).attr("editAddBoxId");//添加按钮的父级id
+            //绑定在saveBtn上的主键置唯为空
+            $("#" + saveId)[0]._sid = jsonItem.sid;
+            var jsonParam = jsonItem;
+            //获取参数
+            setValue4Desc(jsonParam,$("#" + editAddBoxId)[0]);
+        },
+        del:function(delArr){
+            if(!delArr || (delArr && delArr.length == 0)){
+                return data;
+            }
+            //循环data，筛选数据
+            var jsonSid = {};
+            for(var mI = 0 ; mI < delArr.length ; mI++ ){
+                jsonSid[delArr[mI].sid] = 1;
+            }
+            var dataNew = [];
+            for(var nI = 0; nI < data.length ; nI++ ){
+                var isTrue = true;
+                for(var key in jsonSid){
+                    if(jsonSid[data[nI]["sid"]]){//如果没有找到，isTrue为false
+                        isTrue = false;
+                    }
+                }
+                if(isTrue){
+                    dataNew.push(data[nI]);
+                }
+            }
+            return dataNew;
+        },
+        save:function(jsonItem){
+            var saveId = $(this).attr("saveId");//保存id
+            var editAddBoxId = $(this).attr("editAddBoxId");//添加按钮的父级id
+            //绑定在saveBtn上的主键置唯为空
+            var jsonParam = jsonItem ? jsonItem : this.jsonKeyTranslate(saveId);
+            //获取参数
+            getValue4Desc(jsonParam,$("#" + editAddBoxId)[0]);
+            //更新data
+            var dataNew = data;
+            if(!$("#" + saveId)[0]._sid){//新增
+                //添加主键
+                jsonParam.sid = this.getMaxSid();
+                dataNew.unshift(jsonParam);
+            }else{
+                jsonParam.sid = $("#" + saveId)[0]._sid;
+                for(var nI = 0; nI < dataNew.length ; nI++ ){
+                    if(dataNew[nI].sid == $("#" + saveId)[0]._sid){
+                        dataNew.splice(nI,1,jsonParam)
+                    }
+                }
+            }
+
+            return dataNew;
+        },
+        search:function(jsonItem){
+            var searchId = $(this).attr("searchId");//搜索id
+            var parentId = $("#" + searchId).attr("parentId");//搜索按钮的父级id
+            //获取参数
+            var jsonParam = jsonItem ? jsonItem : this.jsonKeyTranslate(searchId);
+            getValue4Desc(jsonParam,$("#" + parentId)[0]);
+            console.log(jsonParam);
+
+            //循环data，筛选数据
+            var dataNew = [];
+            for(var nI = 0; nI < data.length ; nI++ ){
+                var isTrue = true;
+                for(var key in jsonParam){
+                    if(data[nI][key].indexOf(jsonParam[key]) == -1){//如果没有找到，isTrue为false
+                        isTrue = false;
+                    }
+                }
+                if(isTrue){
+                    dataNew.push(data[nI]);
+                }
+            }
+            return dataNew;
+        },
+        jsonKeyTranslate:function(strId){//将"a,b,c"字符串转变{"a":"","b":"","c":""}
+            var jsonKey =  $("#" + strId).attr("jsonKey").split(",");
+            var jsonParam = {};
+            //获取搜索参数
+            for(var nI = 0; nI < jsonKey.length ; nI++ ){
+                jsonParam[jsonKey[nI]] = "";
+            }
+            return jsonParam;
+        },
+        getMaxSid:function(){//将"001"转变成"002"
+            //找到最大sid
+            var numMax = 0;//后三位最大值
+            var sidMax = "000";//当前最大值的sid
+            for(var nI = 0; nI < data.length ; nI++ ){
+                var sidCur = data[nI].sid;//当前sid
+                var numCur = Number(sidCur.substring(sidCur.length - 3));
+                numMax = numMax <= numCur ? numCur : numMax;
+                sidMax = numMax <= numCur ? sidCur : sidMax;
+            }
+            //剪切字符串  "001002003"转换成"001002"
+            sidMax = sidMax.split(sidMax.substring(sidMax.length - 3))[0];
+            //主键+1
+            numMax ++;
+            //转成字符串,判断位数，拼接后三位数
+            numMax = String(numMax);
+            if(numMax.length == 1){
+                numMax = "00" + numMax;
+            }else if(numLast.length == 2){
+                numMax = "0" + numMax;
+            }
+            sidMax = sidMax + numMax;
+            return sidMax;
+        }
+    });
 </script>
 </body>
 </html>

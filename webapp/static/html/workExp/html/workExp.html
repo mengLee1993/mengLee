@@ -69,6 +69,91 @@
     </style>
 </head>
 <body>
+<div id="createBox" class="popup gc_box"   style="display:none">
+    <div class="title" style="">
+        <h2>详情信息</h2>
+        <div>
+            <a class="min" href="javascript:" title="最小化" style="display:none;"></a>
+            <a class="max" href="javascript:" title="最大化" style="display:none;"></a>
+            <a class="revert" href="javascript:" title="还原" style="display:none;"></a>
+            <a class="close" href="javascript:" title="关闭" style="display:block;"></a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="searchBox">
+            <ul class="searchBox-ul clearfix" id="tableListMain">
+                <li class="searchBox-ul-list">
+                    <span>公司</span>
+                    <input id="companyName" type="text" class="trade_input mr10 required" autocomplete="off">
+                </li>
+                <li class="searchBox-ul-list">
+                    <span>入职时间</span>
+                    <input id="startTime" class="trade_input mr10 Wdate required" type="text" name="startTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',maxDate:'#F{$dp.$D(\'endTime\')}'})" />
+                </li>
+                <li class="searchBox-ul-list">
+                    <span>离职时间</span>
+                    <input id="endTime" class="trade_input mr10 Wdate required" type="text" name="endTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'startTime\')}'})" />
+                </li>
+                <li class="searchBox-ul-list">
+                    <span>工作时长</span>
+                    <input id="times" type="text" class="trade_input mr10 required" autocomplete="off">
+                </li>
+                <li class="searchBox-ul-list fr">
+                    <a href="javascript:" class="btn-search trade_btn" id="saveBtn" jsonKey="companyName,startTime,endTime,times">
+                        <b>保存</b>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div id="createChildBox" class="popup gc_box"   style="display:none">
+    <div class="title" style="">
+        <h2>详情信息</h2>
+        <div>
+            <a class="min" href="javascript:" title="最小化" style="display:none;"></a>
+            <a class="max" href="javascript:" title="最大化" style="display:none;"></a>
+            <a class="revert" href="javascript:" title="还原" style="display:none;"></a>
+            <a class="close" href="javascript:" title="关闭" style="display:block;"></a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="searchBox">
+            <ul class="searchBox-ul clearfix" id="tableListChildMain">
+                <li class="searchBox-ul-list">
+                    <span>项目名称</span>
+                    <input id="projectName" type="text" class="trade_input mr10 required" autocomplete="off">
+                </li>
+                <li class="searchBox-ul-list">
+                    <span>项目开始时间</span>
+                    <input id="pStartTime" class="trade_input mr10 Wdate required" type="text" name="pStartTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',maxDate:'#F{$dp.$D(\'pEndTime\')}'})" />
+                </li>
+                <li class="searchBox-ul-list">
+                    <span>项目结束时间</span>
+                    <input id="pEndTime" class="trade_input mr10 Wdate required" type="text" name="pEndTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'pStartTime\')}'})" />
+                </li>
+                <li class="searchBox-ul-list">
+                    <span>项目时长</span>
+                    <input id="times" type="text" class="trade_input mr10 required" autocomplete="off">
+                </li>
+                <li class="searchBox-ul-list">
+                    <span>项目介绍</span>
+                    <input id="projectText" type="text" class="trade_input mr10 required" autocomplete="off">
+                </li>
+                <li class="searchBox-ul-list fr">
+                    <a href="javascript:" class="btn-search trade_btn" id="saveChildBtn" jsonKey="projectName,pStartTime,pEndTime,times,projectText">
+                        <b>保存</b>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
 <div style="width: 100%;box-sizing: border-box;padding: 10px;">
     <h1 style="padding: 10px 0 ;">公司：</h1>
     <div class="searchBox">
@@ -143,7 +228,7 @@
                 <a href="javascript:" class="btn-search trade_btn" id="searchChildBtn" parentId="searchBoxChild" jsonkey="projectName">
                     <b>搜索</b>
                 </a>
-                <a href="javascript:" class="btn-search trade_btn" id="addChildBtn" jsonKey="projectName,startTime,endTime,times,projectText">
+                <a href="javascript:" class="btn-search trade_btn" id="addChildBtn" jsonKey="projectName,pStartTime,pEndTime,times,projectText">
                     <b>新增</b>
                 </a>
                 <a href="javascript:" class="btn-search trade_btn" id="delChildBtn">
@@ -178,8 +263,8 @@
                 </td>
                 <td class="table-list-tr__item" id="idx"></td>
                 <td class="table-list-tr__item" id="projectName"></td>
-                <td class="table-list-tr__item" id="startTime"></td>
-                <td class="table-list-tr__item" id="endTime"></td>
+                <td class="table-list-tr__item" id="pStartTime"></td>
+                <td class="table-list-tr__item" id="pEndTime"></td>
                 <td class="table-list-tr__item" id="times"></td>
                 <!--<td class="table-list-tr__item" id="projectUrl"></td>-->
                 <td class="table-list-tr__item" id="projectText"></td>
@@ -193,90 +278,6 @@
         <div id="noDataCon2" class="noDataCon" style="display:none;">
             <i></i>
             <p>暂无数据......</p>
-        </div>
-    </div>
-</div>
-
-<div id="createBox" class="popup gc_box"   style="display:none">
-    <div class="title" style="">
-        <h2>详情信息</h2>
-        <div>
-            <a class="min" href="javascript:" title="最小化" style="display:none;"></a>
-            <a class="max" href="javascript:" title="最大化" style="display:none;"></a>
-            <a class="revert" href="javascript:" title="还原" style="display:none;"></a>
-            <a class="close" href="javascript:" title="关闭" style="display:block;"></a>
-        </div>
-    </div>
-    <div class="content">
-        <div class="searchBox">
-            <ul class="searchBox-ul clearfix" id="tableListMain">
-                <li class="searchBox-ul-list">
-                    <span>公司</span>
-                    <input id="companyName" type="text" class="trade_input mr10 required" autocomplete="off">
-                </li>
-                <li class="searchBox-ul-list">
-                    <span>入职时间</span>
-                    <input class="trade_input mr10 Wdate required" type="text" readonly="true" name="startDate" id="startTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
-                </li>
-                <li class="searchBox-ul-list">
-                    <span>离职时间</span>
-                    <input class="trade_input mr10 Wdate required" type="text" readonly="true" name="startDate" id="endTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
-                </li>
-                <li class="searchBox-ul-list">
-                    <span>工作时长</span>
-                    <input id="times" type="text" class="trade_input mr10 required" autocomplete="off">
-                </li>
-                <li class="searchBox-ul-list fr">
-                    <a href="javascript:" class="btn-search trade_btn" id="saveBtn" jsonKey="companyName,startTime,endTime,times">
-                        <b>保存</b>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-
-<div id="createChildBox" class="popup gc_box"   style="display:none">
-    <div class="title" style="">
-        <h2>详情信息</h2>
-        <div>
-            <a class="min" href="javascript:" title="最小化" style="display:none;"></a>
-            <a class="max" href="javascript:" title="最大化" style="display:none;"></a>
-            <a class="revert" href="javascript:" title="还原" style="display:none;"></a>
-            <a class="close" href="javascript:" title="关闭" style="display:block;"></a>
-        </div>
-    </div>
-    <div class="content">
-        <div class="searchBox">
-            <ul class="searchBox-ul clearfix" id="tableListChildMain">
-                <li class="searchBox-ul-list">
-                    <span>项目名称</span>
-                    <input id="projectName" type="text" class="trade_input mr10 required" autocomplete="off">
-                </li>
-                <li class="searchBox-ul-list">
-                    <span>入职时间</span>
-                    <input class="trade_input mr10 Wdate required" type="text" readonly="true" name="startDate" id="startTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
-                </li>
-                <li class="searchBox-ul-list">
-                    <span>离职时间</span>
-                    <input class="trade_input mr10 Wdate required" type="text" readonly="true" name="startDate" id="endTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
-                </li>
-                <li class="searchBox-ul-list">
-                    <span>项目时长</span>
-                    <input id="times" type="text" class="trade_input mr10 required" autocomplete="off">
-                </li>
-                <li class="searchBox-ul-list">
-                    <span>项目介绍</span>
-                    <input id="projectText" type="text" class="trade_input mr10 required" autocomplete="off">
-                </li>
-                <li class="searchBox-ul-list fr">
-                    <a href="javascript:" class="btn-search trade_btn" id="saveChildBtn" jsonKey="projectName,startTime,endTime,times,projectText">
-                        <b>保存</b>
-                    </a>
-                </li>
-
-            </ul>
         </div>
     </div>
 </div>

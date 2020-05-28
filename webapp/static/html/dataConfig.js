@@ -43,7 +43,7 @@ var dataConfig = {
     },
     "aboutMe": {//关于我
         "aboutMe": {
-            "name":"limeng",
+            "name":"李猛",
             "age":"1993.07.09",
             "work":"前端",
             "school":"衡水学院",

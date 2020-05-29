@@ -239,6 +239,11 @@ var dataConfig = {
                 "htmlUrl":"../md/svn新建账户.html",
                 "mdUrl":"../md/svn新建账户.md"
             },
+            {
+                "name":"vue脚手架安装",
+                "htmlUrl":"../md/vue脚手架安装.html",
+                "mdUrl":"../md/vue脚手架安装.md"
+            },
 
         ]
     },

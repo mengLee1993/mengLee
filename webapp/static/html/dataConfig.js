@@ -63,8 +63,8 @@ var dataConfig = {
                     {
                         "sid":"001001",
                         "projectName":"恩牛网",
-                        "startTime":"2016",
-                        "endTime":"2017-05",
+                        "pStartTime":"2016",
+                        "pEndTime":"2017-05",
                         "times":"1年",
                         "projectUrl":"无",
                         "projectText":""
@@ -72,8 +72,8 @@ var dataConfig = {
                     {
                         "sid":"001002",
                         "projectName":"阳光e购(1.0\2.0\3.0)",
-                        "startTime":"2017-05",
-                        "endTime":"2018-06",
+                        "pStartTime":"2017-05",
+                        "pEndTime":"2018-06",
                         "times":"1年",
                         "projectUrl":"商城：https://www.ygyg.cn/    超市：http://csadmin.ygyg.cn/    运营后台：http://ycc.ygyg.cn/",
                         "projectText":""
@@ -90,8 +90,8 @@ var dataConfig = {
                     {
                         "sid":"002001",
                         "projectName":"采购平台",
-                        "startTime":"2018-07",
-                        "endTime":"2018-08",
+                        "pStartTime":"2018-07",
+                        "pEndTime":"2018-08",
                         "times":"1个月",
                         "projectUrl":"无",
                         "projectText":""
@@ -99,8 +99,8 @@ var dataConfig = {
                     {
                         "sid":"002002",
                         "projectName":"竞拍平台",
-                        "startTime":"2018-08",
-                        "endTime":"2018-09",
+                        "pStartTime":"2018-08",
+                        "pEndTime":"2018-09",
                         "times":"1个月",
                         "projectUrl":"无",
                         "projectText":""
@@ -108,8 +108,8 @@ var dataConfig = {
                     {
                         "sid":"002003",
                         "projectName":"酒钢客户服务平台",
-                        "startTime":"2018-09",
-                        "endTime":"2018-10",
+                        "pStartTime":"2018-09",
+                        "pEndTime":"2018-10",
                         "times":"2个月",
                         "projectUrl":"https://cs.jiugang.com/",
                         "projectText":"自己一人单独完成",
@@ -119,8 +119,8 @@ var dataConfig = {
                     {
                         "sid":"002003",
                         "projectName":"自定义报表平台",
-                        "startTime":"2018-11",
-                        "endTime":"2019-01",
+                        "pStartTime":"2018-11",
+                        "pEndTime":"2019-01",
                         "times":"2个月",
                         "projectUrl":"http://10.68.24.128:8762/login.html/",
                         "projectText":"",
@@ -130,8 +130,8 @@ var dataConfig = {
                     {
                         "sid":"002004",
                         "projectName":"首钢营销工贸系统",
-                        "startTime":"2019-03",
-                        "endTime":"2020-01",
+                        "pStartTime":"2019-03",
+                        "pEndTime":"2020-01",
                         "times":"11个月",
                         "projectUrl":"http://sggm.shougang.com.cn/",
                         "projectText":"",
@@ -141,8 +141,8 @@ var dataConfig = {
                     {
                         "sid":"002005",
                         "projectName":"微服务监控运维平台",
-                        "startTime":"2019-11",
-                        "endTime":"2020-01",
+                        "pStartTime":"2019-11",
+                        "pEndTime":"2020-01",
                         "times":"2个月",
                         "projectUrl":"http://10.1.247.136/monitorstatic/main/mod-home/html-gulp-www/home.html/",
                         "projectText":"工贸同时开发",
@@ -152,8 +152,8 @@ var dataConfig = {
                     {
                         "sid":"002006",
                         "projectName":"首钢综合管理平台",
-                        "startTime":"2020-02",
-                        "endTime":"2020-04",
+                        "pStartTime":"2020-02",
+                        "pEndTime":"2020-04",
                         "times":"2个月",
                         "projectUrl":"http://10.5.210.67:8090/ecm-app/login.html",
                         "projectText":"",
@@ -163,8 +163,8 @@ var dataConfig = {
                     {
                         "sid":"002007",
                         "projectName":"首安云考试系统",
-                        "startTime":"2020-04",
-                        "endTime":"2020-04",
+                        "pStartTime":"2020-04",
+                        "pEndTime":"2020-04",
                         "times":"0.5个月",
                         "projectUrl":"https://safe.shougang.com.cn/zxks/kaoshi/wdks/",
                         "projectText":"",
@@ -174,8 +174,8 @@ var dataConfig = {
                     {
                         "sid":"002008",
                         "projectName":"经营决策系统",
-                        "startTime":"2020",
-                        "endTime":"2020",
+                        "pStartTime":"2020",
+                        "pEndTime":"2020",
                         "times":"协助开发",
                         "projectUrl":"http://10.68.28.32:10183/login/html/login.html/",
                         "projectText":"",
@@ -185,8 +185,8 @@ var dataConfig = {
                     {
                         "sid":"002009",
                         "projectName":"首钢股份在线交易平台",
-                        "startTime":"2020-04",
-                        "endTime":"至今",
+                        "pStartTime":"2020-04",
+                        "pEndTime":"至今",
                         "times":"5个月",
                         "projectUrl":"http://zxjypt.sggf.com:8080/",
                         "projectText":"",
